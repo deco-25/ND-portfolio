@@ -17,7 +17,7 @@ const Navbar = () => {
             </nav>
           </div>
           <div className="bg-primaryBlack rounded-[8px] px-[16.5px] py-[7px] text-[#FEFEFE]">
-            <a href="">
+            <a href="/contact">
               <button>Contact</button>
             </a>
           </div>
