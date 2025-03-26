@@ -3,9 +3,9 @@ import { Guarantee, Logo } from "../assets";
 
 const Navbar = () => {
   return (
-    <div className="absolute w-screen flex justify-center mx-auto top-[20px]">
+    <div className="absolute w-screen flex justify-center mx-auto top-[20px] z-[100]">
       <div className="w-[80%]">
-        <div className="flex items-center py-[2px] justify-between px-[12px]">
+        <div className="flex bg-white items-center py-[2px] justify-between px-[12px]">
           <div>
             <img src={Logo} alt="" className="w-[60px]" />
           </div>
