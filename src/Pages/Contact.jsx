@@ -2,7 +2,7 @@ import React from "react";
 
 const Contact = () => {
   return (<>
-    <div className="flex gap-10 h-screen w-screen mt-48 px-20">
+    <div className="flex gap-24 h-screen w-screen mt-48 px-20">
 
       <section className="flex flex-1 flex-col gap-7 text-lg">
         <h1 className="text-primaryRed text-5xl font-bold">
@@ -41,7 +41,7 @@ const Contact = () => {
             <textarea rows={5} id="email-address" placeholder="Enter your question or message" className="rounded-lg bg-white border-2 p-2 w-full" />
           </div>
 
-          <button className="w-full rounded-lg bg-primaryRed text-white py-3 text-lg">Submit</button>
+          <button className="w-full rounded-lg bg-primaryRed text-white py-3 text-lg hover:bg-primaryRed/80 duration-200">Submit</button>
         </form>
       </section>
     </div>

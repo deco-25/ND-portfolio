@@ -4,6 +4,7 @@ import Homepage from "./Pages/Homepage";
 import About from "./Pages/About";
 import Product from "./Pages/Product";
 import Contact from "./Pages/Contact";
+import Shop from "./Pages/Shop";
 
 /************************************************/
 /* Route for the entire website */
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/product" element={<Product />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/shop" element={<Shop />} />
         </Route>
       </Routes>
     </BrowserRouter>

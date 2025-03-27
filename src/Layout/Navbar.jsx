@@ -1,5 +1,6 @@
 import React from "react";
 import { Guarantee, Logo } from "../assets";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -13,7 +14,7 @@ const Navbar = () => {
             <nav className="flex text-[20px] gap-[48px] items-center">
               <ul>About</ul>
               <ul className="text-[32px] underline text-primaryRed">Home</ul>
-              <ul>Shop</ul>
+              <NavLink to={'/shop'}>Shop</NavLink>
             </nav>
           </div>
           <div className="bg-primaryBlack rounded-[8px] px-[16.5px] py-[7px] text-[#FEFEFE]">
