@@ -4,6 +4,7 @@ import Homepage from "./Pages/Homepage";
 import About from "./Pages/About";
 import Product from "./Pages/Product";
 import Contact from "./Pages/Contact";
+import AnimatedCursor from "react-animated-cursor";
 
 /************************************************/
 /* Route for the entire website */

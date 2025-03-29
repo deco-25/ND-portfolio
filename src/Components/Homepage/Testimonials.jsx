@@ -4,14 +4,14 @@ import { BsPerson } from "react-icons/bs";
 
 const Testimonials = () => {
   return (
-    <div className="flex flex-col min-h-screen justify-center gap-[100px] font-poppins w-screen">
-      <div className="flex w-full justify-between px-[62px]">
+    <div className="flex flex-col min-h-screen justify-center gap-[100px] font-poppins w-screen max-md:py-[128px]">
+      <div className="flex w-full justify-between md:px-[62px] max-md:flex-col max-md:items-center ">
         <div>
-          <h1 className="text-[64px] font-semibold text-primaryBlue">
+          <h1 className="text-[64px] max-md:text-[48px] font-semibold text-primaryBlue ">
             Testimonials
           </h1>
         </div>
-        <div className="flex gap-[20px] items-center">
+        <div className="flex gap-[20px] items-center max-md:w-screen max-md:justify-end max-md:pr-[25px] max-md:pt-[50px]">
           <button className=" rounded-full p-2">
             <ArrowLeft size={32} />
           </button>
@@ -21,10 +21,10 @@ const Testimonials = () => {
         </div>
       </div>
       {/*Testimonials*/}
-      <div className="flex w-screen justify-around">
+      <div className="flex w-screen justify-around max-md:gap-[25vw] max-md:pl-[5vw]">
         {Array.from({ length: 3 }).map((ele, ind) => {
           return (
-            <div className="bg-[#C2C2BA] p-[40px] flex flex-col gap-[20px] w-fit rounded-[24px]">
+            <div className="bg-[#C2C2BA] p-[40px] flex flex-col gap-[20px] w-fit rounded-[24px] max-md:min-w-[80vw]">
               <div className="flex gap-[8px]">
                 <div className="bg-primaryBlack rounded-full p-2 text-white">
                   <BsPerson size={32} />

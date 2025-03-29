@@ -2,22 +2,22 @@ import React from "react";
 
 const Licensed = () => {
   return (
-    <div className="bg-primaryRed text-white min-h-screen flex justify-center items-center px-[150px] font-poppins text-justify relative">
+    <div className="bg-primaryRed text-white min-h-screen flex justify-center items-center md:px-[150px] max-md:pt-[250px] max-md:pb-[128px] font-poppins text-justify relative">
       <div className="absolute top-0 left-0 right-0 min-h-[20vh] w-screen z-[20]">
         <div className="w-full min-h-[10vh] flex">
           <div className="min-w-[70%] bg-primaryBlack" />
-          <div className="min-w-[30%] bg-[#FEFFE4]"></div>
+          <div className="min-w-[30%] bg-white min-h-full"></div>
         </div>
         <div className="w-full min-h-[10vh] flex">
           <div className="min-w-[70%] bg-primaryRed" />
           <div className="min-w-[30%] bg-primaryBlack"></div>
         </div>
       </div>
-      <div className="flex flex-col gap-[40px]">
-        <h1 className="text-center text-[64px] font-semibold">
+      <div className="flex flex-col gap-[40px] max-md:gap-[20px]">
+        <h1 className="text-center text-[64px] max-md:text-[48px] font-semibold">
           Licensed Activities
         </h1>
-        <p>
+        <p className="max-md:px-[50px] max-md:text-[14px]">
           Site is licensed to manufacture Medicated toiletry soap. The Central
           Drugs Standard Control Organization (CDSCO) and Government of Tamil
           Nadu has approved the manufacturing facility. We are authorized to
