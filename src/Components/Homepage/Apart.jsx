@@ -39,7 +39,7 @@ const Apart = () => {
       </div>
 
       {/* Sets Us Apart */}
-      <div className="relative min-h-screen flex justify-center md:justify-center items-center max-md:py-[128px] max-md:pb-[250px]">
+      <div className="relative w-screen min-h-screen flex justify-center  items-center max-md:py-[128px] max-md:pb-[250px]">
         {/*Main Content */}
         <div className="flex flex-col md:justify-center items-center md:pb-20 gap-[20px]">
           <div>
