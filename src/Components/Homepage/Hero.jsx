@@ -1,7 +1,24 @@
 import React from "react";
 import { ScrollButton, Soap3 } from "../../assets";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Hero = () => {
+  
+  useGSAP(() => {
+    const tl = gsap.timeline({ delay: 0.5 });
+  
+    tl.from('#red-strip-1', {
+      minWidth: 0,
+      duration: 1,
+    })
+    .from('#red-strip-2', {
+      x: "-70vw",
+      duration: 1,
+    }, 0); // 👈 Start this at the same time as previous
+  }, []);
+  
+
   return (
     <div
       className="min-h-screen w-screen relative flex items-center"
@@ -32,12 +49,12 @@ const Hero = () => {
       <div className="absolute bottom-0 left-0 right-0 min-h-[20vh] w-screen z-[20]">
         <div className="w-full min-h-[10vh] flex">
           <div className="min-w-[70%]" />
-          <div className="min-w-[30%] bg-primaryRed"></div>
+          <div id="red-strip-1" className="min-w-[30%] bg-primaryRed"></div>
         </div>
         <div className="w-full min-h-[10vh] flex">
-          <div className="min-w-[70%] bg-primaryRed" />
+          <div id="red-strip-2" className="min-w-[70%] bg-primaryRed"/>
           <div className="min-w-[30%] flex px-[10px] items-center bg-[#FEFFE4]">
-            <div className="flex items-center">
+            <div className="flex items-center" data-aos={"fade-zoom-in"} data-aos-easing={"ease-in-back" }data-aos-delay={"300"} data-aos-offset={"0"}>
               <img src={ScrollButton} alt="" className="w-[40px]" />
               <h1 className="text-[24px]">Scroll for more</h1>
             </div>
