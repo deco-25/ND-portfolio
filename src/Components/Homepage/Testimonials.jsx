@@ -5,7 +5,7 @@ import { BsPerson } from "react-icons/bs";
 const Testimonials = () => {
   return (
     <div className="flex flex-col min-h-screen justify-center gap-[100px] font-poppins w-screen max-md:py-[128px]">
-      <div className="flex w-full justify-between md:px-[62px] max-md:flex-col max-md:items-center ">
+      <div className="flex w-full justify-between md:px-[7.5vw] max-md:flex-col max-md:items-center ">
         <div>
           <h1 className="text-[64px] max-md:text-[48px] font-semibold text-primaryBlue ">
             Testimonials

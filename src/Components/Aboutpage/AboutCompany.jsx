@@ -3,11 +3,11 @@ import { Logo } from "../../assets/index";
 
 const AboutCompany = () => {
   return (
-    <div className="flex flex-col min-h-screen w-screen justify-center items-center px-[256px] gap-[20px] font-poppins">
+    <div className="flex flex-col min-h-screen w-screen justify-center items-center px-[7.5vw] gap-[20px] font-poppins">
       <div>
-        <img src={Logo} alt="" className="max-w-[200px]" />
+        <img src={Logo} alt="" className="max-w-[300px]" />
       </div>
-      <div className="text-justify text-[18px]">
+      <div className="text-justify">
         <p>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NAALVAR DIAGNOSTICS DRUGS was
           established in 2021, under the leadership of a qualified pharmacist

@@ -7,7 +7,7 @@ const Hello = () => {
       {/*Who we are*/}
       <div className="flex w-screen items-center max-md:flex-col">
         <div className="md:w-[50%] leading-[85px] max-md:leading-[60px] flex flex-col gap-[20px]">
-          <div className="px-[100px]">
+          <div className="px-[7.5vw]">
             <h1 className="text-[96px] max-md:text-[64px] font-semibold">
               Hello.
             </h1>
@@ -18,7 +18,7 @@ const Hello = () => {
           <div className="w-[80%] h-[22px] max-md:h-[12px] bg-primaryBlack" />
         </div>
         <div className="md:w-[50%] flex flex-col gap-[20px] justify-center max-md:p-[40px]">
-          <p className="text-justify md:max-w-[677px] mr-[100px]">
+          <p className="text-justify md:max-w-[677px] mr-[7.5vw]">
             Welcome to NAALVAR DIAGNOSTICS DRUGS, where innovation meets care in
             every bar of soap. We are a leading pharmaceutical soap manufacturer
             dedicated to delivering products that not only cleanse but also
@@ -35,7 +35,7 @@ const Hello = () => {
       {/*Our Mission*/}
       <div className="flex w-screen md:items-center max-md:flex-col-reverse">
         <div className="md:w-[50%] flex flex-col gap-[20px] justify-end max-md:p-[40px]">
-          <p className="text-justify md:max-w-[720px] md:pl-[100px]">
+          <p className="text-justify md:max-w-[720px] md:pl-[7.5vw]">
             At NAALVAR DIAGNOSTICS DRUGS, our mission is simple – to provide
             high-quality pharmaceutical soaps that improve skin health and
             hygiene while ensuring safety and effectiveness. We believe in the
@@ -47,7 +47,7 @@ const Hello = () => {
         </div>
         <div className="md:w-[50%] leading-[85px] flex flex-col md:items-end ">
           <div className="md:w-[80%] flex flex-col gap-[20px]">
-            <div className="flex items-start w-full max-md:px-[50px]">
+            <div className="flex justify-end items-center px-[7.5vw] w-full max-md:px-[50px]">
               <h1 className="text-[64px] max-md:text-[48px] font-semibold">
                 Our Mission
               </h1>

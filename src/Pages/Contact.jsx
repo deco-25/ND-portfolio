@@ -3,13 +3,13 @@ import React from "react";
 const Contact = () => {
   return (
     <>
-      <div className="flex gap-10 h-screen w-screen mt-48 px-20 font-poppins">
-        <section className="flex flex-1 flex-col gap-7 text-lg">
+      <div className="flex gap-10 w-screen max-h-[67vh] mb-5 mt-32 px-[7.5vw] font-poppins">
+        <section className="flex flex-1 flex-col gap-5 ">
           <h1 className="text-primaryRed text-5xl font-bold">Contact Us</h1>
           <p className="font-semibold text-black/50">
             Reach Out – Fresh, Natural Care is Just a Message Away!
           </p>
-          <p className="font-semibold text-justify">
+          <p className="font-[500] text-justify">
             Have questions or want to learn more about our handcrafted soap
             products? Our friendly and knowledgeable customer service team is
             here to help. Contact us today, and we’ll be happy to assist you
@@ -19,37 +19,37 @@ const Contact = () => {
         </section>
 
         <section className="flex-1">
-          <h2 className="text-3xl font-semibold ml-3">Contact me</h2>
+          <form className="flex flex-col gap-2">
+            <div className="flex gap-12">
+              <div className="flex-1 w-[50%]">
+                <label
+                  htmlFor="first-name"
+                  className="mb-2 block w-full font-semibold"
+                >
+                  First name
+                </label>
+                <input
+                  type="text"
+                  id="first-name"
+                  placeholder="Jane"
+                  className="rounded-lg bg-white border-2 p-2 w-full"
+                />
+              </div>
 
-          <form className="flex flex-col gap-6 mt-8">
-            <div className="flex-1">
-              <label
-                htmlFor="first-name"
-                className="mb-2 block w-3/6 font-semibold"
-              >
-                First name
-              </label>
-              <input
-                type="text"
-                id="first-name"
-                placeholder="Jane"
-                className="rounded-lg bg-white border-2 p-2 w-3/6"
-              />
-            </div>
-
-            <div className="flex-1">
-              <label
-                htmlFor="last-name"
-                className="mb-2 block w-3/6 font-semibold"
-              >
-                Last name
-              </label>
-              <input
-                type="text"
-                id="last-name"
-                placeholder="Smitherton"
-                className="rounded-lg bg-white border-2 p-2 w-3/6"
-              />
+              <div className="flex-1 w-[50%]">
+                <label
+                  htmlFor="last-name"
+                  className="mb-2 block w-full font-semibold"
+                >
+                  Last name
+                </label>
+                <input
+                  type="text"
+                  id="last-name"
+                  placeholder="Smitherton"
+                  className="rounded-lg bg-white border-2 p-2 w-full"
+                />
+              </div>
             </div>
 
             <div className="flex-1">

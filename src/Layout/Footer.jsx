@@ -1,19 +1,19 @@
 import React from "react";
-import { Logo } from "../assets";
+import { Logo, LogoWhite } from "../assets";
 import { FaWhatsapp, FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="bg-primaryBlack text-[#9E9E9E] flex justify-center items-center p-[20px] px-[72px]">
-      <div className="w-full">
+    <div className="bg-primaryBlack text-[#9E9E9E] flex justify-center items-center py-5 min-h-[35vh]  max-h-[35vh] px-[7.5vw]">
+      <div className="w-full ">
         <div className="flex justify-normal">
           <div className="flex gap-[50px] w-[60%]">
             <div>
-              <img src={Logo} alt="" className="w-[150px] grayscale" />
+              <img src={LogoWhite} alt="" className="w-[150px] object-fill" />
             </div>
-            <div>
+            <div className="flex flex-col gap-5">
               <div>
-                <h1 className="font-bold text-[32px] max-w-[444px]">
+                <h1 className="font-bold text-[32px] max-w-[444px] leading-[110%]">
                   Naalvar Diagnostic Drugs Private Limited
                 </h1>
               </div>
@@ -29,14 +29,14 @@ const Footer = () => {
           </div>
           <div className="w-[40%] flex flex-col gap-[18px] justify-end items-end">
             <div>
-              <nav className="text-white flex gap-[38px]">
+              <nav className="flex gap-8">
                 <ul>Home</ul>
                 <ul>About</ul>
                 <ul>Product</ul>
                 <ul>Contact</ul>
               </nav>
             </div>
-            <div className="flex space-x-4 text-2xl">
+            <div className="flex space-x-16 text-2xl">
               <a
                 href="https://wa.me/yourphonenumber"
                 target="_blank"
@@ -80,7 +80,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="min-h-[1px] bg-black my-[20px]" />
+        <div className="min-h-[1px] bg-slate-300 my-[20px]" />
         <div className="flex justify-between text-[16px]">
           <div>
             <h1>© 2025 Naalvar Diagnostic Drugs. All rights reserved.</h1>

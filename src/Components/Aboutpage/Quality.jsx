@@ -2,8 +2,8 @@ import React from "react";
 
 const Quality = () => {
   return (
-    <div className="flex  w-screen min-h-screen">
-      <div className="w-[50%] leading-[150%] text-[18px] pl-[128px] flex flex-col justify-center gap-[20px]">
+    <div className="flex  w-screen min-h-screen px-[7.5vw]">
+      <div className="w-[50%] leading-[150%] flex flex-col justify-center gap-[20px]">
         <p className="text-justify ">
           {" "}
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;At NAALVAR DIAGNOSTICS DRUGS,
@@ -20,7 +20,7 @@ const Quality = () => {
           tested to ensure they are safe and suitable for all skin types.
         </p>
       </div>
-      <div className="flex justify-center items-center w-[50%] ">
+      <div className="flex justify-end items-center w-[50%] ">
         <h1 className="text-end text-[64px] font-bold text-primaryRed">
           Our <br /> Commitment <br /> to Quality
         </h1>

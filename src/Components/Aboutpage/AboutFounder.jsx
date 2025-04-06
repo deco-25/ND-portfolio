@@ -3,10 +3,10 @@ import { Founder } from "../../assets";
 
 const AboutFounder = () => {
   return (
-    <div className="flex  w-screen">
-      <div className="w-[50%] pl-[128px] flex flex-col justify-center gap-[20px]">
+    <div className="flex  w-screen px-[7.5vw]">
+      <div className="w-[50%] flex flex-col justify-center gap-[20px]">
         <h1 className="text-[64px] font-bold text-primaryRed">About Founder</h1>
-        <p className="text-justify text-[18px]">
+        <p className="text-justify">
           {" "}
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The founder of NAALVAR
           DIAGNOSTICS DRUGS, DR K. KOUMARAVELOU holds a distinguished academic
@@ -21,7 +21,7 @@ const AboutFounder = () => {
           the healthcare space.
         </p>
       </div>
-      <div className="flex justify-center items-center w-[50%]">
+      <div className="flex justify-end items-center w-[50%]">
         <img src={Founder} alt="" />
       </div>
     </div>

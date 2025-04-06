@@ -13,7 +13,7 @@ const Hero = () => {
       }}
     >
       {/*Hero Content*/}
-      <div className="px-[80px] text-shadow-xl leading-[75px] mb-[15vh]">
+      <div className="px-[7.5vw] text-shadow-xl leading-[75px] mb-[15vh]">
         <h1 className="text-[70px]  font-bold text-white ">Naalvar</h1>
         <h1 className="text-[70px] font-bold text-white">Diagnostics Drugs</h1>
         <p className="text-[24px] text-white italic">
@@ -38,7 +38,7 @@ const Hero = () => {
         </div>
         <div className="w-full min-h-[5vh] flex">
           <div className="min-w-[70%] bg-primaryRed" />
-          <div className="min-w-[30%] flex px-[10px] items-center bg-white justify-center">
+          <div className="min-w-[30%] flex px-[10px] items-center bg-white justify-end px-[7.5vw]">
             <div className="flex items-center justify-center">
               <img src={ScrollButton} alt="" className="w-[30px]" />
               <h1 className="text-[16px]">Scroll for more</h1>
