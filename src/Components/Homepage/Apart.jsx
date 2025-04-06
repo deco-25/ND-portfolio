@@ -49,8 +49,9 @@ const Apart = () => {
             {USP.map((ele, ind) => {
               return (
                 <div
-                  className={`flex flex-col gap-[20px] px-[40px] py-[35px] shadow-xl w-fit rounded-[12px] ${
-                    ind % 2 == 0 ? "" : "translate-y-8"
+                  key={ind}
+                  className={`relative flex flex-col group animate-floatSlow gap-[20px] px-[40px] py-[35px] shadow-xl w-fit rounded-[12px] overflow-hidden ${
+                    ind % 2 == 0 ? "" : "top-8"
                   }`}
                 >
                   <div
@@ -66,6 +67,12 @@ const Apart = () => {
                   <div
                     className={`min-w-[50px] max-w-[50px] h-[2px] bg-primaryBlue`}
                   />
+
+                  {/* description */}
+                  <div className="absolute top-[100%] left-0 right-0 group-hover:top-0 bg-blue-500 duration-500 ease-out w-full rounded-lg h-full">
+                    <h3 className="p-2 font-semibold text-white">{ele}</h3>
+                    <p className="px-3 text-white text-justify text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, necessitatibus quod? Ut fuga similique excepturi earum rem molestias est! Ipsum, necessitatibus! Impedit nostre.</p>
+                  </div>
                 </div>
               );
             })}

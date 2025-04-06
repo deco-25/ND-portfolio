@@ -17,6 +17,15 @@ export default {
         primaryBlack: "#202020",
         primaryBlue: "#0915FF",
       },
+      keyframes: {
+        floatSlow: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-2px)' },
+        },
+      },
+      animation: {
+        floatSlow: 'floatSlow 3s ease-in-out infinite',
+      },
     },
   },
   plugins: [require("tailwindcss-textshadow")],
