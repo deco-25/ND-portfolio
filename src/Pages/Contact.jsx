@@ -3,13 +3,13 @@ import React from "react";
 const Contact = () => {
   return (
     <>
-      <div className="flex gap-10 w-screen max-h-[67vh] mb-5 mt-32 px-[7.5vw] font-poppins">
+      <div className="flex max-md:flex-col gap-10 w-screen md:max-h-[67vh] mb-5 md:mt-32 px-[7.5vw] font-poppins">
         <section className="flex flex-1 flex-col gap-5 ">
           <h1 className="text-primaryRed text-5xl font-bold">Contact Us</h1>
           <p className="font-semibold text-black/50">
             Reach Out – Fresh, Natural Care is Just a Message Away!
           </p>
-          <p className="font-[500] text-justify">
+          <p className="font-[500] text-justify max-md:text-sm">
             Have questions or want to learn more about our handcrafted soap
             products? Our friendly and knowledgeable customer service team is
             here to help. Contact us today, and we’ll be happy to assist you
@@ -20,7 +20,7 @@ const Contact = () => {
 
         <section className="flex-1">
           <form className="flex flex-col gap-2">
-            <div className="flex gap-12">
+            <div className="flex gap-12 max-md:gap-6">
               <div className="flex-1 w-[50%]">
                 <label
                   htmlFor="first-name"

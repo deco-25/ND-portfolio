@@ -6,7 +6,7 @@ const Hello = () => {
     <div className="min-h-screen w-screen flex flex-col py-20 gap-20 max-md:gap-12 justify-around">
       {/*Who we are*/}
       <div className="flex w-screen items-center max-md:flex-col">
-        <div className="md:w-[50%] leading-[85px] max-md:leading-[60px] flex flex-col gap-[20px]">
+        <div className="md:w-[50%] w-full leading-[85px] max-md:leading-[60px] flex flex-col justify-start gap-[20px]">
           <div className="px-[7.5vw]">
             <h1 className="text-[96px] max-md:text-[64px] font-semibold">
               Hello.
@@ -17,8 +17,8 @@ const Hello = () => {
           </div>
           <div className="w-[80%] h-[22px] max-md:h-[12px] bg-primaryBlack" />
         </div>
-        <div className="md:w-[50%] flex flex-col gap-[20px] justify-center max-md:p-[40px]">
-          <p className="text-justify md:max-w-[677px] mr-[7.5vw]">
+        <div className="md:w-[50%] flex flex-col gap-[20px] justify-center max-md:p-10">
+          <p className="text-justify md:max-w-[677px] md:mr-[7.5vw] ">
             Welcome to NAALVAR DIAGNOSTICS DRUGS, where innovation meets care in
             every bar of soap. We are a leading pharmaceutical soap manufacturer
             dedicated to delivering products that not only cleanse but also
@@ -45,9 +45,9 @@ const Hello = () => {
             maintain clean, healthy, and balanced skin every day.
           </p>
         </div>
-        <div className="md:w-[50%] leading-[85px] flex flex-col md:items-end ">
-          <div className="md:w-[80%] flex flex-col gap-[20px]">
-            <div className="flex justify-end items-center px-[7.5vw] w-full max-md:px-[50px]">
+        <div className="md:w-[50%] w-screen leading-[85px] flex flex-col md:items-end ">
+          <div className="md:w-[80%] w-full flex flex-col gap-[20px]">
+            <div className="flex justify-end max-md:justify-start md:px-[7.5vw] w-full max-md:px-[50px]">
               <h1 className="text-[64px] max-md:text-[48px] font-semibold">
                 Our Mission
               </h1>

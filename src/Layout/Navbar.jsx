@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <div className="absolute w-screen flex justify-center mx-auto top-[20px] z-[100] transition-all duration-200">
       <div
-        className="w-[60%] scale-75
+        className="w-[60%] scale-75 max-md:hidden
       "
       >
         <div

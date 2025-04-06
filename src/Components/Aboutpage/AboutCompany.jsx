@@ -5,7 +5,7 @@ const AboutCompany = () => {
   return (
     <div className="flex flex-col min-h-screen w-screen justify-center items-center px-[7.5vw] gap-[20px] font-poppins">
       <div>
-        <img src={Logo} alt="" className="max-w-[300px]" />
+        <img src={Logo} alt="" className="max-w-[300px] max-md:max-w-[200px]" />
       </div>
       <div className="text-justify">
         <p>
