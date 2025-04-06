@@ -24,7 +24,7 @@ const Testimonials = () => {
       <div className="flex w-screen justify-around">
         {Array.from({ length: 3 }).map((ele, ind) => {
           return (
-            <div className="bg-[#C2C2BA] p-[40px] flex flex-col gap-[20px] w-fit rounded-[24px]">
+            <div data-aos={"flip-left"} className="bg-[#C2C2BA] p-[40px] flex flex-col gap-[20px] w-fit rounded-[24px]">
               <div className="flex gap-[8px]">
                 <div className="bg-primaryBlack rounded-full p-2 text-white">
                   <BsPerson size={32} />

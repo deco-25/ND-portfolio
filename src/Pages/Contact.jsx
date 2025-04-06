@@ -18,8 +18,6 @@ const Contact = () => {
       </section>
 
       <section className="flex-1">
-        <h2 className="text-3xl font-semibold ml-3">Contact me</h2>
-
         <form className="flex flex-col gap-6 mt-8">
           <div className="flex-1">
             <label htmlFor="first-name" className="mb-2 block w-3/6 font-semibold">First name</label>

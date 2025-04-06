@@ -53,6 +53,7 @@ const Apart = () => {
                   className={`relative flex flex-col group animate-floatSlow gap-[20px] px-[40px] py-[35px] shadow-xl w-fit rounded-[12px] overflow-hidden ${
                     ind % 2 == 0 ? "" : "top-8"
                   }`}
+                  style={{ animationDelay: `${ind * 0.5}s` }}
                 >
                   <div
                     className={`${

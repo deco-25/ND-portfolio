@@ -12,8 +12,8 @@ const Navbar = () => {
           </div>
           <div>
             <nav className="flex text-[20px] gap-[48px] items-center">
-              <ul>About</ul>
-              <ul className="text-[32px] underline text-primaryRed">Home</ul>
+              <ul><NavLink to={'/about'}>About</NavLink></ul>
+              <ul className="text-[32px] underline text-primaryRed"><NavLink to={'/'}>Home</NavLink></ul>
               <NavLink to={'/shop'}>Shop</NavLink>
             </nav>
           </div>

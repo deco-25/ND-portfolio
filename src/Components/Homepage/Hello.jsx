@@ -13,7 +13,7 @@ const Hello = () => {
           </div>
           <div className="w-[80%] h-[22px] bg-primaryBlack" />
         </div>
-        <div className="w-[50%] flex flex-col gap-[20px] justify-center">
+        <div data-aos={"fade-left"} className="w-[50%] flex flex-col gap-[20px] justify-center">
           <p className="text-justify max-w-[677px]">
             Welcome to NAALVAR DIAGNOSTICS DRUGS, where innovation meets care in
             every bar of soap. We are a leading pharmaceutical soap manufacturer
@@ -30,7 +30,7 @@ const Hello = () => {
       </div>
       {/*Our Mission*/}
       <div className="flex w-screen items-center">
-        <div className="w-[60%] flex flex-col gap-[20px] justify-center">
+        <div data-aos={"fade-right"} className="w-[60%] flex flex-col gap-[20px] justify-center">
           <p className="text-justify max-w-[720px] pl-[100px]">
             At NAALVAR DIAGNOSTICS DRUGS, our mission is simple – to provide
             high-quality pharmaceutical soaps that improve skin health and
