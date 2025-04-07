@@ -1,16 +1,54 @@
 import React from "react";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
+import gsap from "gsap";
 
 const Licensed = () => {
+  gsap.registerPlugin(ScrollTrigger);
+  useGSAP(() => {
+    const licStrips = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#license-div",
+        start: "bottom-=200 bottom",
+      },
+    });
+    const licStripsMob = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#license-div",
+        start: "top bottom",
+      },
+    });
+    licStrips
+      .from("#strip-6", { minWidth: 0, duration: 1 }, 0)
+      .from("#strip-5", { x: "-70vw", duration: 1 }, 0);
+
+    licStripsMob
+      .from("#strip-m-6", { minWidth: 0, duration: 1 }, 0)
+      .from("#strip-m-5", { x: "-70vw", duration: 1 }, 0);
+  });
   return (
-    <div className="bg-primaryRed text-white min-h-[65vh] w-screen flex justify-center items-center md:px-[7.5vw] max-md:pt-[250px] max-md:pb-[128px] font-poppins text-justify relative">
-      <div className="absolute top-0 left-0 right-0 min-h-[10vh] w-screen z-[20]">
-        <div className="w-full min-h-[5vh] flex">
-          <div className="min-w-[70%] bg-primaryBlack" />
+    <div
+      id="license-div"
+      className="bg-primaryRed text-white min-h-[65vh] w-screen flex justify-center items-center md:px-[7.5vw] max-md:pt-32 max-md:pb-32 font-poppins text-justify relative"
+    >
+      <div className="absolute max-md:hidden top-0 left-0 right-0 min-h-[10vh] w-screen z-[20]">
+        <div className="w-full min-h-[5vh] flex bg-white">
+          <div id="strip-5" className="min-w-[70%] bg-primaryBlack" />
           <div className="min-w-[30%] bg-white min-h-full"></div>
         </div>
         <div className="w-full min-h-[5vh] flex">
           <div className="min-w-[70%] bg-primaryRed" />
-          <div className="min-w-[30%] bg-primaryBlack"></div>
+          <div id="strip-6" className="min-w-[30%] bg-primaryBlack"></div>
+        </div>
+      </div>
+      <div className="absolute md:hidden top-0 left-0 right-0 min-h-[10vh] w-screen z-[20]">
+        <div className="w-full min-h-[5vh] flex bg-white">
+          <div id="strip-m-5" className="min-w-[70%] bg-primaryBlack" />
+          <div className="min-w-[30%] bg-white min-h-full"></div>
+        </div>
+        <div className="w-full min-h-[5vh] flex">
+          <div className="min-w-[70%] bg-primaryRed" />
+          <div id="strip-m-6" className="min-w-[30%] bg-primaryBlack"></div>
         </div>
       </div>
       <div className="flex flex-col gap-[40px]  max-md:gap-[20px] ">

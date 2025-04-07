@@ -44,7 +44,9 @@ const Footer = () => {
                 <Link to="/product">
                   <ul>Product</ul>
                 </Link>
+                <Link>
                 <ul>Contact</ul>
+                </Link>
               </nav>
             </div>
             <div className="flex space-x-16 text-2xl max-md:justify-around max-md:w-full">

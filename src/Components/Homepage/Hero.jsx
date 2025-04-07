@@ -1,7 +1,25 @@
 import React from "react";
 import { ScrollButton, Soap3 } from "../../assets";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Hero = () => {
+  useGSAP(() => {
+    const tl = gsap.timeline({ delay: 0.5 });
+
+    tl.from("#red-strip-1", {
+      minWidth: 0,
+      duration: 1,
+    }).from(
+      "#red-strip-2",
+      {
+        x: "-70vw",
+        duration: 1,
+      },
+      0
+    ); // 👈 Start this at the same time as previous
+  }, []);
+
   return (
     <div
       className="min-h-screen w-screen relative flex items-end"
@@ -36,12 +54,18 @@ const Hero = () => {
       </div>
       {/* Bottom Strips */}
       <div className="absolute bottom-0 left-0 right-0 min-h-[10vh] max-md:min-h-[15vh] w-screen z-[20]">
-        <div className="w-full min-h-[5vh] max-md:max-h-[7.5vh] max-md:min-h-[7.5vh] flex">
+        <div className="w-full min-h-[5vh] max-h-[5vh] max-md:max-h-[7.5vh] max-md:min-h-[7.5vh] flex">
           <div className="min-w-[70%] max-md:min-w-[60%]" />
-          <div className="min-w-[30%] max-md:min-w-[40%] bg-primaryRed"></div>
+          <div
+            id="red-strip-1"
+            className="min-w-[30%] max-md:min-w-[40%] bg-primaryRed"
+          ></div>
         </div>
-        <div className="w-full max-h-[5vh] max-md:min-h-[7.5vh] flex">
-          <div className="min-w-[70%] max-md:min-w-[60%] bg-primaryRed" />
+        <div className="w-full bg-white min-h-[5vh] max-h-[5vh] max-md:min-h-[7.5vh] flex">
+          <div
+            id="red-strip-2"
+            className="min-w-[70%] max-md:min-w-[60%] bg-primaryRed"
+          />
           <div className="min-w-[30%] max-md:min-w-[40%] flex md:px-[10px] items-center bg-white md:justify-end md:px-[7.5vw]">
             <div className="flex items-center justify-center">
               <img src={ScrollButton} alt="" className="w-[30px] " />

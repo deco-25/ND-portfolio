@@ -1,8 +1,26 @@
 import React from "react";
 import { Soap2 } from "../../assets";
 import { TreeDeciduous } from "lucide-react";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
+import gsap from "gsap";
 
 const Apart = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    const strips = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#apart-div",
+        start: "bottom-=200 bottom",
+      },
+    });
+
+    strips
+      .from("#red-strip-4", { minWidth: 0, duration: 1 }, 0.5)
+      .from("#red-strip-3", { x: "-70vw", duration: 1 }, 0.5);
+  });
+
   const USP = [
     "Pharmaceutical Grade Formulas",
     "Skin Sensitivity Focus",
@@ -47,15 +65,18 @@ const Apart = () => {
               What Sets Us Apart
             </h1>
           </div>
-          <div className="flex max-md:flex-col justify-around w-screen max-md:items-center">
+          <div
+            id="apart-div"
+            className="flex max-md:flex-col justify-around w-screen max-md:items-center max-md:gap-3"
+          >
             {USP.map((ele, ind) => {
               return (
                 <div
-                  className={`flex flex-col gap-[20px] px-[40px] py-[35px] shadow-xl w-fit rounded-[12px] ${
-                    ind % 2 == 0
-                      ? "max-md:-translate-x-8"
-                      : "md:translate-y-8 max-md:translate-x-8"
+                  key={ind}
+                  className={`relative flex flex-col group animate-floatSlow gap-[20px] px-[40px] py-[35px] shadow-xl w-fit rounded-[12px] overflow-hidden ${
+                    ind % 2 == 0 ? "max-md:right-8" : "md:top-8 max-md:left-8"
                   }`}
+                  style={{ animationDelay: `${ind * 0.5}s` }}
                 >
                   <div
                     className={`${
@@ -70,6 +91,21 @@ const Apart = () => {
                   <div
                     className={`min-w-[50px] max-w-[50px] h-[2px] bg-primaryBlue`}
                   />
+
+                  {/* description */}
+                  <div
+                    className={`absolute top-[100%] left-0 right-0 group-hover:top-0 ${
+                      ind % 2 == 0 ? "bg-primaryBlue" : "bg-primaryRed"
+                    } duration-500 ease-out w-full rounded-[12px] h-full`}
+                  >
+                    <h3 className="p-2 font-semibold text-white">{ele}</h3>
+                    <p className="px-3 text-white text-justify text-sm">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Nisi, necessitatibus quod? Ut fuga similique excepturi
+                      earum rem molestias est! Ipsum, necessitatibus! Impedit
+                      nostre.
+                    </p>
+                  </div>
                 </div>
               );
             })}
@@ -78,12 +114,12 @@ const Apart = () => {
         {/* Bottom strips */}
         <div className="absolute bottom-0 left-0 right-0 min-h-[10vh] max-md:max-h-[10vh] w-screen z-[20]">
           <div className="w-full min-h-[5vh] max-md:max-h-[5vh] flex">
-            <div className="min-w-[70%] bg-primaryRed" />
+            <div id="red-strip-3" className="min-w-[70%] bg-primaryRed" />
             <div className="min-w-[30%]"></div>
           </div>
           <div className="w-full min-h-[5vh] max-md:max-h-[5vh] flex">
             <div className="min-w-[70%]" />
-            <div className="min-w-[30%] bg-primaryRed"></div>
+            <div id="red-strip-4" className="min-w-[30%] bg-primaryRed"></div>
           </div>
         </div>
       </div>
