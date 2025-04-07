@@ -1,26 +1,70 @@
 import React from "react";
 import { Soap2, Soap3, ScrollButton } from "../assets";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
+import gsap from "gsap";
 
 const Shop = () => {
+  gsap.registerPlugin(ScrollTrigger);
+  useGSAP(() => {
+    const tl = gsap.timeline({ delay: 0.5 });
+
+    tl.from("#prod-strip-1", {
+      minWidth: 0,
+      duration: 1,
+    }).from(
+      "#prod-strip-2",
+      {
+        x: "-70vw",
+        duration: 1,
+      },
+      0
+    ); // 👈 Start this at the same time as previous
+
+    const productImages = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#product-section",
+        start: "center bottom",
+      },
+    });
+
+    productImages
+      .from(".right-img", { x: 1000, duration: 0.75, opacity: 0 }, 0)
+      .from(".left-img", { x: -1000, duration: 0.75, opacity: 0 }, 0);
+  }, []);
+
   return (
     <div>
       <main
-        style={{ backgroundImage: `url(${Soap2})` }}
-        className="w-screen relative  px-[50px] h-screen flex flex-col gap-6 max-md:justify-end max-md:items-end items-center justify-center bg-cover bg-no-repeat text-white"
+        style={{
+          backgroundImage: `url(${Soap2})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          height: "100dvh", // optional, ensures full-screen height
+          width: "100%", // ensures full-screen width
+        }}
+        className="w-screen relative  px-[50px] h-[100dvh] flex flex-col gap-6 max-md:justify-end max-md:items-end items-center justify-center bg-cover bg-no-repeat text-white"
       >
         <h1 className="font-bold text-5xl text-shadow-xl max-md:text-4xl">
           Antibacterial Soaps
         </h1>
-        <h2 className=" text-xl md:mb-72 text-shadow-xl mb-[15vh] max-md:text-lg">
+        <h2 className=" text-xl md:mb-72 text-shadow-xl mb-[15dvh] max-md:text-lg">
           Luxurious, Handcrafted Soaps for Every Skin Type
         </h2>
-        <div className="absolute bottom-0 left-0 right-0 min-h-[10vh] max-md:min-h-[15vh] w-screen z-[20]">
-          <div className="w-full min-h-[5vh] max-md:max-h-[7.5vh] max-md:min-h-[7.5vh] flex">
+        <div className="absolute bottom-0 left-0 right-0 min-h-[10dvh] max-md:min-h-[15dvh] w-screen z-[20]">
+          <div className="w-full min-h-[5dvh] max-md:max-h-[7.5dvh] max-md:min-h-[7.5dvh] flex">
             <div className="min-w-[70%] max-md:min-w-[60%]" />
-            <div className="min-w-[30%] max-md:min-w-[40%] bg-primaryRed"></div>
+            <div
+              id="prod-strip-1"
+              className="min-w-[30%] max-md:min-w-[40%] bg-primaryRed"
+            ></div>
           </div>
-          <div className="w-full max-h-[5vh] max-md:min-h-[7.5vh] flex">
-            <div className="min-w-[70%] max-md:min-w-[60%] bg-primaryRed" />
+          <div className="w-full max-h-[5dvh] max-md:min-h-[7.5dvh] flex bg-white">
+            <div
+              id="prod-strip-2"
+              className="min-w-[70%] max-md:min-w-[60%] bg-primaryRed"
+            />
             <div className="min-w-[30%] max-md:min-w-[40%] flex md:px-[10px] items-center bg-white md:justify-end md:px-[7.5vw]">
               <div className="flex items-center justify-center">
                 <img src={ScrollButton} alt="" className="w-[30px] " />
@@ -42,7 +86,7 @@ const Shop = () => {
           use in homes, hospitals, clinics, and other healthcare settings.
         </p>
 
-        <div className="md:space-y-20 md:py-10 md:mb-20">
+        <div id="product-section" className="md:space-y-20 md:py-10 md:mb-20">
           <ProductSection
             productName={"Antibacterial Soaps 1"}
             productImage={Soap2}
@@ -89,13 +133,21 @@ const ProductSection = ({
       </div>
 
       <div className="md:w-[40%]">
-        <img src={productImage} alt={productName} className="rounded-lg" />
+        <img
+          src={productImage}
+          alt={productName}
+          className="rounded-lg right-img"
+        />
       </div>
     </div>
   ) : (
     <div className="flex gap-40  max-md:flex-col-reverse max-md:gap-5">
       <div className="md:w-[40%]">
-        <img src={productImage} alt={productName} className="rounded-lg" />
+        <img
+          src={productImage}
+          alt={productName}
+          className="rounded-lg left-img"
+        />
       </div>
 
       <div className="flex-1 mt-10">

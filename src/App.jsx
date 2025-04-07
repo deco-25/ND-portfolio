@@ -4,6 +4,7 @@ import Homepage from "./Pages/Homepage";
 import About from "./Pages/About";
 import Product from "./Pages/Product";
 import Contact from "./Pages/Contact";
+import ScrollToTop from "./Layout/ScrollToTop";
 
 /************************************************/
 /* Route for the entire website */
@@ -12,6 +13,7 @@ import Contact from "./Pages/Contact";
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Homepage />} />

@@ -1,14 +1,36 @@
 import React from "react";
 import { Founder } from "../../assets";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
+import gsap from "gsap";
 
 const AboutFounder = () => {
+  gsap.registerPlugin(ScrollTrigger);
+  useGSAP(() => {
+    const img = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#founder-div",
+        start: "center bottom",
+      },
+    });
+    img.from("#founder-img", {
+      opacity: 0.5,
+      duration: 1,
+      ease: "none",
+    });
+  });
   return (
-    <div className="flex  w-screen px-[7.5vw] max-md:flex-col">
+    <div id="founder-div" className="flex  w-screen px-[7.5vw] max-md:flex-col">
       <div className="w-[50%] max-md:w-full max-md:items-center flex flex-col justify-center gap-[20px]">
         <h1 className="text-[64px] max-md:text-[40px] font-bold text-primaryRed">
           About Founder
         </h1>
-        <img src={Founder} alt="" className="md:hidden max-md:w-[200px]" />
+        <img
+          id="founder-img"
+          src={Founder}
+          alt=""
+          className="md:hidden max-md:w-[200px]"
+        />
         <p className="text-justify ">
           {" "}
           The founder of NAALVAR DIAGNOSTICS DRUGS,{" "}

@@ -1,11 +1,28 @@
 import React from "react";
 import { Logo } from "../../assets/index";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
+import gsap from "gsap";
 
 const AboutCompany = () => {
+  gsap.registerPlugin(ScrollTrigger);
+  useGSAP(() => {
+    const img = gsap.timeline({ delay: 0.5 });
+    img.from("#comp-img", {
+      opacity: 0.5,
+      duration: 1,
+      ease: "none",
+    });
+  });
   return (
-    <div className="flex flex-col min-h-screen w-screen justify-center items-center px-[7.5vw] gap-[20px] font-poppins">
+    <div className="flex pt-[100px] flex-col min-h-screen w-screen justify-center items-center px-[7.5vw] gap-[20px] font-poppins">
       <div>
-        <img src={Logo} alt="" className="max-w-[300px] max-md:max-w-[200px]" />
+        <img
+          id="comp-img"
+          src={Logo}
+          alt=""
+          className="max-w-[300px] max-md:max-w-[200px]"
+        />
       </div>
       <div className="text-justify">
         <p>
