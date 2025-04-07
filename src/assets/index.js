@@ -14,3 +14,8 @@ import ScrollButton from "./Icons/Scroll.svg";
 import Arrow from "./Icons/Arrow.svg";
 
 export { Guarantee, ScrollButton, Arrow };
+
+/* Video */
+import IntroVideo from "./Video/Intro.mp4";
+
+export { IntroVideo };

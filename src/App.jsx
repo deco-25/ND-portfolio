@@ -5,23 +5,40 @@ import About from "./Pages/About";
 import Product from "./Pages/Product";
 import Contact from "./Pages/Contact";
 import ScrollToTop from "./Layout/ScrollToTop";
+import { useState } from "react";
+import { IntroVideo } from "./assets";
 
 /************************************************/
 /* Route for the entire website */
 /************************************************/
 
 export default function App() {
+  const [loading, setLoading] = useState(true);
+
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Homepage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/product" element={<Product />} />
-          <Route path="/contact" element={<Contact />} />
-        </Route>
-      </Routes>
+      {loading ? (
+        <div className="bg-white  flex justify-center items-center">
+          <video
+            src={IntroVideo}
+            autoPlay
+            muted
+            playsInline
+            onEnded={() => setLoading(false)} // optional if you want to hide video after playing
+            className="w-full  h-screen object-fit"
+          />
+        </div>
+      ) : (
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Homepage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/product" element={<Product />} />
+            <Route path="/contact" element={<Contact />} />
+          </Route>
+        </Routes>
+      )}
     </BrowserRouter>
   );
 }

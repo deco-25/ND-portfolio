@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <div className="absolute w-screen flex flex-col justify-center items-center mx-auto top-[20px] z-[100] transition-all duration-200">
       <div
-        className={`overflow-hidden flex flex-col items-center px-[5vw] rounded-3xl transition-all duration-500 ease-in-out ${
+        className={`overflow-hidden md:hidden flex flex-col items-center px-[5vw] rounded-3xl transition-all duration-500 ease-in-out ${
           path === "/" || path === "/product"
             ? "bg-white text-primaryRed"
             : "bg-primaryRed text-white"
