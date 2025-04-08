@@ -12,7 +12,7 @@ const Apart = () => {
     const strips = gsap.timeline({
       scrollTrigger: {
         trigger: "#apart-div",
-        start: "bottom-=200 bottom",
+        start: "bottom bottom",
       },
     });
 
@@ -22,108 +22,123 @@ const Apart = () => {
   });
 
   const USP = [
-    "Pharmaceutical Grade Formulas",
-    "Skin Sensitivity Focus",
-    "Scientifically-Backed Ingredients",
-    "Environmental Responsibility",
-    "Customer-Centric Approach",
+    {
+      title: "Pharmaceutical Grade Formulas",
+      desc: "We ensure the highest pharmaceutical-grade ingredients that are safe and effective.",
+    },
+    {
+      title: "Skin Sensitivity Focus",
+      desc: "Our products are developed keeping sensitive skin in mind, free of irritants.",
+    },
+    {
+      title: "Scientifically-Backed Ingredients",
+      desc: "Only ingredients with proven clinical results make it into our formulations.",
+    },
+    {
+      title: "Environmental Responsibility",
+      desc: "Sustainability is at the core of our packaging and ingredient sourcing.",
+    },
+    {
+      title: "Customer-Centric Approach",
+      desc: "Your skin journey matters to us—every formula is made with you in mind.",
+    },
   ];
 
   return (
-    <div className="font-poppins ">
+    <section className="font-poppins" aria-labelledby="apart-heading">
+      {/* Top Image + Decorative Strips */}
       <div>
         <img
           src={Soap2}
-          alt=""
+          alt="Soap bar showcasing skin care product"
           className="w-screen max-h-[626px] object-cover"
         />
-        <div className="flex justify-center">
+        <div className="flex justify-center" aria-hidden="true">
           <div className="flex gap-[16px] max-md:gap-[8px]">
-            {Array.from({ length: 20 }).map((_, index) => {
-              return (
-                <div className="flex gap-[16px] max-md:gap-[8px]">
-                  <div className="h-[94px] min-w-[2px] max-w-[1.25px] bg-primaryRed max-md:h-[70px]" />
-                  <div className="h-[78px] min-w-[1px] max-w-[1px] bg-primaryRed max-md:h-[56px]" />
-                  <div className="h-[78px] min-w-[1px] max-w-[1px] bg-primaryRed max-md:h-[56px]" />
-                  <div className="h-[78px] min-w-[1px] max-w-[1px] bg-primaryRed max-md:h-[56px]" />
-                  <div className="h-[78px] min-w-[1px] max-w-[1px] bg-primaryRed max-md:h-[56px]" />
-                  <div className="h-[78px] min-w-[1px] max-w-[1px] bg-primaryRed max-md:h-[56px]" />
-                  <div className="h-[78px] min-w-[1px] max-w-[1px] bg-primaryRed max-md:h-[56px]" />
-                </div>
-              );
-            })}
+            {[...Array(20)].map((_, i) => (
+              <div key={i} className="flex gap-[16px] max-md:gap-[8px]">
+                {[94, 78, 78, 78, 78, 78, 78].map((h, idx) => (
+                  <div
+                    key={idx}
+                    className={`h-[${h}px] min-w-[1px] bg-primaryRed ${
+                      idx === 0 ? "max-md:h-[70px]" : "max-md:h-[56px]"
+                    }`}
+                  />
+                ))}
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Sets Us Apart */}
-      <div className="relative w-screen min-h-screen flex justify-center  items-center max-md:py-[128px] max-md:pb-[250px]">
-        {/*Main Content */}
-        <div className="flex flex-col md:justify-center items-center md:pb-20 gap-[20px]">
-          <div>
-            <h1 className="text-[64px] text-primaryRed max-md:text-[32px]">
-              What Sets Us Apart
-            </h1>
-          </div>
+      {/* What Sets Us Apart Section */}
+      <div className="relative w-screen min-h-screen flex justify-center items-center max-md:py-[128px] max-md:pb-[250px]">
+        <div className="flex flex-col md:justify-center items-center md:pb-20 gap-[20px] w-full">
+          <h2
+            id="apart-heading"
+            className="text-[64px] text-primaryRed max-md:text-[32px]"
+          >
+            What Sets Us Apart
+          </h2>
+
           <div
             id="apart-div"
-            className="flex max-md:flex-col justify-around w-screen max-md:items-center max-md:gap-3"
+            className="flex max-md:flex-col justify-around w-screen max-md:items-center max-md:gap-3 px-4"
           >
-            {USP.map((ele, ind) => {
-              return (
+            {USP.map((item, ind) => (
+              <article
+                key={ind}
+                className={`relative flex flex-col group animate-floatSlow gap-[20px] px-[40px] py-[35px] shadow-xl w-fit rounded-[12px] overflow-hidden ${
+                  ind % 2 === 0 ? "max-md:right-8" : "md:top-8 max-md:left-8"
+                }`}
+                style={{ animationDelay: `${ind * 0.5}s` }}
+                aria-label={item.title}
+              >
+                {/* Icon */}
                 <div
-                  key={ind}
-                  className={`relative flex flex-col group animate-floatSlow gap-[20px] px-[40px] py-[35px] shadow-xl w-fit rounded-[12px] overflow-hidden ${
-                    ind % 2 == 0 ? "max-md:right-8" : "md:top-8 max-md:left-8"
-                  }`}
-                  style={{ animationDelay: `${ind * 0.5}s` }}
+                  className={`${
+                    ind % 2 === 0 ? "bg-primaryBlue" : "bg-primaryRed"
+                  } w-fit flex justify-center items-center p-4 rounded-[8px]`}
                 >
-                  <div
-                    className={`${
-                      ind % 2 == 0 ? "bg-primaryBlue" : "bg-primaryRed"
-                    } w-fit flex justify-center items-center p-4 rounded-[8px]`}
-                  >
-                    <TreeDeciduous size={32} className="text-white" />
-                  </div>
-                  <div className="max-w-[140px] text-[14px] font-semibold">
-                    {ele}
-                  </div>
-                  <div
-                    className={`min-w-[50px] max-w-[50px] h-[2px] bg-primaryBlue`}
-                  />
-
-                  {/* description */}
-                  <div
-                    className={`absolute top-[100%] left-0 right-0 group-hover:top-0 ${
-                      ind % 2 == 0 ? "bg-primaryBlue" : "bg-primaryRed"
-                    } duration-500 ease-out w-full rounded-[12px] h-full`}
-                  >
-                    <h3 className="p-2 font-semibold text-white">{ele}</h3>
-                    <p className="px-3 text-white text-justify text-sm">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Nisi, necessitatibus quod? Ut fuga similique excepturi
-                      earum rem molestias est! Ipsum, necessitatibus! Impedit
-                      nostre.
-                    </p>
-                  </div>
+                  <TreeDeciduous size={32} className="text-white" />
                 </div>
-              );
-            })}
+
+                {/* Title */}
+                <h3 className="max-w-[140px] text-[14px] font-semibold">
+                  {item.title}
+                </h3>
+
+                <div className="min-w-[50px] max-w-[50px] h-[2px] bg-primaryBlue" />
+
+                {/* Hover Description */}
+                <div
+                  className={`absolute top-[100%] left-0 right-0 group-hover:top-0 ${
+                    ind % 2 === 0 ? "bg-primaryBlue" : "bg-primaryRed"
+                  } duration-500 ease-out w-full rounded-[12px] h-full`}
+                >
+                  <h4 className="p-2 font-semibold text-white">{item.title}</h4>
+                  <p className="px-3 text-white text-justify text-sm">
+                    {item.desc}
+                  </p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
-        {/* Bottom strips */}
+
+        {/* Animated Strips */}
         <div className="absolute bottom-0 left-0 right-0 min-h-[10vh] max-md:max-h-[10vh] w-screen z-[20]">
-          <div className="w-full min-h-[5vh] max-md:max-h-[5vh] flex">
+          <div className="w-full min-h-[5vh] flex">
             <div id="red-strip-3" className="min-w-[70%] bg-primaryRed" />
-            <div className="min-w-[30%]"></div>
+            <div className="min-w-[30%]" />
           </div>
-          <div className="w-full min-h-[5vh] max-md:max-h-[5vh] flex">
+          <div className="w-full min-h-[5vh] flex">
             <div className="min-w-[70%]" />
-            <div id="red-strip-4" className="min-w-[30%] bg-primaryRed"></div>
+            <div id="red-strip-4" className="min-w-[30%] bg-primaryRed" />
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

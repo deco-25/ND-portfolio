@@ -6,6 +6,7 @@ import gsap from "gsap";
 
 const AboutFounder = () => {
   gsap.registerPlugin(ScrollTrigger);
+
   useGSAP(() => {
     const img = gsap.timeline({
       scrollTrigger: {
@@ -13,43 +14,61 @@ const AboutFounder = () => {
         start: "center bottom",
       },
     });
+
     img.from("#founder-img", {
       opacity: 0.5,
       duration: 1,
       ease: "none",
     });
   });
+
   return (
-    <div id="founder-div" className="flex  w-screen px-[7.5vw] max-md:flex-col">
-      <div className="w-[50%] max-md:w-full max-md:items-center flex flex-col justify-center gap-[20px]">
-        <h1 className="text-[64px] max-md:text-[40px] font-bold text-primaryRed">
+    <section
+      id="founder-div"
+      className="flex w-screen px-[7.5vw] max-md:flex-col font-poppins"
+      aria-labelledby="founder-heading"
+    >
+      {/* Text Content */}
+      <article className="w-[50%] max-md:w-full flex flex-col justify-center gap-[20px] max-md:items-center">
+        <h2
+          id="founder-heading"
+          className="text-[64px] max-md:text-[40px] font-bold text-primaryRed"
+        >
           About Founder
-        </h1>
+        </h2>
+
+        {/* Image for mobile */}
         <img
           id="founder-img"
           src={Founder}
-          alt=""
+          alt="Portrait of Dr. K. Koumaravelou, founder of Naalvar Diagnostics Drugs"
           className="md:hidden max-md:w-[200px]"
         />
-        <p className="text-justify ">
-          {" "}
-          The founder of NAALVAR DIAGNOSTICS DRUGS,{" "}
-          <strong>DR K. KOUMARAVELOU</strong> holds a distinguished academic
-          background, with a Bachelor of Pharmacy (BPharm), a Master of Pharmacy
-          (MPharm), and dual PhDs in [Pharmacology]. As a passionate advocate
-          for advancing healthcare and pharmaceutical innovation, [DR
-          K.KOUMARAVELOU] brings a wealth of knowledge and expertise to the
-          company, driving its mission to improve patient outcomes and create
+
+        {/* Paragraph */}
+        <p className="text-justify max-w-3xl">
+          The founder of <strong>NAALVAR DIAGNOSTICS DRUGS</strong>,{" "}
+          <strong>Dr. K. Koumaravelou</strong>, holds a distinguished academic
+          background, including a Bachelor of Pharmacy (BPharm), a Master of
+          Pharmacy (MPharm), and dual PhDs in Pharmacology. As a passionate
+          advocate for advancing healthcare and pharmaceutical innovation, Dr.
+          Koumaravelou brings a wealth of knowledge and expertise to the
+          company. He drives its mission to improve patient outcomes and create
           groundbreaking solutions in the pharmaceutical industry. With a strong
-          foundation in both research and practical applications, [DR
-          K.KOUMARAVELOU] is dedicated to pioneering transformative changes in
-          the healthcare space.
+          foundation in both research and practical applications, Dr.
+          Koumaravelou is dedicated to pioneering transformative changes in the
+          healthcare space.
         </p>
-      </div>
+      </article>
+
+      {/* Desktop Image */}
       <div className="flex justify-end items-center w-[50%] max-md:hidden">
-        <img src={Founder} alt="" />
+        <img
+          src={Founder}
+          alt="Portrait of Dr. K. Koumaravelou, founder of Naalvar Diagnostics Drugs"
+        />
       </div>
-    </div>
+    </section>
   );
 };
 

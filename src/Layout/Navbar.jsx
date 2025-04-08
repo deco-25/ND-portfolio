@@ -10,122 +10,163 @@ const Navbar = () => {
   const toggleDropdown = () => setIsOpen(!isOpen);
 
   useEffect(() => {
-    console.log(location.pathname);
     setPath(location.pathname);
   }, [location.pathname]);
 
   return (
-    <div className="absolute w-screen flex flex-col justify-center items-center mx-auto top-[20px] z-[100] transition-all duration-200">
-      <div
+    <header className="absolute w-screen flex flex-col justify-center items-center mx-auto top-[20px] z-[100] transition-all duration-200">
+      {/* Mobile Navbar */}
+      <nav
         className={`overflow-hidden md:hidden flex flex-col items-center px-[5vw] rounded-3xl transition-all duration-500 ease-in-out ${
           path === "/" || path === "/product"
             ? "bg-white text-primaryRed"
             : "bg-primaryRed text-white"
         } w-[90%] ${isOpen ? "py-6 h-[250px]" : "py-2 h-[55px]"}`}
+        aria-label="Mobile Navigation"
       >
-        {/* Top Section */}
+        {/* Top Bar */}
         <div className="flex justify-between items-center w-full">
           <img
             src={path === "/" || path === "/product" ? Logo : LogoWhite}
             className="w-[50px]"
-            alt="Logo"
+            alt="Naalvar Logo"
           />
-          <div onClick={toggleDropdown} className="cursor-pointer">
+          <button
+            onClick={toggleDropdown}
+            aria-label="Toggle Menu"
+            className="cursor-pointer"
+          >
             <GiHamburgerMenu size={40} />
-          </div>
+          </button>
         </div>
 
-        {/* Dropdown Menu */}
-        <div
+        {/* Dropdown Links */}
+        <ul
           className={`flex flex-col gap-3 w-full items-center mt-6 transition-opacity duration-300 ${
             isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-          } ${
-            path === "/" || path === "/product"
-              ? "bg-white text-primaryRed"
-              : "bg-primaryRed text-white"
-          } `}
+          }`}
         >
-          <Link to="/" onClick={toggleDropdown}>
-            <a href="#" className="hover:text-primaryRed">
+          <li>
+            <Link
+              to="/"
+              onClick={toggleDropdown}
+              className="hover:text-primaryRed"
+            >
               Home
-            </a>
-          </Link>
-          <Link to="/about" onClick={toggleDropdown}>
-            <a href="#" className="hover:text-primaryRed">
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/about"
+              onClick={toggleDropdown}
+              className="hover:text-primaryRed"
+            >
               About
-            </a>
-          </Link>
-          <Link to="/product" onClick={toggleDropdown}>
-            <a href="#" className="hover:text-primaryRed">
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/product"
+              onClick={toggleDropdown}
+              className="hover:text-primaryRed"
+            >
               Products
-            </a>
-          </Link>
-          <Link to="/contact" onClick={toggleDropdown}>
-            <a href="#" className="hover:text-primaryRed">
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/contact"
+              onClick={toggleDropdown}
+              className="hover:text-primaryRed"
+            >
               Contact
-            </a>
-          </Link>
-        </div>
-      </div>
-      <div
-        className="w-[60%] scale-75 max-md:hidden
-      "
+            </Link>
+          </li>
+        </ul>
+      </nav>
+
+      {/* Desktop Navbar */}
+      <nav
+        className="w-[60%] scale-75 max-md:hidden"
+        aria-label="Desktop Navigation"
       >
         <div
           className={`flex ${
             path === "/" || path === "/product" ? "bg-white" : "bg-primaryRed"
           } items-center py-[2px] justify-between px-[12px] transition-all duration-200`}
         >
-          <div>
-            <img
-              src={path === "/" || path === "/product" ? Logo : LogoWhite}
-              alt=""
-              className="w-[60px]"
-            />
-          </div>
-          <div>
-            <nav className="flex text-[20px] gap-[48px] items-center">
-              <Link to="/about">
-                <ul
-                  className={`${
-                    path === "/about"
-                      ? "text-[32px] hover:underline text-white"
-                      : ""
-                  }`}
-                >
-                  About
-                </ul>
+          <img
+            src={path === "/" || path === "/product" ? Logo : LogoWhite}
+            alt="Naalvar Logo"
+            className="w-[60px]"
+          />
+
+          <ul className="flex text-[20px] gap-[48px] items-center">
+            <li className="relative group">
+              <Link
+                to="/about"
+                className={`relative ${
+                  path === "/about" ? "text-[32px] text-white" : ""
+                }`}
+              >
+                About
+                <span
+                  className={`absolute left-0 -bottom-1 h-[2px] w-0 ${
+                    path === "/" || path === "/product"
+                      ? "bg-primaryRed"
+                      : "bg-white"
+                  } group-hover:w-full transition-all duration-500 ease-in-out`}
+                ></span>
               </Link>
-              <Link to="/">
-                <ul
-                  className={`${
-                    path === "/"
-                      ? "text-[32px] hover:underline text-primaryRed"
-                      : ""
-                  }`}
-                >
-                  Home
-                </ul>
+            </li>
+            <li className="relative group">
+              <Link
+                to="/"
+                className={`relative ${
+                  path === "/" ? "text-[32px] text-primaryRed" : ""
+                }`}
+              >
+                Home
+                <span
+                  className={`absolute left-0 -bottom-1 h-[2px] w-0 ${
+                    path === "/" || path === "/product"
+                      ? "bg-primaryRed"
+                      : "bg-white"
+                  } group-hover:w-full transition-all duration-500 ease-in-out`}
+                ></span>
               </Link>
-              <Link to="/product">
-                <ul
-                  className={`${
-                    path === "/product"
-                      ? "text-[32px] hover:underline text-primaryRed"
-                      : ""
-                  }`}
-                >
-                  Shop
-                </ul>
+            </li>
+
+            <li className="relative group">
+              <Link
+                to="/product"
+                className={`${
+                  path === "/product" ? "text-[32px] text-primaryRed" : ""
+                } relative`}
+              >
+                Shop
+                <span
+                  className={`absolute left-0 -bottom-1 h-[2px] w-0 ${
+                    path === "/" || path === "/product"
+                      ? "bg-primaryRed"
+                      : "bg-white"
+                  } group-hover:w-full transition-all duration-500 ease-in-out`}
+                ></span>
               </Link>
-            </nav>
-          </div>
-          <div className="bg-primaryBlack rounded-[8px] px-[16.5px] py-[7px] text-[#FEFEFE]">
-            <Link to="/contact">
-              <button>Contact</button>
-            </Link>
-          </div>
+            </li>
+          </ul>
+
+          <Link to="/contact">
+            <button
+              className="bg-primaryBlack rounded-[8px] px-[16.5px] py-[7px] text-[#FEFEFE]"
+              aria-label="Contact Page"
+            >
+              Contact
+            </button>
+          </Link>
         </div>
+
+        {/* Bottom Banner */}
         <div
           className={`flex flex-row items-center py-[2px] justify-center gap-[8px] ${
             path === "/" || path === "/product"
@@ -133,15 +174,15 @@ const Navbar = () => {
               : "bg-primaryBlack"
           } text-white transition-all duration-200`}
         >
-          <div>
-            <h1 className="text-[14px]">Service and Quality Guaranteed</h1>
-          </div>
-          <div>
-            <img src={Guarantee} alt="" className="max-w-[25px]" />
-          </div>
+          <p className="text-[14px]">Service and Quality Guaranteed</p>
+          <img
+            src={Guarantee}
+            alt="Quality Guarantee Badge"
+            className="max-w-[25px]"
+          />
         </div>
-      </div>
-    </div>
+      </nav>
+    </header>
   );
 };
 

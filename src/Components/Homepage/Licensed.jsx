@@ -2,22 +2,25 @@ import React from "react";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
+import { Helmet } from "react-helmet";
 
 const Licensed = () => {
   gsap.registerPlugin(ScrollTrigger);
+
   useGSAP(() => {
     const licStrips = gsap.timeline({
       scrollTrigger: {
-        trigger: "#license-div",
+        trigger: "#license-section",
         start: "bottom-=200 bottom",
       },
     });
     const licStripsMob = gsap.timeline({
       scrollTrigger: {
-        trigger: "#license-div",
+        trigger: "#license-section",
         start: "top bottom",
       },
     });
+
     licStrips
       .from("#strip-6", { minWidth: 0, duration: 1 }, 0)
       .from("#strip-5", { x: "-70vw", duration: 1 }, 0);
@@ -26,51 +29,73 @@ const Licensed = () => {
       .from("#strip-m-6", { minWidth: 0, duration: 1 }, 0)
       .from("#strip-m-5", { x: "-70vw", duration: 1 }, 0);
   });
+
   return (
-    <div
-      id="license-div"
+    <section
+      id="license-section"
       className="bg-primaryRed text-white min-h-[65vh] w-screen flex justify-center items-center md:px-[7.5vw] max-md:pt-32 max-md:pb-32 font-poppins text-justify relative"
+      aria-labelledby="licensed-heading"
     >
-      <div className="absolute max-md:hidden top-0 left-0 right-0 min-h-[10vh] w-screen z-[20]">
+      <Helmet>
+        <title>Licensed Manufacturing - NAALVAR DIAGNOSTICS DRUGS</title>
+        <meta
+          name="description"
+          content="NAALVAR DIAGNOSTICS DRUGS is a licensed manufacturer of medicated toiletry soaps approved by CDSCO and Government of Tamil Nadu. Learn more about our certified facility and activities."
+        />
+      </Helmet>
+
+      {/* Decorative Strip - Desktop */}
+      <div
+        className="absolute max-md:hidden top-0 left-0 right-0 min-h-[10vh] w-screen z-[20]"
+        aria-hidden="true"
+      >
         <div className="w-full min-h-[5vh] flex bg-white">
           <div id="strip-5" className="min-w-[70%] bg-primaryBlack" />
-          <div className="min-w-[30%] bg-white min-h-full"></div>
+          <div className="min-w-[30%] bg-white" />
         </div>
         <div className="w-full min-h-[5vh] flex">
           <div className="min-w-[70%] bg-primaryRed" />
-          <div id="strip-6" className="min-w-[30%] bg-primaryBlack"></div>
+          <div id="strip-6" className="min-w-[30%] bg-primaryBlack" />
         </div>
       </div>
-      <div className="absolute md:hidden top-0 left-0 right-0 min-h-[10vh] w-screen z-[20]">
+
+      {/* Decorative Strip - Mobile */}
+      <div
+        className="absolute md:hidden top-0 left-0 right-0 min-h-[10vh] w-screen z-[20]"
+        aria-hidden="true"
+      >
         <div className="w-full min-h-[5vh] flex bg-white">
           <div id="strip-m-5" className="min-w-[70%] bg-primaryBlack" />
-          <div className="min-w-[30%] bg-white min-h-full"></div>
+          <div className="min-w-[30%] bg-white" />
         </div>
         <div className="w-full min-h-[5vh] flex">
           <div className="min-w-[70%] bg-primaryRed" />
-          <div id="strip-m-6" className="min-w-[30%] bg-primaryBlack"></div>
+          <div id="strip-m-6" className="min-w-[30%] bg-primaryBlack" />
         </div>
       </div>
-      <div className="flex flex-col gap-[40px]  max-md:gap-[20px] ">
-        <h1 className="text-center text-[64px] max-md:text-[48px] font-semibold">
+
+      <div className="flex flex-col gap-[40px] max-md:gap-[20px] max-w-6xl px-4">
+        <h2
+          id="licensed-heading"
+          className="text-center text-[64px] max-md:text-[48px] font-semibold"
+        >
           Licensed Activities
-        </h1>
-        <p className="max-md:px-[50px]  max-md:text-[14px]">
-          Site is licensed to manufacture Medicated toiletry soap. The Central
-          Drugs Standard Control Organization (CDSCO) and Government of Tamil
-          Nadu has approved the manufacturing facility. We are authorized to
-          manufacture the pharmaceutical products in various dosage forms like
-          soap and cream which are nontoxic or non hazardous substances. The
-          formulations manufactured at this site are for “human and veterinary
-          use only”. The products manufactured are generic and branded
-          proprietary preparation with upholding total quality management
-          systems. Location of the site: Factory is located in a pollution free
-          atmosphere near Poothurai village, Tamil Nadu, and is equipped with
-          all required infrastructure for the manufacturing testing and all
-          related activities.
+        </h2>
+        <p className="max-md:px-[10px] max-md:text-[14px] leading-relaxed">
+          Our facility is officially licensed to manufacture medicated toiletry
+          soaps. Approved by the Central Drugs Standard Control Organization
+          (CDSCO) and the Government of Tamil Nadu, we operate with a focus on
+          safety, compliance, and quality. We are authorized to produce
+          pharmaceutical products in non-toxic and non-hazardous forms like
+          soaps and creams for both human and veterinary use. These include both
+          generic and proprietary branded formulations, all developed under
+          strict total quality management systems. Our state-of-the-art facility
+          is situated in a pollution-free environment near Poothurai village,
+          Tamil Nadu, and is fully equipped to handle manufacturing, testing,
+          and related operations.
         </p>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -6,40 +6,60 @@ import gsap from "gsap";
 
 const AboutCompany = () => {
   gsap.registerPlugin(ScrollTrigger);
+
   useGSAP(() => {
-    const img = gsap.timeline({ delay: 0.5 });
-    img.from("#comp-img", {
+    gsap.from("#comp-img", {
       opacity: 0.5,
       duration: 1,
       ease: "none",
+      delay: 0.5,
     });
   });
+
   return (
-    <div className="flex pt-[100px] flex-col min-h-screen w-screen justify-center items-center px-[7.5vw] gap-[20px] font-poppins">
+    <section
+      className="flex pt-[100px] flex-col min-h-screen w-screen justify-center items-center px-[7.5vw] gap-[20px] font-poppins"
+      aria-labelledby="about-heading"
+    >
+      {/* Company Logo */}
       <div>
         <img
           id="comp-img"
           src={Logo}
-          alt=""
+          alt="Naalvar Diagnostics Drugs Logo"
           className="max-w-[300px] max-md:max-w-[200px]"
         />
       </div>
-      <div className="text-justify">
+
+      {/* Company Description */}
+      <article className="text-justify max-w-4xl">
+        <h2 id="about-heading" className="sr-only">
+          About Naalvar Diagnostics Drugs
+        </h2>
         <p>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NAALVAR DIAGNOSTICS DRUGS was
-          established in 2021, under the leadership of a qualified pharmacist
-          who is having 20 years of experience in Pharma Production and engaging
-          in exclusive production of Medicated Toiletry soap formulations. Our
-          operations started in February 2021 and involve in planning,
-          designing, procurement of Raw materials & Packing materials and
-          storage of Active Pharmaceutical Ingredients in appropriate
-          temperature, testing, manufacturing, final release of finished
-          products for distribution in India. A well document manufacturing and
-          testing procedures are followed at every stage of the operations as
-          per cGMP guidelines.
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{" "}
+          <strong>NAALVAR DIAGNOSTICS DRUGS</strong> was established in 2021,
+          under the leadership of a qualified pharmacist with over 20 years of
+          experience in pharma production. We specialize exclusively in the
+          production of medicated toiletry soap formulations.
         </p>
-      </div>
-    </div>
+        <br />
+        <p>
+          Our operations began in February 2021 and include planning, designing,
+          procurement of raw and packing materials, as well as the storage of
+          active pharmaceutical ingredients at appropriate temperatures. We
+          handle testing, manufacturing, and final release of finished products
+          for distribution across India.
+        </p>
+        <br />
+        <p>
+          A well-documented manufacturing and testing process is followed at
+          every stage, adhering strictly to{" "}
+          <abbr title="Current Good Manufacturing Practice">cGMP</abbr>{" "}
+          guidelines.
+        </p>
+      </article>
+    </section>
   );
 };
 
