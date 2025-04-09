@@ -57,7 +57,7 @@ const Hero = () => {
       </Helmet>
 
       <header
-        className="min-h-screen w-screen relative flex items-end"
+        className="h-[100dvh] w-screen relative flex items-end"
         style={{
           backgroundImage: `url(${bgImage})`,
           backgroundSize: "cover",

@@ -25,7 +25,7 @@ const AboutFounder = () => {
   return (
     <section
       id="founder-div"
-      className="flex w-screen px-[7.5vw] max-md:flex-col font-poppins py-32"
+      className="flex w-screen px-[7.5vw] max-md:flex-col font-poppins py-32 max-md:20"
       aria-labelledby="founder-heading"
     >
       {/* Text Content */}

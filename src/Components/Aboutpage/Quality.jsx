@@ -30,7 +30,7 @@ const Quality = () => {
       <div className="flex md:justify-end items-center md:w-[50%] max-md:text-center">
         <h2
           id="quality-heading"
-          className="md:text-end text-[64px] font-bold text-primaryRed max-md:text-[40px]"
+          className="md:text-end text-[64px] font-bold text-primaryRed max-md:text-[28px]"
         >
           Our
           <span className="max-md:hidden">

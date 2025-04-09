@@ -138,7 +138,7 @@ const ProductSection = ({
 }) => {
   return imageAlignment === "right" ? (
     <div className="flex gap-20 max-md:flex-col max-md:gap-10">
-      <div className="flex-1 mt-10 max-w-[50%] min-w-[50%]">
+      <div className="flex-1 mt-10 md:max-w-[50%] md:min-w-[50%]">
         <h2 className="text-3xl font-bold max-md:text-2xl">{productName}</h2>
         <p className="mt-3 text-justify max-md:text-sm" data-aos="fade-up">
           {productDesc}
