@@ -22,22 +22,21 @@ const Licensed = () => {
     });
 
     licStrips
-      .from("#strip-6", { minWidth: 0, duration: 1 }, 0)
+      .from("#strip-6", { x: "30vw", duration: 1 }, 0)
       .from("#strip-5", { x: "-70vw", duration: 1 }, 0);
 
     licStripsMob
-      .from("#strip-m-6", { minWidth: 0, duration: 1 }, 0)
+      .from("#strip-m-6", { x: "30vw", duration: 1 }, 0)
       .from("#strip-m-5", { x: "-70vw", duration: 1 }, 0);
   });
 
   return (
     <section
       id="license-section"
-      className="bg-primaryRed text-white min-h-[65vh] w-screen flex justify-center items-center md:px-[7.5vw] max-md:pt-32 max-md:pb-32 font-poppins text-justify relative"
+      className="bg-primaryRed text-white py-20 w-screen flex justify-center items-center md:px-[7.5vw] max-md:pt-32 max-md:pb-32 font-poppins text-justify relative"
       aria-labelledby="licensed-heading"
     >
       <Helmet>
-        <title>Licensed Manufacturing - NAALVAR DIAGNOSTICS DRUGS</title>
         <meta
           name="description"
           content="NAALVAR DIAGNOSTICS DRUGS is a licensed manufacturer of medicated toiletry soaps approved by CDSCO and Government of Tamil Nadu. Learn more about our certified facility and activities."
@@ -81,7 +80,10 @@ const Licensed = () => {
         >
           Licensed Activities
         </h2>
-        <p className="max-md:px-[10px] max-md:text-[14px] leading-relaxed">
+        <p
+          className="max-md:px-[10px] text-[14px] max-md:text-[14px] leading-relaxed"
+          data-aos="fade-up"
+        >
           Our facility is officially licensed to manufacture medicated toiletry
           soaps. Approved by the Central Drugs Standard Control Organization
           (CDSCO) and the Government of Tamil Nadu, we operate with a focus on

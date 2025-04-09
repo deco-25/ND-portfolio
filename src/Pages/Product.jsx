@@ -1,5 +1,8 @@
-import React from "react";
-import { Soap2, Soap3, ScrollButton } from "../assets";
+import React, { useState, useEffect } from "react";
+import { Soap2, Soap3, ScrollButton, MobSoap, ScrollMore } from "../assets";
+import { Lens } from "../Components/ui/lens";
+import { motion } from "motion/react";
+import { cn } from "../lib/utlis";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
@@ -8,11 +11,30 @@ import gsap from "gsap";
 gsap.registerPlugin(ScrollTrigger);
 
 const Shop = () => {
+  const [bgImage, setBgImage] = useState(Soap2);
+  const [hovering, setHovering] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setBgImage(MobSoap);
+      } else {
+        setBgImage(Soap2);
+      }
+    };
+
+    // Run on mount
+    handleResize();
+
+    // Listen for resize
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   useGSAP(() => {
     const tl = gsap.timeline({ delay: 0.5 });
 
     tl.from("#prod-strip-1", {
-      minWidth: 0,
+      x: "30vw",
       duration: 1,
     }).from(
       "#prod-strip-2",
@@ -22,24 +44,13 @@ const Shop = () => {
       },
       0
     );
-
-    const productImages = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#product-section",
-        start: "center bottom",
-      },
-    });
-
-    productImages
-      .from(".right-img", { x: 1000, duration: 0.75, opacity: 0 }, 0)
-      .from(".left-img", { x: -1000, duration: 0.75, opacity: 0 }, 0);
   }, []);
 
   return (
     <div>
       <main
         style={{
-          backgroundImage: `url(${Soap2})`,
+          backgroundImage: `url(${bgImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -56,25 +67,21 @@ const Shop = () => {
         </h2>
 
         <div className="absolute bottom-0 left-0 right-0 min-h-[10dvh] max-md:min-h-[15dvh] w-screen z-[20]">
-          <div className="w-full min-h-[5dvh] flex">
+          <div className="w-full min-h-[5dvh] max-md:min-h-[7.5dvh] flex">
             <div className="min-w-[70%] max-md:min-w-[60%]" />
             <div
               id="prod-strip-1"
               className="min-w-[30%] max-md:min-w-[40%] bg-primaryRed"
             />
           </div>
-          <div className="w-full min-h-[5dvh] flex bg-white">
+          <div className="w-full min-h-[5dvh] max-md:min-h-[7.5dvh] flex bg-white">
             <div
               id="prod-strip-2"
               className="min-w-[70%] max-md:min-w-[60%] bg-primaryRed"
             />
             <div className="min-w-[30%] max-md:min-w-[40%] flex items-center justify-end md:px-[7.5vw] px-2">
               <div className="flex items-center">
-                <img
-                  src={ScrollButton}
-                  alt="Scroll down"
-                  className="w-[30px]"
-                />
+                <img src={ScrollMore} alt="Scroll down" className="w-[30px]" />
                 <h1 className="text-[16px] max-md:text-xs text-black ml-2">
                   Scroll for more
                 </h1>
@@ -84,8 +91,8 @@ const Shop = () => {
         </div>
       </main>
 
-      <div className="md:px-40 px-[20px] md:py-20 py-10">
-        <p className="text-lg text-justify max-md:text-sm">
+      <div className="md:px-[7.5vw] px-[20px] md:py-20 py-10">
+        <p className="text-lg text-justify max-md:text-sm" data-aos="fade-up">
           We offer a wide range of pharmaceutical soaps designed for various
           skin types and concerns. From antibacterial and anti-fungal soaps to
           soaps enriched with natural oils for moisturizing and soothing
@@ -131,30 +138,34 @@ const ProductSection = ({
 }) => {
   return imageAlignment === "right" ? (
     <div className="flex gap-20 max-md:flex-col max-md:gap-10">
-      <div className="flex-1 mt-10">
+      <div className="flex-1 mt-10 max-w-[50%] min-w-[50%]">
         <h2 className="text-3xl font-bold max-md:text-2xl">{productName}</h2>
-        <p className="mt-3 text-justify max-md:text-sm">{productDesc}</p>
+        <p className="mt-3 text-justify max-md:text-sm" data-aos="fade-up">
+          {productDesc}
+        </p>
       </div>
-      <div className="md:w-[40%]">
+      <Lens className="md:max-w-[40%]">
         <img
           src={productImage}
           alt={`Product Image of ${productName}`}
           className="rounded-lg right-img"
         />
-      </div>
+      </Lens>
     </div>
   ) : (
     <div className="flex gap-20 max-md:flex-col-reverse max-md:gap-10">
-      <div className="md:w-[40%]">
+      <Lens className="md:max-w-[40%] md:min-w-[40%]">
         <img
           src={productImage}
           alt={`Product Image of ${productName}`}
           className="rounded-lg left-img"
         />
-      </div>
-      <div className="flex-1 mt-10">
+      </Lens>
+      <div className="flex-1 mt-10 min-w-[50%]">
         <h2 className="text-3xl font-bold max-md:text-2xl">{productName}</h2>
-        <p className="mt-3 text-justify max-md:text-sm">{productDesc}</p>
+        <p className="mt-3 text-justify max-md:text-sm" data-aos="fade-up">
+          {productDesc}
+        </p>
       </div>
     </div>
   );

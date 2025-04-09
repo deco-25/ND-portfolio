@@ -25,7 +25,7 @@ const AboutFounder = () => {
   return (
     <section
       id="founder-div"
-      className="flex w-screen px-[7.5vw] max-md:flex-col font-poppins"
+      className="flex w-screen px-[7.5vw] max-md:flex-col font-poppins py-32"
       aria-labelledby="founder-heading"
     >
       {/* Text Content */}
@@ -46,7 +46,7 @@ const AboutFounder = () => {
         />
 
         {/* Paragraph */}
-        <p className="text-justify max-w-3xl">
+        <p className="text-justify max-w-3xl" data-aos="fade-up">
           The founder of <strong>NAALVAR DIAGNOSTICS DRUGS</strong>,{" "}
           <strong>Dr. K. Koumaravelou</strong>, holds a distinguished academic
           background, including a Bachelor of Pharmacy (BPharm), a Master of

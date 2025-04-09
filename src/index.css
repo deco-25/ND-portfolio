@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-.slick-next,
-.slick-prev {
-  color: black;
+input:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px white inset !important;
+  -webkit-text-fill-color: #000 !important;
+  transition: background-color 9999s ease-in-out 0s;
 }

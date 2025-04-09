@@ -4,6 +4,7 @@ import { TreeDeciduous } from "lucide-react";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
+import Carousel from "./Carousel";
 
 const Apart = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -17,7 +18,7 @@ const Apart = () => {
     });
 
     strips
-      .from("#red-strip-4", { minWidth: 0, duration: 1 }, 0.5)
+      .from("#red-strip-4", { x: "30vw", duration: 1 }, 0.5)
       .from("#red-strip-3", { x: "-70vw", duration: 1 }, 0.5);
   });
 
@@ -47,12 +48,8 @@ const Apart = () => {
   return (
     <section className="font-poppins" aria-labelledby="apart-heading">
       {/* Top Image + Decorative Strips */}
-      <div>
-        <img
-          src={Soap2}
-          alt="Soap bar showcasing skin care product"
-          className="w-screen max-h-[626px] object-cover"
-        />
+      <div className="flex flex-col">
+        <Carousel />
         <div className="flex justify-center" aria-hidden="true">
           <div className="flex gap-[16px] max-md:gap-[8px]">
             {[...Array(20)].map((_, i) => (
@@ -60,7 +57,8 @@ const Apart = () => {
                 {[94, 78, 78, 78, 78, 78, 78].map((h, idx) => (
                   <div
                     key={idx}
-                    className={`h-[${h}px] min-w-[1px] bg-primaryRed ${
+                    style={{ height: `${h}px` }}
+                    className={`min-w-[1px] bg-primaryRed ${
                       idx === 0 ? "max-md:h-[70px]" : "max-md:h-[56px]"
                     }`}
                   />
@@ -70,7 +68,6 @@ const Apart = () => {
           </div>
         </div>
       </div>
-
       {/* What Sets Us Apart Section */}
       <div className="relative w-screen min-h-screen flex justify-center items-center max-md:py-[128px] max-md:pb-[250px]">
         <div className="flex flex-col md:justify-center items-center md:pb-20 gap-[20px] w-full">
@@ -113,13 +110,11 @@ const Apart = () => {
                 {/* Hover Description */}
                 <div
                   className={`absolute top-[100%] left-0 right-0 group-hover:top-0 ${
-                    ind % 2 === 0 ? "bg-primaryBlue" : "bg-primaryRed"
+                    ind % 2 === 0 ? "bg-primaryBlue/90" : "bg-primaryRed/95"
                   } duration-500 ease-out w-full rounded-[12px] h-full`}
                 >
                   <h4 className="p-2 font-semibold text-white">{item.title}</h4>
-                  <p className="px-3 text-white text-justify text-sm">
-                    {item.desc}
-                  </p>
+                  <p className="px-3 text-white text-sm">{item.desc}</p>
                 </div>
               </article>
             ))}

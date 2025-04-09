@@ -6,8 +6,20 @@ import Soap2 from "./Img/keto2.pdf.jpg";
 import Founder from "./Img/founder.png";
 import LogoWhite from "./Img/logoWhite.png";
 import Whatsapp from "./Img/whatsappImg.png";
+import MobileHome from "./Img/mobHome.jpg";
+import MobSoap from "./Img/mobSoap.jpg";
 
-export { Logo, Whatsapp, Soap1, Soap3, Soap2, Founder, LogoWhite };
+export {
+  Logo,
+  Whatsapp,
+  Soap1,
+  Soap3,
+  Soap2,
+  Founder,
+  LogoWhite,
+  MobileHome,
+  MobSoap,
+};
 
 /*Icons*/
 import Guarantee from "./Icons/guarantee.svg";
@@ -18,5 +30,6 @@ export { Guarantee, ScrollButton, Arrow };
 
 /* Video */
 import IntroVideo from "./Video/Intro.mp4";
+import ScrollMore from "./Video/scrollMore.gif";
 
-export { IntroVideo };
+export { IntroVideo, ScrollMore };

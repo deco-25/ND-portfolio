@@ -9,39 +9,39 @@ import "slick-carousel/slick/slick-theme.css";
 const DUMMY_DATA = [
   {
     name: "Annette Black",
-    designation: "Group 1 PCM",
+    designation: "Retail Store Owner",
     comment:
-      "Golio is one of the BEST web designers I've ever worked with professionally. Impressive service, work ethic, and attention to detail.",
+      "We've been stocking their soaps for over a year now—customers absolutely love the natural fragrance and smooth texture. Reliable quality every time.",
   },
   {
     name: "Darlene Robertson",
-    designation: "Creative Director",
+    designation: "Skincare Consultant",
     comment:
-      "Absolutely loved collaborating with Golio! Their creativity and problem-solving skills are top-notch.",
+      "The herbal ingredients make a noticeable difference. My clients with sensitive skin always ask for this brand. Highly recommended!",
   },
   {
     name: "Leslie Alexander",
-    designation: "Product Manager",
+    designation: "Online Seller",
     comment:
-      "The results were phenomenal. We saw an immediate improvement in user engagement and overall aesthetics.",
+      "Beautiful packaging and consistently positive customer reviews. This soap brand has really boosted our online store's skincare category.",
   },
   {
     name: "Jacob Jones",
-    designation: "Tech Lead",
+    designation: "Wellness Coach",
     comment:
-      "Highly recommended! Golio brought a fresh perspective and delivered ahead of deadlines.",
+      "I always recommend their handmade soaps during my wellness sessions. The natural oils and essential scents are incredibly refreshing.",
   },
   {
     name: "Kristin Watson",
-    designation: "UX Researcher",
+    designation: "Spa Manager",
     comment:
-      "What stood out was their ability to truly understand user behavior and adapt the design accordingly.",
+      "We switched to using their soaps at our spa, and our clients noticed immediately. Soft on the skin and smells divine.",
   },
   {
     name: "Floyd Miles",
-    designation: "CTO",
+    designation: "Procurement Head – Hotel Chain",
     comment:
-      "Professional, efficient, and highly creative. Golio has been instrumental in our product design journey.",
+      "As a supplier for hospitality amenities, they never disappoint. Timely delivery, premium feel, and great aroma—our guests love them!",
   },
 ];
 
@@ -111,10 +111,10 @@ const Testimonials = () => {
           {DUMMY_DATA.map((ele, ind) => (
             <article
               key={ind}
-              className="bg-white p-[20px]"
+              className="bg-white p-[20px] "
               aria-label={`Testimonial from ${ele.name}`}
             >
-              <div className="bg-[#C2C2BA] p-[20px] flex flex-col gap-[20px] rounded-[24px] h-full justify-between">
+              <div className="bg-[#C2C2BA] min-h-[225px] p-[20px] flex flex-col gap-[20px] rounded-[24px] h-full ">
                 <header className="flex gap-[8px] items-center">
                   <div className="bg-primaryBlack rounded-full p-2 text-white">
                     <BsPerson size={32} />

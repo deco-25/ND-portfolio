@@ -4,20 +4,6 @@ import { useGSAP } from "@gsap/react";
 import { Helmet } from "react-helmet"; // Make sure to install react-helmet
 
 const Contact = () => {
-  useGSAP(() => {
-    const subBtn = gsap.timeline();
-    subBtn
-      .from(".title", {
-        x: "-50vw",
-        duration: 0.5,
-      })
-      .from("#submit-button", {
-        x: "70vw",
-        opacity: 0,
-        duration: 1,
-      });
-  });
-
   return (
     <>
       <Helmet>
@@ -41,7 +27,10 @@ const Contact = () => {
           <p className="font-semibold text-black/50">
             Reach Out – Fresh, Natural Care is Just a Message Away!
           </p>
-          <p className="font-[500] text-justify max-md:text-sm">
+          <p
+            className="font-[500] text-justify max-md:text-sm"
+            data-aos="fade-up"
+          >
             Have questions or want to learn more about our handcrafted soap
             products? Our friendly and knowledgeable customer service team is
             here to help. Contact us today, and we’ll be happy to assist you
@@ -53,73 +42,72 @@ const Contact = () => {
         <section className="flex-1" aria-label="Contact Form">
           <form className="flex flex-col gap-8" name="contact-form">
             <div className="flex gap-12 max-md:gap-6">
-              <div className="flex-1 w-[50%]">
-                <label
-                  htmlFor="first-name"
-                  className="mb-2 block w-full font-semibold"
-                >
-                  First Name
-                </label>
+              <div className="relative flex-1 w-[50%]">
                 <input
                   type="text"
                   id="first-name"
                   name="first-name"
-                  placeholder="Jane"
+                  placeholder=" "
                   required
-                  className="rounded-lg bg-white border-2 p-2 w-full"
+                  className="peer w-full border-2 border-gray-300 rounded-lg px-4 pt-6 pb-2 bg-white placeholder-transparent focus:outline-none focus:border-primaryBlue autofill:bg-white"
                 />
-              </div>
-
-              <div className="flex-1 w-[50%]">
                 <label
-                  htmlFor="last-name"
-                  className="mb-2 block w-full font-semibold"
+                  htmlFor="first-name"
+                  className="absolute left-3 -top-2 text-sm text-gray-500 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-primaryBlue"
                 >
-                  Last Name
+                  First Name
                 </label>
+              </div>
+              <div className="relative flex-1 w-[50%]">
                 <input
                   type="text"
                   id="last-name"
                   name="last-name"
-                  placeholder="Smitherton"
+                  placeholder=" "
                   required
-                  className="rounded-lg bg-white border-2 p-2 w-full"
+                  className="peer w-full border-2 border-gray-300 rounded-lg px-4 pt-6 pb-2 bg-white placeholder-transparent focus:outline-none focus:border-primaryBlue autofill:bg-white"
                 />
+                <label
+                  htmlFor="last-name"
+                  className="absolute left-3 -top-2 text-sm text-gray-500 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-primaryBlue"
+                >
+                  Last Name
+                </label>
               </div>
             </div>
 
-            <div className="flex-1">
+            <div className="relative flex-1 w-[100%]">
+              <input
+                type="text"
+                id="email-address"
+                name="email-address"
+                placeholder=" "
+                required
+                className="peer w-full border-2 border-gray-300 rounded-lg px-4 pt-6 pb-2 bg-white placeholder-transparent focus:outline-none focus:border-primaryBlue autofill:bg-white"
+              />
               <label
-                htmlFor="email"
-                className="mb-2 block w-full font-semibold"
+                htmlFor="email-address"
+                className="absolute left-3 -top-2 text-sm text-gray-500 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-primaryBlue"
               >
                 Email Address
               </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="email@janesfakedomain.net"
-                required
-                className="rounded-lg bg-white border-2 p-2 w-full"
-              />
             </div>
 
-            <div className="flex-1">
-              <label
-                htmlFor="message"
-                className="mb-2 block w-full font-semibold"
-              >
-                Your Message
-              </label>
+            <div className="relative flex-1">
               <textarea
                 rows={5}
                 id="message"
                 name="message"
-                placeholder="Enter your question or message"
+                placeholder=" "
                 required
-                className="rounded-lg bg-white border-2 p-2 w-full"
+                className="peer w-full border-2 border-gray-300 rounded-lg px-4 pt-6 pb-2 bg-white placeholder-transparent focus:outline-none focus:border-primaryBlue resize-none"
               />
+              <label
+                htmlFor="message"
+                className="absolute left-3 -top-2 text-sm text-gray-500 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-primaryBlue"
+              >
+                Your Message
+              </label>
             </div>
 
             <button

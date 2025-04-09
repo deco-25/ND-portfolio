@@ -7,14 +7,19 @@ import Contact from "./Pages/Contact";
 import ScrollToTop from "./Layout/ScrollToTop";
 import { useState } from "react";
 import { IntroVideo } from "./assets";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 /************************************************/
 /* Route for the entire website */
 /************************************************/
 
 export default function App() {
-  const [loading, setLoading] = useState(true);
-
+  const [loading, setLoading] = useState(false);
+  Aos.init({
+    duration: 1000,
+    offset: 0,
+  });
   return (
     <BrowserRouter>
       <ScrollToTop />

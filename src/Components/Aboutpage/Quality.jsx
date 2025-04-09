@@ -3,11 +3,14 @@ import React from "react";
 const Quality = () => {
   return (
     <section
-      className="flex w-screen md:min-h-screen px-[7.5vw] max-md:flex-col-reverse max-md:py-20 font-poppins"
+      className="flex w-screen  px-[7.5vw] pb-32 max-md:flex-col-reverse max-md:py-20 font-poppins"
       aria-labelledby="quality-heading"
     >
       {/* Text Section */}
-      <div className="w-[50%] max-md:w-full leading-[150%] flex flex-col justify-center gap-[20px] max-md:py-5">
+      <div
+        data-aos="fade-up"
+        className="w-[50%] max-md:w-full leading-[150%] flex flex-col justify-center gap-[20px] max-md:py-5"
+      >
         <p className="text-justify">
           At NAALVAR DIAGNOSTICS DRUGS, quality is not just a promise — it’s a
           guarantee. We adhere to strict quality control measures and conduct

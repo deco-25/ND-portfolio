@@ -20,7 +20,7 @@ const Footer = () => {
               <h2 className="font-bold text-[32px] max-w-[444px] leading-[110%]">
                 Naalvar Diagnostic Drugs Private Limited
               </h2>
-              <p className="max-w-[380px] text-[10px] leading-[150%]">
+              <p className="max-w-[380px] text-[10px] leading-[150%] max-md:hidden">
                 NAALVAR DIAGNOSTICS DRUGS offers high-quality pharmaceutical
                 soaps designed for superior skin health and hygiene. Our
                 formulations ensure safety, effectiveness, and daily protection

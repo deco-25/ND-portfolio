@@ -3,21 +3,47 @@ import { Guarantee, Logo, LogoWhite } from "../assets";
 import { Link, useLocation } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 
+const NAV_ITEMS = [
+  { name: "About", path: "/about" },
+  { name: "Home", path: "/" },
+  { name: "Shop", path: "/product" },
+];
+
 const Navbar = () => {
   const location = useLocation();
+  const [activeIndex, setActiveIndex] = useState(0);
   const [path, setPath] = useState(location.pathname);
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => setIsOpen(!isOpen);
 
   useEffect(() => {
     setPath(location.pathname);
+    const currentIndex = NAV_ITEMS.findIndex(
+      (item) => item.path === location.pathname
+    );
+    if (currentIndex !== -1) setActiveIndex(currentIndex);
   }, [location.pathname]);
 
+  // Rotate the array so active item is always in the middle (index 1)
+  const getRotatedItems = () => {
+    const newArr = [...NAV_ITEMS];
+    if (activeIndex === 0) {
+      // Move last item to front
+      return [newArr[1], newArr[0], newArr[2]];
+    } else if (activeIndex === 2) {
+      // Move first item to end
+      return [newArr[1], newArr[2], newArr[0]];
+    }
+    return newArr; // activeIndex === 1
+  };
+
+  const rotatedItems = getRotatedItems();
+
   return (
-    <header className="absolute w-screen flex flex-col justify-center items-center mx-auto top-[20px] z-[100] transition-all duration-200">
+    <header className="absolute w-screen flex flex-col justify-center items-center mx-auto top-[20px] md:top-[1px] z-[100] transition-all duration-200">
       {/* Mobile Navbar */}
       <nav
-        className={`overflow-hidden md:hidden flex flex-col items-center px-[5vw] rounded-3xl transition-all duration-500 ease-in-out ${
+        className={`overflow-hidden md:hidden rounded-xl flex flex-col items-center px-[5vw] rounded-3xl transition-all duration-500 ease-in-out ${
           path === "/" || path === "/product"
             ? "bg-white text-primaryRed"
             : "bg-primaryRed text-white"
@@ -50,7 +76,7 @@ const Navbar = () => {
             <Link
               to="/"
               onClick={toggleDropdown}
-              className="hover:text-primaryRed"
+              className="hover:text-primaryBlue"
             >
               Home
             </Link>
@@ -59,7 +85,7 @@ const Navbar = () => {
             <Link
               to="/about"
               onClick={toggleDropdown}
-              className="hover:text-primaryRed"
+              className="hover:text-primaryBlue"
             >
               About
             </Link>
@@ -68,7 +94,7 @@ const Navbar = () => {
             <Link
               to="/product"
               onClick={toggleDropdown}
-              className="hover:text-primaryRed"
+              className="hover:text-primaryBlue"
             >
               Products
             </Link>
@@ -77,7 +103,7 @@ const Navbar = () => {
             <Link
               to="/contact"
               onClick={toggleDropdown}
-              className="hover:text-primaryRed"
+              className="hover:text-primaryBlue"
             >
               Contact
             </Link>
@@ -87,13 +113,13 @@ const Navbar = () => {
 
       {/* Desktop Navbar */}
       <nav
-        className="w-[60%] scale-75 max-md:hidden"
+        className="w-[60%] scale-75 max-md:hidden rounded-xl overflow-hidden"
         aria-label="Desktop Navigation"
       >
         <div
           className={`flex ${
             path === "/" || path === "/product" ? "bg-white" : "bg-primaryRed"
-          } items-center py-[2px] justify-between px-[12px] transition-all duration-200`}
+          } items-center py-[2px] justify-between px-[12px] transition-all duration-200 h-fit`}
         >
           <img
             src={path === "/" || path === "/product" ? Logo : LogoWhite}
@@ -101,60 +127,49 @@ const Navbar = () => {
             className="w-[60px]"
           />
 
-          <ul className="flex text-[20px] gap-[48px] items-center">
-            <li className="relative group">
-              <Link
-                to="/about"
-                className={`relative ${
-                  path === "/about" ? "text-[32px] text-white" : ""
-                }`}
-              >
-                About
-                <span
-                  className={`absolute left-0 -bottom-1 h-[2px] w-0 ${
-                    path === "/" || path === "/product"
-                      ? "bg-primaryRed"
-                      : "bg-white"
-                  } group-hover:w-full transition-all duration-500 ease-in-out`}
-                ></span>
-              </Link>
-            </li>
-            <li className="relative group">
-              <Link
-                to="/"
-                className={`relative ${
-                  path === "/" ? "text-[32px] text-primaryRed" : ""
-                }`}
-              >
-                Home
-                <span
-                  className={`absolute left-0 -bottom-1 h-[2px] w-0 ${
-                    path === "/" || path === "/product"
-                      ? "bg-primaryRed"
-                      : "bg-white"
-                  } group-hover:w-full transition-all duration-500 ease-in-out`}
-                ></span>
-              </Link>
-            </li>
-
-            <li className="relative group">
-              <Link
-                to="/product"
-                className={`${
-                  path === "/product" ? "text-[32px] text-primaryRed" : ""
-                } relative`}
-              >
-                Shop
-                <span
-                  className={`absolute left-0 -bottom-1 h-[2px] w-0 ${
-                    path === "/" || path === "/product"
-                      ? "bg-primaryRed"
-                      : "bg-white"
-                  } group-hover:w-full transition-all duration-500 ease-in-out`}
-                ></span>
-              </Link>
-            </li>
-          </ul>
+          <nav className="w-full flex justify-center items-center py-3">
+            <ul className="flex gap-[64px] transition-all duration-700">
+              {rotatedItems.map((item, idx) => {
+                const isActive = idx === 1;
+                return (
+                  <li
+                    key={item.path}
+                    className={`transition-all duration-500 ease-in-out relative group ${
+                      isActive
+                        ? "z-10 scale-125 opacity-100 translate-y-0"
+                        : "opacity-50 scale-100 translate-y-2"
+                    }`}
+                  >
+                    <Link
+                      to={item.path}
+                      className={`relative text-[20px] transition-all duration-500 ease-in-out ${
+                        isActive
+                          ? path === "/" || path === "/product"
+                            ? "text-[32px] text-black font-semibold"
+                            : "text-[32px] text-black font-semibold"
+                          : "text-black"
+                      }`}
+                    >
+                      <span
+                        className={`inline-flex items-center justify-center h-[40px] transition-all duration-[600ms] ease-in-out ${
+                          isActive ? "opacity-100" : "opacity-100"
+                        }`}
+                      >
+                        {item.name}
+                      </span>
+                      <span
+                        className={`absolute left-0 -bottom-1 h-[2px] transition-all duration-500 ease-in-out
+        ${path === item.path ? "w-full" : "w-0"}
+        ${path === "/" || path === "/product" ? "bg-primaryRed" : "bg-white"}
+        group-hover:w-full
+      `}
+                      />
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
 
           <Link to="/contact">
             <button

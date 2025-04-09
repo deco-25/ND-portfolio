@@ -1,17 +1,35 @@
-import React, { useState } from "react";
-import { ScrollButton, Soap3 } from "../../assets";
+import React, { useState, useEffect } from "react";
+import { ScrollButton, Soap3, MobileHome, ScrollMore } from "../../assets";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Helmet } from "react-helmet";
 
 const Hero = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [bgImage, setBgImage] = useState(Soap3);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setBgImage(MobileHome);
+      } else {
+        setBgImage(Soap3);
+      }
+    };
+
+    // Run on mount
+    handleResize();
+
+    // Listen for resize
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useGSAP(() => {
     const tl = gsap.timeline({ delay: 0.5 });
 
     tl.from("#red-strip-1", {
-      minWidth: 0,
+      x: "30vw",
       duration: 1,
     }).from(
       "#red-strip-2",
@@ -41,7 +59,7 @@ const Hero = () => {
       <header
         className="min-h-screen w-screen relative flex items-end"
         style={{
-          backgroundImage: `url(${Soap3})`,
+          backgroundImage: `url(${bgImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -111,7 +129,7 @@ const Hero = () => {
             <div className="min-w-[30%] max-md:min-w-[40%] flex md:px-[10px] items-center bg-white md:justify-end md:px-[7.5vw]">
               <div className="flex items-center justify-center gap-2">
                 <img
-                  src={ScrollButton}
+                  src={ScrollMore}
                   alt="Scroll Down Icon"
                   className="w-[30px]"
                 />
