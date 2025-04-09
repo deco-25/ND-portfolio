@@ -15,7 +15,7 @@ import "aos/dist/aos.css";
 /************************************************/
 
 export default function App() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   Aos.init({
     duration: 1000,
     offset: 0,
