@@ -4,36 +4,66 @@ import Homepage from "./Pages/Homepage";
 import About from "./Pages/About";
 import Product from "./Pages/Product";
 import Contact from "./Pages/Contact";
-import Shop from "./Pages/Shop";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { useEffect } from 'react';
+import ScrollToTop from "./Layout/ScrollToTop";
+import { useEffect, useState } from "react";
+import { IntroVideo } from "./assets";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import Lenis from "@studio-freight/lenis";
 
 /************************************************/
 /* Route for the entire website */
 /************************************************/
 
 export default function App() {
+  const [loading, setLoading] = useState(true);
+  Aos.init({
+    duration: 1000,
+    offset: 0,
+  });
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      direction: "vertical",
+      smooth: true,
+    });
 
-    useEffect(() => {
-      AOS.init({
-        duration: 700, // animation duration
-        once: true,     // whether animation should happen only once
-        offset: 100,    // offset (in px) from the original trigger point
-      });
-    }, []);
-  
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Homepage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/product" element={<Product />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/shop" element={<Shop />} />
-        </Route>
-      </Routes>
+      <ScrollToTop />
+      {loading ? (
+        <div className="bg-white  flex justify-center items-center">
+          <video
+            src={IntroVideo}
+            autoPlay
+            muted
+            playsInline
+            onEnded={() => setLoading(false)} // optional if you want to hide video after playing
+            className="w-full  h-screen object-fit"
+          />
+        </div>
+      ) : (
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Homepage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/product" element={<Product />} />
+            <Route path="/contact" element={<Contact />} />
+          </Route>
+        </Routes>
+      )}
     </BrowserRouter>
   );
 }
