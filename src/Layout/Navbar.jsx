@@ -173,7 +173,7 @@ const Navbar = () => {
 
           <Link to="/contact">
             <button
-              className="bg-primaryBlack rounded-[8px] px-[16.5px] py-[7px] text-[#FEFEFE]"
+              className="bg-primaryBlack rounded-[8px] px-[16.5px] pt-[6px] pb-[7px] flex item-center text-center text-[#FEFEFE]"
               aria-label="Contact Page"
             >
               Contact
