@@ -18,11 +18,13 @@ const images = [
 ];
 
 export default function Carousel() {
+  const [slides] = useState([...images, images[0]]); // Initialize with clone once
   const [current, setCurrent] = useState(0);
+  const [transitionEnabled, setTransitionEnabled] = useState(true);
   const timeoutRef = useRef(null);
 
   const nextSlide = () => {
-    setCurrent((prev) => (prev + 1) % images.length);
+    setCurrent((prev) => (prev + 1) % slides.length);
   };
 
   const resetTimeout = () => {
@@ -31,12 +33,32 @@ export default function Carousel() {
 
   useEffect(() => {
     resetTimeout();
-    timeoutRef.current = setTimeout(nextSlide, 8000);
-    return () => resetTimeout();
-  }, [current]);
+
+    if (current === slides.length - 1) {
+      // When we reach the clone, wait for animation to finish
+      timeoutRef.current = setTimeout(() => {
+        // Disable transition and instantly jump to first slide
+        setTransitionEnabled(false);
+        setCurrent(0);
+
+        // Re-enable transition after a small delay
+        setTimeout(() => {
+          setTransitionEnabled(true);
+        }, 50);
+      }, 1000); // Match this with your transition duration
+    } else {
+      // Normal slide transition
+      timeoutRef.current = setTimeout(nextSlide, 4000);
+    }
+
+    return () => {
+      resetTimeout();
+    };
+  }, [current, slides.length]);
 
   const handleDotClick = (index) => {
     resetTimeout();
+    setTransitionEnabled(true);
     setCurrent(index);
   };
 
@@ -44,10 +66,15 @@ export default function Carousel() {
     <div className="relative w-screen h-[100dvh] max-md:h-[40dvh] overflow-hidden">
       {/* Image Slides */}
       <div
-        className="flex transition-transform duration-1000 ease-in-out h-full w-full"
-        style={{ transform: `translateX(-${current * 100}%)` }}
+        className="flex h-full w-full"
+        style={{
+          transform: `translateX(-${current * 100}%)`,
+          transition: transitionEnabled
+            ? "transform 1000ms ease-in-out"
+            : "none",
+        }}
       >
-        {images.map((image, index) => (
+        {slides.map((image, index) => (
           <img
             key={index}
             src={image.src}
@@ -67,7 +94,8 @@ export default function Carousel() {
             <button
               onClick={() => handleDotClick(index)}
               className={`w-4 h-4 rounded-full border-2 transition ${
-                current === index
+                current === index ||
+                (current === slides.length - 1 && index === 0)
                   ? "bg-white border-white scale-110"
                   : "bg-white/30 border-white/60 hover:bg-white/50"
               }`}
@@ -75,7 +103,7 @@ export default function Carousel() {
           </div>
         ))}
       </div>
-      <div className="absolute flex justify-center items-center bottom-10 w-screen">
+      <div className="absolute z-20 flex justify-center items-center bottom-10 w-screen">
         <button className="flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md bg-primaryRed border hover:shadow-xl border-white/20 text-white transition hover:bg-primaryRed hover:scale-105 shadow-md">
           <span>Know More</span>
           <IconChevronRight size={18} />

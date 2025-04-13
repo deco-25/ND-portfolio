@@ -6,6 +6,7 @@ import "@fontsource/poppins"; // Defaults to 400 weight
 import "@fontsource/poppins/400.css"; // Regular
 import "@fontsource/poppins/600.css"; //semibold
 import "@fontsource/poppins/700.css"; // Bold
+import "@fontsource/italiana"; // Defaults to weight 400
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

@@ -9,13 +9,13 @@ const Footer = () => {
       <div className="w-full">
         <div className="flex justify-normal max-md:flex-col max-md:gap-[50px]">
           <div className="flex gap-[50px] w-[60%] max-md:flex-col max-md:w-full max-md:justify-center max-md:items-center">
-            <div>
+            <a href={"/"} className="flex items-center gap-2">
               <img
                 src={LogoWhite}
                 alt="Naalvar Diagnostics Logo"
                 className="min-w-[150px] object-fill"
               />
-            </div>
+            </a>
             <div className="flex flex-col gap-5">
               <h2 className="font-bold text-[32px] max-w-[444px] leading-[110%]">
                 Naalvar Diagnostic Drugs Private Limited

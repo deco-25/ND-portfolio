@@ -49,11 +49,11 @@ const Contact = () => {
                   name="first-name"
                   placeholder=" "
                   required
-                  className="peer w-full border-2 border-gray-300 rounded-lg px-4 pt-6 pb-2 bg-white placeholder-transparent focus:outline-none focus:border-primaryBlue autofill:bg-white"
+                  className="peer w-full border-2 border-gray-300 rounded-lg px-4 pt-6 pb-2 bg-white placeholder-transparent focus:outline-none focus:border-primaryRed autofill:bg-white"
                 />
                 <label
                   htmlFor="first-name"
-                  className="absolute left-3 -top-2 text-sm text-gray-500 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-primaryBlue"
+                  className="absolute left-3 -top-2 text-sm text-gray-500 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-primaryRed"
                 >
                   First Name
                 </label>
@@ -65,11 +65,11 @@ const Contact = () => {
                   name="last-name"
                   placeholder=" "
                   required
-                  className="peer w-full border-2 border-gray-300 rounded-lg px-4 pt-6 pb-2 bg-white placeholder-transparent focus:outline-none focus:border-primaryBlue autofill:bg-white"
+                  className="peer w-full border-2 border-gray-300 rounded-lg px-4 pt-6 pb-2 bg-white placeholder-transparent focus:outline-none focus:border-primaryRed autofill:bg-white"
                 />
                 <label
                   htmlFor="last-name"
-                  className="absolute left-3 -top-2 text-sm text-gray-500 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-primaryBlue"
+                  className="absolute left-3 -top-2 text-sm text-gray-500 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-primaryRed"
                 >
                   Last Name
                 </label>
@@ -83,11 +83,11 @@ const Contact = () => {
                 name="email-address"
                 placeholder=" "
                 required
-                className="peer w-full border-2 border-gray-300 rounded-lg px-4 pt-6 pb-2 bg-white placeholder-transparent focus:outline-none focus:border-primaryBlue autofill:bg-white"
+                className="peer w-full border-2 border-gray-300 rounded-lg px-4 pt-6 pb-2 bg-white placeholder-transparent focus:outline-none focus:border-primaryRed autofill:bg-white"
               />
               <label
                 htmlFor="email-address"
-                className="absolute left-3 -top-2 text-sm text-gray-500 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-primaryBlue"
+                className="absolute left-3 -top-2 text-sm text-gray-500 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-primaryRed"
               >
                 Email Address
               </label>
@@ -100,11 +100,11 @@ const Contact = () => {
                 name="message"
                 placeholder=" "
                 required
-                className="peer w-full border-2 border-gray-300 rounded-lg px-4 pt-6 pb-2 bg-white placeholder-transparent focus:outline-none focus:border-primaryBlue resize-none"
+                className="peer w-full border-2 border-gray-300 rounded-lg px-4 pt-6 pb-2 bg-white placeholder-transparent focus:outline-none focus:border-primaryRed resize-none"
               />
               <label
                 htmlFor="message"
-                className="absolute left-3 -top-2 text-sm text-gray-500 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-primaryBlue"
+                className="absolute left-3 -top-2 text-sm text-gray-500 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-primaryRed"
               >
                 Your Message
               </label>

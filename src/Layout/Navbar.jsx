@@ -11,7 +11,7 @@ const NAV_ITEMS = [
 
 const Navbar = () => {
   const location = useLocation();
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(1); // Default to Home
   const [path, setPath] = useState(location.pathname);
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => setIsOpen(!isOpen);
@@ -43,7 +43,7 @@ const Navbar = () => {
     <header className="absolute w-screen flex flex-col justify-center items-center mx-auto top-[20px] md:top-[1px] z-[100] transition-all duration-200">
       {/* Mobile Navbar */}
       <nav
-        className={`overflow-hidden md:hidden rounded-xl flex flex-col items-center px-[5vw] rounded-3xl transition-all duration-500 ease-in-out ${
+        className={`overflow-hidden md:hidden rounded-xl flex flex-col items-center px-[5vw] transition-all duration-500 ease-in-out ${
           path === "/" || path === "/product"
             ? "bg-white text-primaryRed"
             : "bg-primaryRed text-white"
@@ -121,11 +121,13 @@ const Navbar = () => {
             path === "/" || path === "/product" ? "bg-white" : "bg-primaryRed"
           } items-center py-[2px] justify-between px-[12px] transition-all duration-200 h-fit`}
         >
-          <img
-            src={path === "/" || path === "/product" ? Logo : LogoWhite}
-            alt="Naalvar Logo"
-            className="w-[60px]"
-          />
+          <a href="/">
+            <img
+              src={path === "/" || path === "/product" ? Logo : LogoWhite}
+              alt="Naalvar Logo"
+              className="w-[70px]"
+            />
+          </a>
 
           <nav className="w-full flex justify-center items-center py-3">
             <ul className="flex gap-[64px] transition-all duration-700">
@@ -146,7 +148,7 @@ const Navbar = () => {
                         isActive
                           ? path === "/" || path === "/product"
                             ? "text-[32px] text-black font-semibold"
-                            : "text-[32px] text-black font-semibold"
+                            : "text-[32px] text-white font-semibold"
                           : "text-black"
                       }`}
                     >

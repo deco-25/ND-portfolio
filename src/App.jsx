@@ -16,7 +16,7 @@ import Lenis from "@studio-freight/lenis";
 /************************************************/
 
 export default function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   Aos.init({
     duration: 1000,
     offset: 0,

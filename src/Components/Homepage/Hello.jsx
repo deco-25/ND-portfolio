@@ -11,7 +11,7 @@ const Hello = () => {
   useGSAP(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: "#container",
+        trigger: "#hello-container",
         start: "bottom-=200 bottom",
       },
     });
@@ -38,11 +38,28 @@ const Hello = () => {
     });
     mobile1.from("#bar-m-1", { x: -700, duration: 1 }, 0);
     mobile2.from("#bar-m-2", { x: 700, duration: 1 }, 0);
+
+    gsap.from("#hello-para-1", {
+      y: 50,
+      opacity: 0.5,
+      duration: 0.8,
+      scrollTrigger: {
+        trigger: "#hello-para-1",
+      },
+    });
+    gsap.from("#hello-para-2", {
+      y: 50,
+      opacity: 0.5,
+      duration: 0.8,
+      scrollTrigger: {
+        trigger: "#hello-para-2",
+      },
+    });
   });
 
   return (
     <main
-      id="container"
+      id="hello-container"
       className="min-h-screen w-screen flex flex-col py-20 gap-20 max-md:gap-12 justify-around"
     >
       {/* Section: Who We Are */}
@@ -72,7 +89,7 @@ const Hello = () => {
         <article className="md:w-[50%] max-md:hidden flex flex-col gap-[20px] justify-center max-md:p-10 para">
           <p
             className="text-justify md:max-w-[677px] md:mr-[7.5vw]"
-            data-aos="fade-up"
+            id="hello-para-1"
           >
             Welcome to <strong>NAALVAR DIAGNOSTICS DRUGS</strong>, where
             innovation meets care in every bar of soap. We are a leading
@@ -101,7 +118,7 @@ const Hello = () => {
         <article className="md:w-[50%] md:hidden flex flex-col gap-[20px] justify-center max-md:p-10 para1">
           <p
             className="text-justify md:max-w-[677px] md:mr-[7.5vw]"
-            data-aos="fade-up"
+            id="hello-para-1"
           >
             Welcome to <strong>NAALVAR DIAGNOSTICS DRUGS</strong>, where
             innovation meets care in every bar of soap. We are a leading
@@ -129,8 +146,8 @@ const Hello = () => {
           className="md:w-[50%] para flex flex-col gap-[20px] justify-end max-md:p-[40px]"
         >
           <p
-            className="text-justify md:max-w-[720px] md:pl-[7.5vw]"
-            data-aos="fade-up"
+            className="text-justify md:max-w-[720px] md:pl-[7.5vw] hello-para"
+            id="hello-para-1"
           >
             At <strong>NAALVAR DIAGNOSTICS DRUGS</strong>, our mission is simple
             – to provide high-quality pharmaceutical soaps that improve skin

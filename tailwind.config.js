@@ -20,6 +20,7 @@ export default {
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
+        olivera: ["Olivera", "serif"],
       },
       colors: {
         primaryRed: "#D0363A",

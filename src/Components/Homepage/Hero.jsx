@@ -3,6 +3,9 @@ import { ScrollButton, Soap3, MobileHome, ScrollMore } from "../../assets";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Helmet } from "react-helmet";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 const Hero = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -26,7 +29,7 @@ const Hero = () => {
   }, []);
 
   useGSAP(() => {
-    const tl = gsap.timeline({ delay: 0.5 });
+    const tl = gsap.timeline({ delay: 0.5, ease: "power2.inOut" });
 
     tl.from("#red-strip-1", {
       x: "30vw",
@@ -40,6 +43,14 @@ const Hero = () => {
       0
     );
   }, []);
+
+  const scrollToHelloSection = () => {
+    gsap.to(window, {
+      duration: 1.2,
+      scrollTo: "#hello-container",
+      ease: "power2.inOut",
+    });
+  };
 
   return (
     <>
@@ -84,15 +95,20 @@ const Hero = () => {
           className="absolute h-full top-0 right-0 min-w-[10vw] z-[30] flex justify-center items-center"
           aria-hidden="true"
         >
-          <div className="w-full flex flex-col gap-[20px] overflow-hidden">
+          <div className="w-full flex flex-col overflow-hidden">
             {Array.from({ length: 24 }).map((_, index) => {
               let translateClass = "translate-x-0";
 
               if (hoveredIndex === index) {
-                translateClass = "translate-x-6";
+                translateClass = "translate-x-10";
               } else if (
                 hoveredIndex === index - 1 ||
                 hoveredIndex === index + 1
+              ) {
+                translateClass = "translate-x-6";
+              } else if (
+                hoveredIndex === index - 2 ||
+                hoveredIndex === index + 2
               ) {
                 translateClass = "translate-x-3";
               }
@@ -102,8 +118,12 @@ const Hero = () => {
                   key={index}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  className={`w-full h-[4px] bg-white opacity-90 transform transition-transform duration-300 ease-linear ${translateClass}`}
-                />
+                  className={`w-full h-[24px] flex items-center justify-center opacity-90 ease-linear`}
+                >
+                  <div
+                    className={`w-full h-[4px] bg-white ${translateClass} transform transition-transform duration-500`}
+                  />
+                </div>
               );
             })}
           </div>
@@ -126,8 +146,11 @@ const Hero = () => {
               id="red-strip-2"
               className="min-w-[70%] max-md:min-w-[60%] bg-primaryRed"
             />
-            <div className="min-w-[30%] max-md:min-w-[40%] flex md:px-[10px] items-center bg-white md:justify-end md:px-[7.5vw]">
-              <div className="flex items-center justify-center gap-2">
+            <div className="min-w-[30%] max-md:min-w-[40%] flex md:px-[10px] items-center bg-white md:justify-center md:px-[7.5vw]">
+              <div
+                onClick={scrollToHelloSection}
+                className="flex items-center justify-center gap-2 cursor-pointer"
+              >
                 <img
                   src={ScrollMore}
                   alt="Scroll Down Icon"

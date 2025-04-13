@@ -69,8 +69,8 @@ const Apart = () => {
         </div>
       </div>
       {/* What Sets Us Apart Section */}
-      <div className="relative w-screen min-h-screen flex justify-center items-center max-md:py-[128px] max-md:pb-[250px]">
-        <div className="flex flex-col md:justify-center items-center md:pb-20 gap-[20px] w-full">
+      <div className="relative w-screen min-h-screen flex justify-center items-center max-md:py-[80px] max-md:pb-[250px]">
+        <div className="flex flex-col md:justify-center items-center md:pb-20 gap-[80px] w-full">
           <h2
             id="apart-heading"
             className="text-[64px] text-primaryRed max-md:text-[32px]"
@@ -111,7 +111,7 @@ const Apart = () => {
                 <div
                   className={`absolute top-[100%] left-0 right-0 group-hover:top-0 ${
                     ind % 2 === 0 ? "bg-primaryBlue/90" : "bg-primaryRed/95"
-                  } duration-500 ease-out w-full rounded-[12px] h-full`}
+                  } duration-700 ease-out w-full rounded-[12px] h-full`}
                 >
                   <h4 className="p-2 font-semibold text-white">{item.title}</h4>
                   <p className="px-3 text-white text-sm">{item.desc}</p>
