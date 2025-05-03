@@ -19,14 +19,15 @@ const Apart = () => {
     const strips = gsap.timeline({
       scrollTrigger: {
         trigger: "#apart-div",
-        start: "bottom bottom",
+        start: "top bottom",
+        markers : true
       },
     });
 
     strips
       .from("#red-strip-4", { x: "30vw", duration: 1 }, 0.5)
       .from("#red-strip-3", { x: "-70vw", duration: 1 }, 0.5);
-  });
+  },[]);
 
   const USP = [
     {
@@ -95,7 +96,7 @@ const Apart = () => {
   return (
     <section className="font-poppins overflow-x-hidden" aria-labelledby="apart-heading">
       {/* Top Image + Decorative Strips */}
-      <div className="flex flex-col max-w-screen">
+      <div className="flex flex-col max-w-screen overflow-x-hidden">
         <Carousel />
         <div className="flex justify-center" aria-hidden="true">
           <div className="flex gap-[16px] max-md:gap-[8px]">
