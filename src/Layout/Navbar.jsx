@@ -6,7 +6,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 const NAV_ITEMS = [
   { name: "About", path: "/about" },
   { name: "Home", path: "/" },
-  { name: "Shop", path: "/product" },
+  { name: "Shop", path: "/product/showAll" },
 ];
 
 const Navbar = () => {
