@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Guarantee, Logo, LogoWhite } from "../assets";
 import { Link, useLocation } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { ArrowDown, ChevronDown, ChevronRight } from "lucide-react";
 
 const NAV_ITEMS = [
   { name: "About", path: "/about" },
@@ -15,16 +16,26 @@ const Navbar = () => {
   const [path, setPath] = useState(location.pathname);
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => setIsOpen(!isOpen);
+  const [isProductOpen, setIsProductOpen] = useState(false);
+  const toggleProductDropdown = () => setIsProductOpen((prev) => !prev);
 
   useEffect(() => {
     setPath(location.pathname);
-    const currentIndex = NAV_ITEMS.findIndex(
-      (item) => item.path === location.pathname
-    );
-    if (currentIndex !== -1) setActiveIndex(currentIndex);
+
+    if (
+      location.pathname === "/product" ||
+      location.pathname.startsWith("/product/")
+    ) {
+      setActiveIndex(2); // Shop
+    } else {
+      const currentIndex = NAV_ITEMS.findIndex(
+        (item) => item.path === location.pathname
+      );
+      if (currentIndex !== -1) setActiveIndex(currentIndex);
+    }
   }, [location.pathname]);
 
-  // Rotate the array so active item is always in the middle (index 1)
+  // Adjusted function to rotate items while keeping the active one in the center
   const getRotatedItems = () => {
     const newArr = [...NAV_ITEMS];
     if (activeIndex === 0) {
@@ -34,7 +45,7 @@ const Navbar = () => {
       // Move first item to end
       return [newArr[1], newArr[2], newArr[0]];
     }
-    return newArr; // activeIndex === 1
+    return newArr; // activeIndex === 1 (middle item)
   };
 
   const rotatedItems = getRotatedItems();
@@ -47,15 +58,13 @@ const Navbar = () => {
           path === "/" || path.startsWith("/product/")
             ? "bg-white text-primaryRed"
             : "bg-primaryRed text-white"
-        } w-[90%] ${isOpen ? "py-6 h-[250px]" : "py-2 h-[55px]"}`}
+        } w-[90%] ${isOpen ? "py-6 h-full" : "py-2 h-[55px]"} duration-200 `}
         aria-label="Mobile Navigation"
       >
         {/* Top Bar */}
         <div className="flex justify-between items-center w-full">
           <img
-            src={
-              path === "/" || path.startsWith("/product/") ? Logo : LogoWhite
-            }
+            src={path === "/" || path.startsWith("/product") ? Logo : LogoWhite}
             className="w-[50px]"
             alt="Naalvar Logo"
           />
@@ -92,15 +101,65 @@ const Navbar = () => {
               About
             </Link>
           </li>
-          <li>
-            <Link
-              to="/product"
-              onClick={toggleDropdown}
-              className="hover:text-primaryBlue"
+
+          {/* Products Dropdown */}
+          <li className="relative w-full flex flex-col items-center">
+            <button
+              onClick={toggleProductDropdown}
+              className="hover:text-primaryBlue focus:outline-none flex gap-2"
             >
-              Products
-            </Link>
+              Products{" "}
+              <div
+                className={`${
+                  isProductOpen ? "rotate-[180deg]" : ""
+                } transition-all duration-200`}
+              >
+                <ChevronDown />
+              </div>
+            </button>
+
+            {isProductOpen && (
+              <ul className="flex flex-col gap-2 mt-2 transition-all duration-200 w-[80%] bg-white text-primaryRed  rounded-lg py-2">
+                <li className="text-center">
+                  <Link
+                    to="/product/antibacterial"
+                    onClick={() => {
+                      toggleProductDropdown();
+                      toggleDropdown();
+                    }}
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Antibacterial
+                  </Link>
+                </li>
+                <li className="text-center">
+                  <Link
+                    to="/product/veterinary"
+                    onClick={() => {
+                      toggleProductDropdown();
+                      toggleDropdown();
+                    }}
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Veterinary
+                  </Link>
+                </li>
+                <li className="text-center">
+                  <Link
+                    to="/product/showAll"
+                    onClick={() => {
+                      toggleProductDropdown();
+                      toggleDropdown();
+                    }}
+                    className="block px-4 py-2 hover:bg-gray-100"
+                  >
+                    Show All
+                  </Link>
+                </li>
+              </ul>
+            )}
           </li>
+
           <li>
             <Link
               to="/contact"
@@ -115,7 +174,7 @@ const Navbar = () => {
 
       {/* Desktop Navbar */}
       <nav
-        className="w-[60%] scale-75 max-md:hidden rounded-xl "
+        className="w-[60%] scale-75 max-md:hidden rounded-xl"
         aria-label="Desktop Navigation"
       >
         <div
@@ -127,7 +186,9 @@ const Navbar = () => {
         >
           <a href="/">
             <img
-              src={path === "/" || path === "/product" ? Logo : LogoWhite}
+              src={
+                path === "/" || path.startsWith("/product/") ? Logo : LogoWhite
+              }
               alt="Naalvar Logo"
               className="w-[70px]"
             />
