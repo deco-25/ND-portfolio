@@ -92,7 +92,7 @@ const Hero = () => {
 
         {/* Right Side Hover Strips */}
         <aside
-          className="absolute h-full top-0 right-0 min-w-[10vw] z-[30] flex justify-center items-center"
+          className="absolute h-full top-0 right-0 min-w-[10vw] z-[3000] flex justify-center items-center"
           aria-hidden="true"
         >
           <div className="w-full flex flex-col overflow-hidden">

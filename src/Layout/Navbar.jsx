@@ -44,7 +44,7 @@ const Navbar = () => {
       {/* Mobile Navbar */}
       <nav
         className={`overflow-hidden md:hidden rounded-xl flex flex-col items-center px-[5vw] transition-all duration-500 ease-in-out ${
-          path === "/" || path === "/product"
+          path === "/" || path.startsWith("/product/")
             ? "bg-white text-primaryRed"
             : "bg-primaryRed text-white"
         } w-[90%] ${isOpen ? "py-6 h-[250px]" : "py-2 h-[55px]"}`}
@@ -53,7 +53,9 @@ const Navbar = () => {
         {/* Top Bar */}
         <div className="flex justify-between items-center w-full">
           <img
-            src={path === "/" || path === "/product" ? Logo : LogoWhite}
+            src={
+              path === "/" || path.startsWith("/product/") ? Logo : LogoWhite
+            }
             className="w-[50px]"
             alt="Naalvar Logo"
           />
@@ -113,12 +115,14 @@ const Navbar = () => {
 
       {/* Desktop Navbar */}
       <nav
-        className="w-[60%] scale-75 max-md:hidden rounded-xl overflow-hidden"
+        className="w-[60%] scale-75 max-md:hidden rounded-xl "
         aria-label="Desktop Navigation"
       >
         <div
           className={`flex ${
-            path === "/" || path === "/product" ? "bg-white" : "bg-primaryRed"
+            path === "/" || path.startsWith("/product/")
+              ? "bg-white"
+              : "bg-primaryRed"
           } items-center py-[2px] justify-between px-[12px] transition-all duration-200 h-fit`}
         >
           <a href="/">
@@ -133,40 +137,57 @@ const Navbar = () => {
             <ul className="flex gap-[64px] transition-all duration-700">
               {rotatedItems.map((item, idx) => {
                 const isActive = idx === 1;
+                const isShop = item.name === "Shop";
                 return (
                   <li
                     key={item.path}
-                    className={`transition-all duration-500 ease-in-out relative group ${
+                    className={`relative group transition-all duration-500 ease-in-out ${
                       isActive
                         ? "z-10 scale-125 opacity-100 translate-y-0"
-                        : "opacity-50 scale-100 translate-y-2"
+                        : " scale-100 translate-y-2"
                     }`}
                   >
-                    <Link
-                      to={item.path}
-                      className={`relative text-[20px] transition-all duration-500 ease-in-out ${
-                        isActive
-                          ? path === "/" || path === "/product"
-                            ? "text-[32px] text-black font-semibold"
-                            : "text-[32px] text-white font-semibold"
-                          : "text-black"
-                      }`}
-                    >
-                      <span
-                        className={`inline-flex items-center justify-center h-[40px] transition-all duration-[600ms] ease-in-out ${
-                          isActive ? "opacity-100" : "opacity-100"
+                    <div className="relative z-20">
+                      <Link
+                        to={item.path}
+                        className={`relative text-[20px] transition-all duration-500 ease-in-out ${
+                          isActive
+                            ? path === "/" || path.startsWith("/product/")
+                              ? "text-[32px] text-black font-semibold"
+                              : "text-[32px] text-white font-semibold"
+                            : "text-black"
                         }`}
                       >
-                        {item.name}
-                      </span>
-                      <span
-                        className={`absolute left-0 -bottom-1 h-[2px] transition-all duration-500 ease-in-out
+                        <span className="inline-flex items-center justify-center h-[40px]">
+                          {item.name}
+                        </span>
+                        <span
+                          className={`absolute left-0 -bottom-1 h-[2px] transition-all duration-500 ease-in-out
         ${path === item.path ? "w-full" : "w-0"}
-        ${path === "/" || path === "/product" ? "bg-primaryRed" : "bg-white"}
-        group-hover:w-full
-      `}
-                      />
-                    </Link>
+        ${
+          path === "/" || path.startsWith("/product/")
+            ? "bg-primaryRed"
+            : "bg-white"
+        }
+        group-hover:w-full`}
+                        />
+                      </Link>
+                    </div>
+
+                    {/* Dropdown for Shop */}
+                    {isShop && (
+                      <ul className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[180px] bg-white text-black shadow-xl rounded-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-2 transition-all duration-300 pointer-events-none group-hover:pointer-events-auto z-50">
+                        <li className="px-4 py-2 hover:bg-gray-100">
+                          <Link to="/product/antibacterial">Antibacterial</Link>
+                        </li>
+                        <li className="px-4 py-2 hover:bg-gray-100">
+                          <Link to="/product/veterinary">Veterinary</Link>
+                        </li>
+                        <li className="px-4 py-2 hover:bg-gray-100">
+                          <Link to="/product/showAll">Show All</Link>
+                        </li>
+                      </ul>
+                    )}
                   </li>
                 );
               })}
@@ -186,7 +207,7 @@ const Navbar = () => {
         {/* Bottom Banner */}
         <div
           className={`flex flex-row items-center py-[2px] justify-center gap-[8px] ${
-            path === "/" || path === "/product"
+            path === "/" || path.startsWith("/product/")
               ? "bg-primaryRed"
               : "bg-primaryBlack"
           } text-white transition-all duration-200`}

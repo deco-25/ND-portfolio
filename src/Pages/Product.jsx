@@ -6,6 +6,8 @@ import { cn } from "../lib/utlis";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
+import { useParams } from "react-router-dom";
+import { ProductPage } from "../Data";
 
 // Register GSAP plugin once globally
 gsap.registerPlugin(ScrollTrigger);
@@ -13,6 +15,8 @@ gsap.registerPlugin(ScrollTrigger);
 const Shop = () => {
   const [bgImage, setBgImage] = useState(Soap2);
   const [hovering, setHovering] = useState(false);
+  const { id } = useParams();
+  const [soapType, setSoapType] = useState(0);
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
@@ -22,13 +26,21 @@ const Shop = () => {
       }
     };
 
+    if (id === "antibacterial") {
+      setSoapType(0);
+    } else if (id === "veterinary") {
+      setSoapType(1);
+    } else {
+      setSoapType(2); // Default case
+    }
+
     // Run on mount
     handleResize();
 
     // Listen for resize
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [id]);
 
   useGSAP(() => {
     const tl = gsap.timeline({ delay: 0.5 });
@@ -60,10 +72,10 @@ const Shop = () => {
         className="w-screen relative px-[50px] h-[100dvh] flex flex-col gap-6 max-md:justify-end max-md:items-end items-center justify-center bg-cover text-white"
       >
         <h1 className="font-bold text-5xl text-shadow-xl max-md:text-4xl">
-          Antibacterial Soaps
+          {ProductPage[soapType].title}
         </h1>
         <h2 className="text-xl md:mb-72 text-shadow-xl mb-[15dvh] max-md:text-lg">
-          Luxurious, Handcrafted Soaps for Every Skin Type
+          {ProductPage[soapType].subtitle}
         </h2>
 
         <div className="absolute bottom-0 left-0 right-0 min-h-[10dvh] max-md:min-h-[15dvh] w-screen z-[20]">
@@ -93,35 +105,21 @@ const Shop = () => {
 
       <div className="md:px-[7.5vw] px-[20px] md:py-20 py-10">
         <p className="text-lg text-justify max-md:text-sm" data-aos="fade-up">
-          We offer a wide range of pharmaceutical soaps designed for various
-          skin types and concerns. From antibacterial and anti-fungal soaps to
-          soaps enriched with natural oils for moisturizing and soothing
-          properties, we have something for everyone. Our products are ideal for
-          use in homes, hospitals, clinics, and other healthcare settings.
+          {ProductPage[soapType].description}
         </p>
 
         <div
           id="product-section"
           className="md:space-y-20 md:py-10 md:mb-20 space-y-10 mt-10"
         >
-          <ProductSection
-            productName="Antibacterial Soaps 1"
-            productImage={Soap2}
-            imageAlignment="right"
-            productDesc="Fight off harmful bacteria and keep your skin clean and safe with our antibacterial soap line. Perfect for daily hygiene, especially in environments where cleanliness is critical."
-          />
-          <ProductSection
-            productName="Antibacterial Soaps 2"
-            productImage={Soap3}
-            imageAlignment="left"
-            productDesc="Enriched with powerful antibacterial agents and skin-soothing ingredients, this soap provides protection without drying your skin. Ideal for frequent hand washers."
-          />
-          <ProductSection
-            productName="Antibacterial Soaps 3"
-            productImage={Soap2}
-            imageAlignment="right"
-            productDesc="Gentle on skin, tough on germs. Our soap is dermatologically tested and designed for sensitive skin while ensuring maximum hygiene."
-          />
+          {ProductPage[soapType].soaps.map((ele, ind) => (
+            <ProductSection
+              productName={ele.soapName}
+              productImage={ele.soapPicture}
+              imageAlignment={ele.soapAlignment}
+              productDesc={ele.soapDescription}
+            />
+          ))}
         </div>
       </div>
     </div>

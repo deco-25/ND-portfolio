@@ -136,7 +136,7 @@ const Testimonials = () => {
       {/* Slider with Fade Overlays */}
       <div className="w-full flex justify-center relative">
         {/* Left fade overlay */}
-        <div className="absolute left-5 top-0 h-full w-28 z-20 bg-gradient-to-r from-white via-white to-transparent pointer-events-none"></div>
+        <div className="absolute left-5 top-0 h-full w-20 z-20 bg-gradient-to-r from-white via-white to-transparent pointer-events-none"></div>
 
         <Slider ref={sliderRef} {...settings} className="w-[90%]">
           {DUMMY_DATA.map((ele, ind) => (
@@ -145,7 +145,7 @@ const Testimonials = () => {
               className="bg-white p-[20px]"
               aria-label={`Testimonial from ${ele.name}`}
             >
-              <div className="bg-[#C2C2BA] min-h-[225px] p-[20px] flex flex-col gap-[20px] rounded-[24px] h-full">
+              <div className="bg-slate-200 min-h-[225px] p-[20px] flex flex-col gap-[20px] rounded-[24px] h-full">
                 <header className="flex gap-[8px] items-center">
                   <div className="bg-primaryBlack rounded-full p-2 text-white">
                     <BsPerson size={32} />
@@ -166,7 +166,7 @@ const Testimonials = () => {
         </Slider>
 
         {/* Right fade overlay */}
-        <div className="absolute right-5 top-0 h-full w-28 z-20 bg-gradient-to-l from-white via-white to-transparent pointer-events-none"></div>
+        <div className="absolute right-5 top-0 h-full w-20 z-20 bg-gradient-to-l from-white via-white to-transparent pointer-events-none"></div>
       </div>
     </section>
   );
