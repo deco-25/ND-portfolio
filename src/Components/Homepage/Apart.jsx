@@ -20,7 +20,6 @@ const Apart = () => {
       scrollTrigger: {
         trigger: "#apart-div",
         start: "top bottom",
-        markers : true
       },
     });
 
@@ -98,8 +97,8 @@ const Apart = () => {
       {/* Top Image + Decorative Strips */}
       <div className="flex flex-col max-w-screen overflow-x-hidden">
         <Carousel />
-        <div className="flex justify-center" aria-hidden="true">
-          <div className="flex gap-[16px] max-md:gap-[8px]">
+        <div className="flex justify-center max-w-screen" aria-hidden="true">
+          <div className="flex gap-[16px] max-w-screen max-md:gap-[8px]">
             {[...Array(20)].map((_, i) => (
               <div key={i} className="flex gap-[16px] max-md:gap-[8px]">
                 {[94, 78, 78, 78, 78, 78, 78].map((h, idx) => (
