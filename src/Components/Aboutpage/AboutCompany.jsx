@@ -27,7 +27,7 @@ const AboutCompany = () => {
         <h2 id="about-heading" className="sr-only">
           About Naalvar Diagnostics Drugs
         </h2>
-        <p data-aos="fade-up">
+        <p data-aos-once="true" data-aos="fade-up">
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{" "}
           <strong>NAALVAR DIAGNOSTICS DRUGS</strong> was established in 2021,
           under the leadership of a qualified pharmacist with over 20 years of

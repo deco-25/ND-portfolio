@@ -9,6 +9,7 @@ const Quality = () => {
       {/* Text Section */}
       <div
         data-aos="fade-up"
+        data-aos-once="true"
         className="w-[50%] max-md:w-full leading-[150%] flex flex-col justify-center gap-[20px] max-md:py-5"
       >
         <p className="text-justify">

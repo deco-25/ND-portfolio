@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Soap2 } from "../../assets";
 import { TreeDeciduous } from "lucide-react";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
 import Carousel from "./Carousel";
+import Slider from "react-slick";
 
 const Apart = () => {
   gsap.registerPlugin(ScrollTrigger);
+
+  const sliderRef = useRef(null);
+  const autoplayTimeoutRef = useRef(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const autoplaySpeed = 4000;
 
   useGSAP(() => {
     const strips = gsap.timeline({
@@ -45,8 +51,49 @@ const Apart = () => {
     },
   ];
 
+  const settings = {
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: autoplaySpeed,
+    pauseOnHover: true,
+    pauseOnFocus: true,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: '10px',
+          adaptiveHeight: true,
+          variableWidth: false,
+          swipeToSlide: true,
+        },
+      },
+    ],
+    beforeChange: (current, next) => {
+      setCurrentSlide(next);
+    },
+  };
+
+  const handlePrev = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickPrev();
+    }
+  };
+
+  const handleNext = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
+    }
+  };
+
   return (
-    <section className="font-poppins" aria-labelledby="apart-heading">
+    <section className="font-poppins overflow-x-hidden" aria-labelledby="apart-heading">
       {/* Top Image + Decorative Strips */}
       <div className="flex flex-col max-w-screen">
         <Carousel />
@@ -69,8 +116,8 @@ const Apart = () => {
         </div>
       </div>
       {/* What Sets Us Apart Section */}
-      <div className="relative w-screen min-h-screen flex justify-center items-center max-md:py-[80px] max-md:pb-[250px]">
-        <div className="flex flex-col md:justify-center items-center md:pb-20 gap-[80px] w-full">
+      <div className="relative w-screen md:min-h-screen flex justify-center items-center max-md:py-[80px] max-md:pb-[200px]">
+        <div className="flex flex-col md:justify-center items-center md:pb-20 gap-16 md:gap-[80px] w-full">
           <h2
             id="apart-heading"
             className="text-[64px] text-primaryRed max-md:text-[32px]"
@@ -78,9 +125,10 @@ const Apart = () => {
             What Sets Us Apart
           </h2>
 
+          {/* desktop */}
           <div
             id="apart-div"
-            className="flex max-md:flex-col justify-around w-screen max-md:items-center max-md:gap-3 px-4"
+            className="hidden md:flex max-md:flex-col justify-around w-screen max-md:items-center max-md:gap-3 px-4"
           >
             {USP.map((item, ind) => (
               <article
@@ -118,6 +166,64 @@ const Apart = () => {
                 </div>
               </article>
             ))}
+          </div>
+          
+          {/* Mobile slider with navigation controls */}
+          <div className="md:hidden w-full flex justify-center items-center relative">
+            <div className="relative w-[90%] mx-auto px-4">
+            <div className="absolute left-0 top-0 h-full w-8 z-10 bg-gradient-to-r from-white via-white to-transparent pointer-events-none"></div>
+              <Slider ref={sliderRef} {...settings} className="w-full">
+                {USP.map((item, ind) => (
+                  <div key={ind} className="px-3 py-2">
+                    <article
+                      className="flex flex-col items-start gap-4 bg-white rounded-xl shadow-md md:shadow-xl p-4 animate-floatSlow h-full"
+                      style={{ animationDelay: `${ind * 0.5}s` }}
+                      aria-label={item.title}
+                    >
+                      {/* Left: Icon + Title */}
+                      <div className="flex flex-col gap-2 flex-[1] min-w-0">
+                        <div className={`p-3 rounded-md w-fit ${ind % 2 === 0 ? "bg-primaryBlue" : "bg-primaryRed"}`}>
+                          <TreeDeciduous size={24} className="text-white" />
+                        </div>
+                        <h3 className="text-sm font-semibold">{item.title}</h3>
+                        <div className="h-[2px] w-[40px] bg-primaryBlue" />
+                      </div>
+
+                      {/* Right: Description */}
+                      <div className={`flex-[2] mt-2 min-w-0 rounded-md p-3 text-white w-full ${ind % 2 === 0 ? "bg-primaryBlue/90" : "bg-primaryRed/95"}`}>
+                        <h4 className="text-sm font-semibold">{item.title}</h4>
+                        <p className="text-xs">{item.desc}</p>
+                      </div>
+                    </article>
+                  </div>
+                ))}
+              </Slider>
+              <div className="absolute right-0 top-0 h-full w-8 z-10 bg-gradient-to-l from-white via-white to-transparent pointer-events-none"></div>
+            </div>
+            
+            {/* Navigation buttons */}
+            <div className="flex justify-between w-full absolute top-1/2 -translate-y-1/2 px-2 z-20">
+              <button 
+                onClick={handlePrev} 
+                className="bg-white w-8 h-8 rounded-full shadow-md flex items-center justify-center"
+                aria-label="Previous slide"
+              >
+                <span className="sr-only">Previous</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+              <button 
+                onClick={handleNext} 
+                className="bg-white w-8 h-8 rounded-full shadow-md flex items-center justify-center"
+                aria-label="Next slide"
+              >
+                <span className="sr-only">Next</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 6L15 12L9 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
 

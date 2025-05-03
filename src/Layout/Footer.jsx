@@ -55,47 +55,6 @@ const Footer = () => {
               </ul>
             </nav>
 
-            <div
-              className="flex space-x-16 text-2xl max-md:justify-around max-md:w-full"
-              aria-label="Social media links"
-            >
-              <a
-                href="https://wa.me/yourphonenumber"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white duration-500"
-                aria-label="WhatsApp"
-              >
-                <FaWhatsapp />
-              </a>
-              <a
-                href="https://www.facebook.com/yourprofile"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white duration-500"
-                aria-label="Facebook"
-              >
-                <FaFacebook />
-              </a>
-              <a
-                href="https://twitter.com/yourprofile"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white duration-500"
-                aria-label="Twitter"
-              >
-                <FaTwitter />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/yourprofile"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white duration-500"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedin />
-              </a>
-            </div>
 
             <address className="flex gap-[18px] not-italic text-[14px] leading-[150%]">
               <div>
@@ -105,8 +64,7 @@ const Footer = () => {
               </div>
               <div>
                 <strong>Mobile</strong>
-                <p>99999 99999</p>
-                <p>88888 88888</p>
+                <p>+91 9443309034</p>
               </div>
             </address>
           </div>

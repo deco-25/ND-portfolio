@@ -46,7 +46,7 @@ const AboutFounder = () => {
         />
 
         {/* Paragraph */}
-        <p className="text-justify max-w-3xl" data-aos="fade-up">
+        <p className="text-justify max-w-3xl" data-aos-once="true" data-aos="fade-up">
           The founder of <strong>NAALVAR DIAGNOSTICS DRUGS</strong>,{" "}
           <strong>Dr. K. Koumaravelou</strong>, holds a distinguished academic
           background, including a Bachelor of Pharmacy (BPharm), a Master of

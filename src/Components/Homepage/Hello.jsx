@@ -37,7 +37,7 @@ const Hello = () => {
       },
     });
     mobile1.from("#bar-m-1", { x: -700, duration: 1 }, 0);
-    mobile2.from("#bar-m-2", { x: 700, duration: 1 }, 0);
+    mobile2.from("#bar-m-2", { x: -700, duration: 1 }, 0);
 
     gsap.from("#hello-para-1", {
       y: 50,

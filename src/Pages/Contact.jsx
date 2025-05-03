@@ -30,6 +30,7 @@ const Contact = () => {
           <p
             className="font-[500] text-justify max-md:text-sm"
             data-aos="fade-up"
+            data-aos-once="true"
           >
             Have questions or want to learn more about our handcrafted soap
             products? Our friendly and knowledgeable customer service team is

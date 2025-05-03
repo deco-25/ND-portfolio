@@ -83,6 +83,7 @@ const Licensed = () => {
         <p
           className="max-md:px-[10px] text-[14px] max-md:text-[14px] leading-relaxed"
           data-aos="fade-up"
+          data-aos-once="true"
         >
           Our facility is officially licensed to manufacture medicated toiletry
           soaps. Approved by the Central Drugs Standard Control Organization

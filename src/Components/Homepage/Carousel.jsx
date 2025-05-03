@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Soap1, Soap2, Soap3 } from "../../assets";
 import { IconChevronRight } from "@tabler/icons-react";
+import { Link } from "react-router-dom";
 
 const images = [
   {
@@ -104,10 +105,10 @@ export default function Carousel() {
         ))}
       </div>
       <div className="absolute z-20 flex justify-center items-center bottom-10 w-screen">
-        <button className="flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md bg-primaryRed border hover:shadow-xl border-white/20 text-white transition hover:bg-primaryRed hover:scale-105 shadow-md">
+        <Link to={'/product/showAll'} className="flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md bg-primaryRed border hover:shadow-xl border-white/20 text-white transition hover:bg-primaryRed hover:scale-105 shadow-md">
           <span>Know More</span>
           <IconChevronRight size={18} />
-        </button>
+        </Link>
       </div>
       {/* Optional dark overlay */}
       <div className="absolute inset-0 bg-black/30 z-10 pointer-events-none" />

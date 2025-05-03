@@ -6,22 +6,24 @@ import Product from "./Pages/Product";
 import Contact from "./Pages/Contact";
 import ScrollToTop from "./Layout/ScrollToTop";
 import { useEffect, useState } from "react";
-import { IntroVideo } from "./assets";
+import { IMAGE_ASSETS } from "./Data/assets"; // import images
+import preloadAssets from "./utils/preloadAssets";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import Lenis from "@studio-freight/lenis";
-
-/************************************************/
-/* Route for the entire website */
-/************************************************/
+import IntroVideo from './assets/Video/Intro.mp4'
 
 export default function App() {
-  const [loading, setLoading] = useState(false);
-  Aos.init({
-    duration: 1000,
-    offset: 0,
-  });
+  const [loading, setLoading] = useState(true);
+  const [videoEnded, setVideoEnded] = useState(false);
+  const [assetsLoaded, setAssetsLoaded] = useState(false);
+
   useEffect(() => {
+    Aos.init({
+      duration: 1000,
+      offset: 0,
+    });
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -36,22 +38,33 @@ export default function App() {
 
     requestAnimationFrame(raf);
 
-    return () => {
-      lenis.destroy();
-    };
+    return () => lenis.destroy();
   }, []);
+
+  useEffect(() => {
+    preloadAssets(IMAGE_ASSETS).then(() =>
+      setAssetsLoaded(true)
+    );
+  }, []);
+
+  useEffect(() => {
+    if (videoEnded && assetsLoaded) {
+      setTimeout(() => setLoading(false), 500); // optional delay for polish
+    }
+  }, [videoEnded, assetsLoaded]);
+
   return (
     <BrowserRouter>
       <ScrollToTop />
       {loading ? (
-        <div className="bg-white  flex justify-center items-center">
+        <div className="bg-white flex justify-center items-center">
           <video
             src={IntroVideo}
             autoPlay
             muted
             playsInline
-            onEnded={() => setLoading(false)} // optional if you want to hide video after playing
-            className="w-full  h-screen object-fit"
+            onEnded={() => setVideoEnded(true)}
+            className="w-full h-screen object-fit"
           />
         </div>
       ) : (

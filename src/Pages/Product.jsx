@@ -69,12 +69,12 @@ const Shop = () => {
           height: "100dvh",
           width: "100%",
         }}
-        className="w-screen relative px-[50px] h-[100dvh] flex flex-col gap-6 max-md:justify-end max-md:items-end items-center justify-center bg-cover text-white"
+        className="w-screen relative px-[50px] h-[100dvh] flex flex-col gap-6 max-md:justify-end max-md:items-start  items-center justify-center bg-cover text-white"
       >
         <h1 className="font-bold text-5xl text-shadow-xl max-md:text-4xl">
           {ProductPage[soapType].title}
         </h1>
-        <h2 className="text-xl md:mb-72 text-shadow-xl mb-[15dvh] max-md:text-lg">
+        <h2 className="text-xl md:mb-72 text-shadow-xl mb-[19dvh] max-md:text-lg">
           {ProductPage[soapType].subtitle}
         </h2>
 
@@ -91,7 +91,7 @@ const Shop = () => {
               id="prod-strip-2"
               className="min-w-[70%] max-md:min-w-[60%] bg-primaryRed"
             />
-            <div className="min-w-[30%] max-md:min-w-[40%] flex items-center justify-end md:px-[7.5vw] px-2">
+            <div className="min-w-[30%] max-md:min-w-[40%] flex items-center justify-center md:px-[7.5vw] px-2">
               <div className="flex items-center">
                 <img src={ScrollMore} alt="Scroll down" className="w-[30px]" />
                 <h1 className="text-[16px] max-md:text-xs text-black ml-2">
@@ -104,7 +104,7 @@ const Shop = () => {
       </main>
 
       <div className="md:px-[7.5vw] px-[20px] md:py-20 py-10">
-        <p className="text-lg text-justify max-md:text-sm" data-aos="fade-up">
+        <p className="text-lg text-justify max-md:text-sm" data-aos-once="true" data-aos="fade-up">
           {ProductPage[soapType].description}
         </p>
 
@@ -138,7 +138,7 @@ const ProductSection = ({
     <div className="flex gap-20 max-md:flex-col max-md:gap-10">
       <div className="flex-1 mt-10 md:max-w-[50%] md:min-w-[50%]">
         <h2 className="text-3xl font-bold max-md:text-2xl">{productName}</h2>
-        <p className="mt-3 text-justify max-md:text-sm" data-aos="fade-up">
+        <p className="mt-3 text-justify max-md:text-sm" data-aos-once="true" data-aos="fade-up">
           {productDesc}
         </p>
       </div>
@@ -161,7 +161,7 @@ const ProductSection = ({
       </Lens>
       <div className="flex-1 mt-10 min-w-[50%]">
         <h2 className="text-3xl font-bold max-md:text-2xl">{productName}</h2>
-        <p className="mt-3 text-justify max-md:text-sm" data-aos="fade-up">
+        <p className="mt-3 text-justify max-md:text-sm" data-aos-once="true" data-aos="fade-up">
           {productDesc}
         </p>
       </div>

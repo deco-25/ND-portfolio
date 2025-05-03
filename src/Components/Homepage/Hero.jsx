@@ -146,10 +146,10 @@ const Hero = () => {
               id="red-strip-2"
               className="min-w-[70%] max-md:min-w-[60%] bg-primaryRed"
             />
-            <div className="min-w-[30%] max-md:min-w-[40%] flex md:px-[10px] items-center bg-white md:justify-center md:px-[7.5vw]">
+           <div className="min-w-[40%] flex items-center justify-center bg-white mx-auto md:min-w-[30%] md:px-[7.5vw]">
               <div
                 onClick={scrollToHelloSection}
-                className="flex items-center justify-center gap-2 cursor-pointer"
+                className="flex items-center justify-center gap-2 cursor-pointer max-w-fit"
               >
                 <img
                   src={ScrollMore}
