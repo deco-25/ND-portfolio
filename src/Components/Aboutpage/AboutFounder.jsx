@@ -25,14 +25,14 @@ const AboutFounder = () => {
   return (
     <section
       id="founder-div"
-      className="flex w-screen px-[7.5vw] max-md:flex-col font-poppins py-32 max-md:20"
+      className="flex w-screen md:gap-20 md:items-center lg:items-start lg:gap-60 px-[7.5vw] max-md:flex-col font-poppins py-32 max-md:20"
       aria-labelledby="founder-heading"
     >
       {/* Text Content */}
       <article className="w-[50%] max-md:w-full flex flex-col justify-center gap-[20px] max-md:items-center">
         <h2
           id="founder-heading"
-          className="text-[64px] max-md:text-[40px] font-bold text-primaryRed"
+          className="text-[64px]  max-md:text-[40px] font-bold text-primaryRed"
         >
           About Founder
         </h2>
@@ -42,7 +42,7 @@ const AboutFounder = () => {
           id="founder-img"
           src={Founder}
           alt="Portrait of Dr. K. Koumaravelou, founder of Naalvar Diagnostics Drugs"
-          className="md:hidden max-md:w-[200px]"
+          className="md:hidden max-md:w-[200px] rounded-full"
         />
 
         {/* Paragraph */}
@@ -62,11 +62,13 @@ const AboutFounder = () => {
       </article>
 
       {/* Desktop Image */}
-      <div className="flex justify-end items-center w-[50%] max-md:hidden">
+      <div className="flex relative justify-end items-center max-h-fit max-md:hidden">
         <img
           src={Founder}
           alt="Portrait of Dr. K. Koumaravelou, founder of Naalvar Diagnostics Drugs"
+          className="rounded-full relative z-10 w-[280px]"
         />
+        <div className="absolute z-5 w-full h-full rounded-full bg-primaryRed -left-3 top-1"/>
       </div>
     </section>
   );

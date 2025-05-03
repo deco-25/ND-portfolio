@@ -1,5 +1,5 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { BsPerson } from "react-icons/bs";
 import Slider from "react-slick";
 import { Helmet } from "react-helmet";
@@ -47,16 +47,18 @@ const DUMMY_DATA = [
 
 const Testimonials = () => {
   const sliderRef = useRef(null);
-  const [pauseAutoplay, setPauseAutoplay] = useState(false);
-
+  const autoplayTimeoutRef = useRef(null);
+  // Instead of controlling autoplay directly in the settings, we'll manage it manually
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const autoplaySpeed = 4000; // Keep this in sync with settings
+  
   const settings = {
     dots: false,
     infinite: true,
     speed: 1000,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: !pauseAutoplay,
-    autoplaySpeed: 4000,
+    autoplay: false, // We'll control this manually
     pauseOnHover: true,
     pauseOnFocus: true,
     responsive: [
@@ -67,30 +69,60 @@ const Testimonials = () => {
         },
       },
     ],
-    beforeChange: () => {
-      // Optional: if you want to do something before slide changes
+    beforeChange: (current, next) => {
+      setCurrentSlide(next);
     },
-    afterChange: () => {
-      // Optional: if you want to do something after slide changes
+    afterChange: (current) => {
+      setCurrentSlide(current);
     },
   };
 
-  const handlePrev = () => {
-    // Temporarily pause autoplay when manual navigation is used
-    setPauseAutoplay(true);
-    sliderRef.current?.slickPrev();
+  // Function to handle advancing to the next slide
+  const advanceSlide = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
+    }
+  };
 
-    // Resume autoplay after a short delay
-    setTimeout(() => setPauseAutoplay(false), 3000);
+  // Setup and reset autoplay
+  const setupAutoplay = () => {
+    // Clear any existing timeout
+    if (autoplayTimeoutRef.current) {
+      clearTimeout(autoplayTimeoutRef.current);
+    }
+    
+    // Set new timeout
+    autoplayTimeoutRef.current = setTimeout(() => {
+      advanceSlide();
+    }, autoplaySpeed);
+  };
+
+  // Setup autoplay on mount and when current slide changes
+  useEffect(() => {
+    setupAutoplay();
+    
+    // Cleanup on unmount
+    return () => {
+      if (autoplayTimeoutRef.current) {
+        clearTimeout(autoplayTimeoutRef.current);
+      }
+    };
+  }, [currentSlide]);
+
+  const handlePrev = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickPrev();
+      // The useEffect will handle resetting the autoplay timer
+      // since the currentSlide state will update
+    }
   };
 
   const handleNext = () => {
-    // Temporarily pause autoplay when manual navigation is used
-    setPauseAutoplay(true);
-    sliderRef.current?.slickNext();
-
-    // Resume autoplay after a short delay
-    setTimeout(() => setPauseAutoplay(false), 3000);
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
+      // The useEffect will handle resetting the autoplay timer
+      // since the currentSlide state will update
+    }
   };
 
   return (
@@ -136,7 +168,11 @@ const Testimonials = () => {
       {/* Slider with Fade Overlays */}
       <div className="w-full flex justify-center relative">
         {/* Left fade overlay */}
+<<<<<<< HEAD
         <div className="absolute left-5 top-0 h-full w-20 z-20 bg-gradient-to-r from-white via-white to-transparent pointer-events-none"></div>
+=======
+        <div className="absolute left-0 md:left-5 top-0 h-full w-10 md:w-28 z-20 bg-gradient-to-r from-white via-white to-transparent pointer-events-none"></div>
+>>>>>>> 69e2a0e4293c195ab4bc19f106a1792a12cee479
 
         <Slider ref={sliderRef} {...settings} className="w-[90%]">
           {DUMMY_DATA.map((ele, ind) => (
@@ -145,7 +181,11 @@ const Testimonials = () => {
               className="bg-white p-[20px]"
               aria-label={`Testimonial from ${ele.name}`}
             >
+<<<<<<< HEAD
               <div className="bg-slate-200 min-h-[225px] p-[20px] flex flex-col gap-[20px] rounded-[24px] h-full">
+=======
+              <div className="bg-[#C2C2BA] min-h-[250px] md:min-h-[225px] p-[20px] flex flex-col gap-[20px] rounded-[24px] h-full">
+>>>>>>> 69e2a0e4293c195ab4bc19f106a1792a12cee479
                 <header className="flex gap-[8px] items-center">
                   <div className="bg-primaryBlack rounded-full p-2 text-white">
                     <BsPerson size={32} />
@@ -166,7 +206,11 @@ const Testimonials = () => {
         </Slider>
 
         {/* Right fade overlay */}
+<<<<<<< HEAD
         <div className="absolute right-5 top-0 h-full w-20 z-20 bg-gradient-to-l from-white via-white to-transparent pointer-events-none"></div>
+=======
+        <div className="absolute right-0 md:right-5 top-0 h-full w-10 md:w-28 z-20 bg-gradient-to-l from-white via-white to-transparent pointer-events-none"></div>
+>>>>>>> 69e2a0e4293c195ab4bc19f106a1792a12cee479
       </div>
     </section>
   );

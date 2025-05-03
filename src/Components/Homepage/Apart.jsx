@@ -48,7 +48,7 @@ const Apart = () => {
   return (
     <section className="font-poppins" aria-labelledby="apart-heading">
       {/* Top Image + Decorative Strips */}
-      <div className="flex flex-col">
+      <div className="flex flex-col max-w-screen">
         <Carousel />
         <div className="flex justify-center" aria-hidden="true">
           <div className="flex gap-[16px] max-md:gap-[8px]">

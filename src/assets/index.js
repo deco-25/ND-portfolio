@@ -3,7 +3,7 @@ import Logo from "./Img/NDlogo.png";
 import Soap1 from "./Img/keto.pdf.jpg";
 import Soap3 from "./Img/keto3.pdf.jpg";
 import Soap2 from "./Img/keto2.pdf.jpg";
-import Founder from "./Img/founder.png";
+import Founder from "./Img/founder.jpg";
 import LogoWhite from "./Img/logoWhite.png";
 import Whatsapp from "./Img/whatsappImg.png";
 import MobileHome from "./Img/mobHome.jpg";
