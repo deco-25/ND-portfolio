@@ -177,7 +177,7 @@ const Testimonials = () => {
               className="bg-white p-[20px]"
               aria-label={`Testimonial from ${ele.name}`}
             >
-              <div className="bg-[#C2C2BA] min-h-[250px] md:min-h-[225px] p-[20px] flex flex-col gap-[20px] rounded-[24px] h-full">
+              <div className="bg-[#C2C2BA] min-h-[220px] md:min-h-[225px] p-[20px]  flex flex-col gap-[20px] rounded-[24px] h-full">
                 <header className="flex gap-[8px] items-center">
                   <div className="bg-primaryBlack rounded-full p-2 text-white">
                     <BsPerson size={32} />
@@ -189,7 +189,7 @@ const Testimonials = () => {
                     </p>
                   </div>
                 </header>
-                <blockquote className="max-w-[340px] text-justify leading-[26px]">
+                <blockquote className="max-w-[340px] max-md:text-sm text-justify leading-[26px]">
                   <p>"{ele.comment}"</p>
                 </blockquote>
               </div>
