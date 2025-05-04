@@ -89,7 +89,7 @@ const Apart = () => {
     autoplaySpeed: autoplaySpeed,
     pauseOnHover: true,
     pauseOnFocus: true,
-    arrows: false,
+    arrows: true,
     responsive: [
       {
         breakpoint: 768,
@@ -201,13 +201,13 @@ const Apart = () => {
           
           {/* Mobile slider with navigation controls */}
           <div className="md:hidden w-full flex justify-center items-center relative">
-            <div className="relative w-[90%] mx-auto px-4">
+            <div className="relative w-[90%] mx-auto px-2">
             <div className="absolute left-0 top-0 h-full w-8 z-10 bg-gradient-to-r from-white via-white to-transparent pointer-events-none"></div>
               <Slider ref={sliderRef} {...settings} className="w-full">
                 {USP.map((item, ind) => (
                   <div key={ind} className="px-3 py-2">
                     <article
-                      className="flex flex-col items-start gap-4 bg-white rounded-xl shadow-md md:shadow-xl p-4 animate-floatSlow h-full"
+                      className="flex flex-col items-start gap-2 min-h-[270px] bg-white rounded-xl border-t shadow-md md:shadow-xl p-4 animate-floatSlow h-full"
                       style={{ animationDelay: `${ind * 0.5}s` }}
                       aria-label={item.title}
                     >
@@ -221,7 +221,7 @@ const Apart = () => {
                       </div>
 
                       {/* Right: Description */}
-                      <div className={`flex-[2] mt-2 min-w-0 rounded-md p-3 text-white w-full ${ind % 2 === 0 ? "bg-primaryBlue/90" : "bg-primaryRed/95"}`}>
+                      <div className={`flex-[2] min-w-0 rounded-md p-3 text-white w-full ${ind % 2 === 0 ? "bg-primaryBlue/90" : "bg-primaryRed/95"}`}>
                         <h4 className="text-sm font-semibold">{item.title}</h4>
                         <p className="text-xs">{item.desc}</p>
                       </div>
