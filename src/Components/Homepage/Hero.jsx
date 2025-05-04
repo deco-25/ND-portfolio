@@ -131,7 +131,7 @@ const Hero = () => {
 
         {/* Bottom Strips with Scroll Prompt */}
         <div
-          className="absolute bottom-0 left-0 right-0 min-h-[10vh] max-md:min-h-[15vh] w-screen z-[20]"
+          className="absolute bottom-0 left-0 right-0 overflow-hidden min-h-[10vh] max-md:min-h-[15vh] w-screen z-[20]"
           aria-hidden="true"
         >
           <div className="w-full min-h-[5vh] max-h-[5vh] max-md:max-h-[7.5vh] max-md:min-h-[7.5vh] flex">
