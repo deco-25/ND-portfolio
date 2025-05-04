@@ -28,6 +28,35 @@ const Apart = () => {
       .from("#red-strip-3", { x: "-70vw", duration: 1 }, 0.5);
   },[]);
 
+  // Reset autoplay function
+  const resetAutoplay = () => {
+    if (sliderRef.current) {
+      // Clear any existing timeout
+      if (autoplayTimeoutRef.current) {
+        clearTimeout(autoplayTimeoutRef.current);
+      }
+      
+      // Pause autoplay
+      sliderRef.current.slickPause();
+      
+      // Set a new timeout to resume autoplay
+      autoplayTimeoutRef.current = setTimeout(() => {
+        if (sliderRef.current) {
+          sliderRef.current.slickPlay();
+        }
+      }, 10); // Small delay before resuming autoplay
+    }
+  };
+
+  // Clean up timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (autoplayTimeoutRef.current) {
+        clearTimeout(autoplayTimeoutRef.current);
+      }
+    };
+  }, []);
+
   const USP = [
     {
       title: "Pharmaceutical Grade Formulas",
@@ -83,22 +112,24 @@ const Apart = () => {
   const handlePrev = () => {
     if (sliderRef.current) {
       sliderRef.current.slickPrev();
+      resetAutoplay();
     }
   };
 
   const handleNext = () => {
     if (sliderRef.current) {
       sliderRef.current.slickNext();
+      resetAutoplay();
     }
   };
 
   return (
-    <section className="font-poppins overflow-x-hidden" aria-labelledby="apart-heading">
+    <section className="font-poppins overflow-hidden" aria-labelledby="apart-heading">
       {/* Top Image + Decorative Strips */}
-      <div className="flex flex-col max-w-screen overflow-x-hidden">
+      <div className="flex flex-col overflow-hidden">
         <Carousel />
-        <div className="flex justify-center max-w-screen" aria-hidden="true">
-          <div className="flex gap-[16px] max-w-screen max-md:gap-[8px]">
+        <div className="flex justify-center" aria-hidden="true">
+          <div className="flex gap-[16px] overflow-hidden max-w-[100vw] max-md:gap-[8px]">
             {[...Array(20)].map((_, i) => (
               <div key={i} className="flex gap-[16px] max-md:gap-[8px]">
                 {[94, 78, 78, 78, 78, 78, 78].map((h, idx) => (

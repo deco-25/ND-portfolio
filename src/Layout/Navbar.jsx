@@ -324,7 +324,7 @@ const Navbar = () => {
           <nav className="w-full flex justify-center items-center py-3">
             <ul className="flex gap-[64px] transition-all duration-700">
               {rotatedItems.map((item, idx) => {
-                const isActive = idx === 1;
+                const isActive = idx === 1 && !(path.startsWith("/contact"));
                 const isShop = item.name === "Shop";
                 return (
                   <li
@@ -340,7 +340,7 @@ const Navbar = () => {
                         to={item.path}
                         className={`relative text-[20px] transition-all duration-500 ease-in-out ${
                           isActive
-                            ? path === "/" || path.startsWith("/product/")
+                            ? path === "/" || (path.startsWith("/product/"))
                               ? "text-[32px] text-black font-semibold"
                               : "text-[32px] text-white font-semibold"
                             : "text-black"

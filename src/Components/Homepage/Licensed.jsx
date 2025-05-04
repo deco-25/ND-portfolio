@@ -33,7 +33,7 @@ const Licensed = () => {
   return (
     <section
       id="license-section"
-      className="bg-primaryRed text-white py-20 w-screen flex justify-center items-center md:px-[7.5vw] max-md:pt-32 max-md:pb-32 font-poppins text-justify relative"
+      className="bg-primaryRed overflow-hidden text-white py-20 w-screen flex justify-center items-center md:px-[7.5vw] max-md:pt-32 max-md:pb-32 font-poppins text-justify relative"
       aria-labelledby="licensed-heading"
     >
       <Helmet>
