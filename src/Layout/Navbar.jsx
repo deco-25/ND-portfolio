@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Guarantee, Logo, LogoWhite } from "../assets";
 import { Link, useLocation } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { ArrowDown, ChevronDown, ChevronRight } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import gsap from "gsap";
 
 const NAV_ITEMS = [

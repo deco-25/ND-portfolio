@@ -1,0 +1,4 @@
+# robots.txt for naalvardd.in
+
+User-agent: *
+Allow: /

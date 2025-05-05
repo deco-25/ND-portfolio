@@ -8,25 +8,32 @@ const ProductPage = [
       "We offer a wide range of pharmaceutical soaps designed for various skin types and concerns. From antibacterial and anti-fungal soaps to soaps enriched with natural oils for moisturizing and soothing properties, we have something for everyone. Our products are ideal for use in homes, hospitals, clinics, and other healthcare settings.",
     soaps: [
       {
-        soapName: "Antibacterial Soap 1",
+        soapName: "Ketoconazole 1% and 2%",
         soapDescription:
-          "Fight off harmful bacteria and keep your skin clean and safe with our antibacterial soap line. Perfect for daily hygiene, especially in environments where cleanliness is critical.",
+          "Treat skin conditions like acne, eczema, and fungal infections with our medicated soap. Formulated with active ingredients to soothe, calm, and promote healthy skin.",
         soapPicture: Soap2,
         soapAlignment: "right",
       },
       {
-        soapName: "Antibacterial Soap 2",
+        soapName: "Ketoconazole and Zinc pyrithione soap ",
         soapDescription:
-          "Enriched with powerful antibacterial agents and skin-soothing ingredients, this soap provides protection without drying your skin. Ideal for frequent hand washers.",
+          "Dual-action formula to treat fungal infections and reduce flaking, itching, and inflammation. Ketoconazole fights fungal infections, while Zinc Pyrithione controls flaking and scaling.",
         soapPicture: Soap3,
         soapAlignment: "left",
       },
       {
-        soapName: "Antibacterial Soap 3",
+        soapName: "Ketoconazole and cetrimide soap",
+        soapDescription:
+          "Antifungal and antibacterial soap for treating fungal and bacterial skin infections. Ketoconazole fights fungal infections, while Cetrimide provides antiseptic properties to prevent infection and promote healing.",
+        soapPicture: Soap2,
+        soapAlignment: "right",
+      },
+      {
+        soapName: "Clotrimazole soap",
         soapDescription:
           "Gentle on skin, tough on germs. Our soap is dermatologically tested and designed for sensitive skin while ensuring maximum hygiene.",
         soapPicture: Soap2,
-        soapAlignment: "right",
+        soapAlignment: "left",
       },
     ],
   },

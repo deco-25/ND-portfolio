@@ -1,11 +1,10 @@
 import React from "react";
 import { LogoWhite } from "../assets";
-import { FaWhatsapp, FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-primaryBlack text-[#9E9E9E] flex justify-center items-center py-6 px-[7.5vw]">
+    <footer className="bg-blue-600 text-white flex justify-center items-center py-6 px-[7.5vw]">
       <div className="w-full">
         <div className="flex justify-normal max-md:flex-col max-md:gap-[50px]">
           <div className="flex gap-[50px] w-[60%] max-md:flex-col max-md:w-full max-md:justify-center max-md:items-center">

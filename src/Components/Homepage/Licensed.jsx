@@ -90,12 +90,13 @@ const Licensed = () => {
           (CDSCO) and the Government of Tamil Nadu, we operate with a focus on
           safety, compliance, and quality. We are authorized to produce
           pharmaceutical products in non-toxic and non-hazardous forms like
-          soaps and creams for both human and veterinary use. These include both
+          soaps for both human and veterinary use. These include both
           generic and proprietary branded formulations, all developed under
           strict total quality management systems. Our state-of-the-art facility
           is situated in a pollution-free environment near Poothurai village,
           Tamil Nadu, and is fully equipped to handle manufacturing, testing,
-          and related operations.
+          and related operations. We are exclusively committed to the formulation and production of pharmaceutical soaps, dedicating our expertise to delivering specialized solutions that meet the highest standards of quality and efficacy. 
+
         </p>
       </div>
     </section>

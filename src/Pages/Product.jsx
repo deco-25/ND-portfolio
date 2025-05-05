@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Soap2, Soap3, ScrollButton, MobSoap, ScrollMore } from "../assets";
+import { Soap2, MobSoap, ScrollMore } from "../assets";
 import { Lens } from "../Components/ui/lens";
-import { motion } from "motion/react";
-import { cn } from "../lib/utlis";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";

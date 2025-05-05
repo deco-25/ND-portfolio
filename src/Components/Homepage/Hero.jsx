@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ScrollButton, Soap3, MobileHome, ScrollMore } from "../../assets";
+import {Soap3, MobileHome, ScrollMore } from "../../assets";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Helmet } from "react-helmet";
