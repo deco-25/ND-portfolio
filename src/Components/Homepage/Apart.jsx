@@ -26,7 +26,7 @@ const Apart = () => {
     strips
       .from("#red-strip-4", { x: "30vw", duration: 1 }, 0.5)
       .from("#red-strip-3", { x: "-70vw", duration: 1 }, 0.5);
-  },[]);
+  }, []);
 
   // Reset autoplay function
   const resetAutoplay = () => {
@@ -35,10 +35,10 @@ const Apart = () => {
       if (autoplayTimeoutRef.current) {
         clearTimeout(autoplayTimeoutRef.current);
       }
-      
+
       // Pause autoplay
       sliderRef.current.slickPause();
-      
+
       // Set a new timeout to resume autoplay
       autoplayTimeoutRef.current = setTimeout(() => {
         if (sliderRef.current) {
@@ -97,7 +97,7 @@ const Apart = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           centerMode: true,
-          centerPadding: '10px',
+          centerPadding: "10px",
           adaptiveHeight: true,
           variableWidth: false,
           swipeToSlide: true,
@@ -124,7 +124,10 @@ const Apart = () => {
   };
 
   return (
-    <section className="font-poppins overflow-hidden" aria-labelledby="apart-heading">
+    <section
+      className="font-poppins overflow-hidden"
+      aria-labelledby="apart-heading"
+    >
       {/* Top Image + Decorative Strips */}
       <div className="flex flex-col overflow-hidden">
         <Carousel />
@@ -198,11 +201,11 @@ const Apart = () => {
               </article>
             ))}
           </div>
-          
+
           {/* Mobile slider with navigation controls */}
           <div className="md:hidden w-full flex justify-center items-center relative">
             <div className="relative w-[90%] mx-auto px-2">
-            <div className="absolute left-0 top-0 h-full w-8 z-10 bg-gradient-to-r from-white via-white to-transparent pointer-events-none"></div>
+              <div className="absolute left-0 top-0 h-full w-8 z-10 bg-gradient-to-r from-white via-white to-transparent pointer-events-none"></div>
               <Slider ref={sliderRef} {...settings} className="w-full">
                 {USP.map((item, ind) => (
                   <div key={ind} className="px-3 py-2">
@@ -213,7 +216,11 @@ const Apart = () => {
                     >
                       {/* Left: Icon + Title */}
                       <div className="flex flex-col gap-2 flex-[1] min-w-0">
-                        <div className={`p-3 rounded-md w-fit ${ind % 2 === 0 ? "bg-primaryBlue" : "bg-primaryRed"}`}>
+                        <div
+                          className={`p-3 rounded-md w-fit ${
+                            ind % 2 === 0 ? "bg-primaryBlue" : "bg-primaryRed"
+                          }`}
+                        >
                           <TreeDeciduous size={24} className="text-white" />
                         </div>
                         <h3 className="text-sm font-semibold">{item.title}</h3>
@@ -221,7 +228,13 @@ const Apart = () => {
                       </div>
 
                       {/* Right: Description */}
-                      <div className={`flex-[2] min-w-0 rounded-md p-3 text-white w-full ${ind % 2 === 0 ? "bg-primaryBlue/90" : "bg-primaryRed/95"}`}>
+                      <div
+                        className={`flex-[2] min-w-0 rounded-md p-3 text-white w-full ${
+                          ind % 2 === 0
+                            ? "bg-primaryBlue/90"
+                            : "bg-primaryRed/95"
+                        }`}
+                      >
                         <h4 className="text-sm font-semibold">{item.title}</h4>
                         <p className="text-xs">{item.desc}</p>
                       </div>
@@ -231,27 +244,51 @@ const Apart = () => {
               </Slider>
               <div className="absolute right-0 top-0 h-full w-8 z-10 bg-gradient-to-l from-white via-white to-transparent pointer-events-none"></div>
             </div>
-            
+
             {/* Navigation buttons */}
             <div className="flex justify-between w-full absolute top-1/2 -translate-y-1/2 px-2 z-20">
-              <button 
-                onClick={handlePrev} 
+              <button
+                onClick={handlePrev}
                 className="bg-white w-8 h-8 rounded-full shadow-md flex items-center justify-center"
                 aria-label="Previous slide"
               >
                 <span className="sr-only">Previous</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15 18L9 12L15 6"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </button>
-              <button 
-                onClick={handleNext} 
+              <button
+                onClick={handleNext}
                 className="bg-white w-8 h-8 rounded-full shadow-md flex items-center justify-center"
                 aria-label="Next slide"
               >
                 <span className="sr-only">Next</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 6L15 12L9 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 6L15 12L9 18"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </button>
             </div>
@@ -259,7 +296,7 @@ const Apart = () => {
         </div>
 
         {/* Animated Strips */}
-        <div className="absolute bottom-0 left-0 right-0 min-h-[10vh] max-md:max-h-[10vh] w-screen z-[20]">
+        <div className="absolute hidden bottom-0 left-0 right-0 min-h-[10vh] max-md:max-h-[10vh] w-screen z-[20]">
           <div className="w-full min-h-[5vh] flex">
             <div id="red-strip-3" className="min-w-[70%] bg-primaryRed" />
             <div className="min-w-[30%]" />

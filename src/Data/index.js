@@ -1,4 +1,13 @@
-import { Soap2, Soap3 } from "../assets";
+import {
+  Clotrimazole,
+  Ketoconazole,
+  Ketoconazole2,
+  Ketoconazole3,
+  Permethrin,
+  PermithrinAndCetrimid,
+  Soap2,
+  Soap3,
+} from "../assets";
 
 const ProductPage = [
   {
@@ -11,28 +20,28 @@ const ProductPage = [
         soapName: "Ketoconazole 1% and 2%",
         soapDescription:
           "Treat skin conditions like acne, eczema, and fungal infections with our medicated soap. Formulated with active ingredients to soothe, calm, and promote healthy skin.",
-        soapPicture: Soap2,
+        soapPicture: Ketoconazole,
         soapAlignment: "right",
       },
       {
         soapName: "Ketoconazole and Zinc pyrithione soap ",
         soapDescription:
           "Dual-action formula to treat fungal infections and reduce flaking, itching, and inflammation. Ketoconazole fights fungal infections, while Zinc Pyrithione controls flaking and scaling.",
-        soapPicture: Soap3,
+        soapPicture: Ketoconazole2,
         soapAlignment: "left",
       },
       {
         soapName: "Ketoconazole and cetrimide soap",
         soapDescription:
           "Antifungal and antibacterial soap for treating fungal and bacterial skin infections. Ketoconazole fights fungal infections, while Cetrimide provides antiseptic properties to prevent infection and promote healing.",
-        soapPicture: Soap2,
+        soapPicture: Ketoconazole3,
         soapAlignment: "right",
       },
       {
         soapName: "Clotrimazole soap",
         soapDescription:
           "Gentle on skin, tough on germs. Our soap is dermatologically tested and designed for sensitive skin while ensuring maximum hygiene.",
-        soapPicture: Soap2,
+        soapPicture: Clotrimazole,
         soapAlignment: "left",
       },
     ],
@@ -44,17 +53,17 @@ const ProductPage = [
       "We offer a specialized range of veterinary soaps formulated to support the skin health of animals. From antibacterial and antifungal soaps to those enriched with natural oils for soothing and moisturizing, our products cater to various skin conditions across different species. Ideal for use in veterinary clinics, farms, shelters, and at-home pet care routines.",
     soaps: [
       {
-        soapName: "Veterinary Soap 1",
+        soapName: "Permithrin Soap",
         soapDescription:
-          "Protect your animals from harmful microbes with our veterinary antibacterial soap.Specially formulated for pets and livestock, it helps cleanse and safeguard against bacteria, making it ideal for routine grooming and post-treatment care.",
-        soapPicture: Soap2,
+          "Protect your animals from harmful microbes with our veterinary antibacterial soap. Specially formulated for pets and livestock, it helps cleanse and safeguard against bacteria, making it ideal for routine grooming and post-treatment care. It also removes ticks from your pets, providing extra protection and comfort.",
+        soapPicture: Permethrin,
         soapAlignment: "right",
       },
       {
-        soapName: "Veterinary Soap 2",
+        soapName: "Permithrin and Cetrimide Soap",
         soapDescription:
-          "Maintain peak hygiene for your animals with our medicated veterinary soap.Designed to support skin health and cleanliness, it’s perfect for regular use on dogs, cats, cattle, and other animals prone to infections or irritation.",
-        soapPicture: Soap3,
+          "Maintain peak hygiene for your animals with our medicated veterinary soap. Designed to support skin health and cleanliness, it’s perfect for regular use on dogs, cats, cattle, and other animals prone to infections or irritation. It also removes ticks from your pets, ensuring added protection and comfort.",
+        soapPicture: PermithrinAndCetrimid,
         soapAlignment: "left",
       },
     ],
@@ -67,39 +76,46 @@ const ProductPage = [
       "Discover our premium collection of handcrafted soaps, thoughtfully designed to cater to every need. Whether you're looking for antibacterial soaps that fight harmful bacteria, gentle soaps for veterinary care, or soothing options for various skin types, our range offers something for everyone. Each bar is meticulously crafted with high-quality ingredients, ensuring your skin stays clean, healthy, and protected. Ideal for daily use at home, in clinics, hospitals, or other healthcare settings, our soaps combine luxury with function to deliver the best care for your skin and well-being.",
     soaps: [
       {
-        soapName: "Antibacterial Soap 1",
+        soapName: "Ketoconazole 1% and 2%",
         soapDescription:
-          "Fight off harmful bacteria and keep your skin clean and safe with our antibacterial soap line. Perfect for daily hygiene, especially in environments where cleanliness is critical.",
-        soapPicture: Soap2,
+          "Treat skin conditions like acne, eczema, and fungal infections with our medicated soap. Formulated with active ingredients to soothe, calm, and promote healthy skin.",
+        soapPicture: Ketoconazole,
         soapAlignment: "right",
       },
       {
-        soapName: "Antibacterial Soap 2",
+        soapName: "Ketoconazole and Zinc pyrithione soap ",
         soapDescription:
-          "Enriched with powerful antibacterial agents and skin-soothing ingredients, this soap provides protection without drying your skin. Ideal for frequent hand washers.",
-        soapPicture: Soap3,
+          "Dual-action formula to treat fungal infections and reduce flaking, itching, and inflammation. Ketoconazole fights fungal infections, while Zinc Pyrithione controls flaking and scaling.",
+        soapPicture: Ketoconazole2,
         soapAlignment: "left",
       },
       {
-        soapName: "Antibacterial Soap 3",
+        soapName: "Ketoconazole and cetrimide soap",
+        soapDescription:
+          "Antifungal and antibacterial soap for treating fungal and bacterial skin infections. Ketoconazole fights fungal infections, while Cetrimide provides antiseptic properties to prevent infection and promote healing.",
+        soapPicture: Ketoconazole3,
+        soapAlignment: "right",
+      },
+      {
+        soapName: "Clotrimazole soap",
         soapDescription:
           "Gentle on skin, tough on germs. Our soap is dermatologically tested and designed for sensitive skin while ensuring maximum hygiene.",
-        soapPicture: Soap2,
-        soapAlignment: "right",
-      },
-      {
-        soapName: "Veterinary Soap 1",
-        soapDescription:
-          "Protect your animals from harmful microbes with our veterinary antibacterial soap.Specially formulated for pets and livestock, it helps cleanse and safeguard against bacteria, making it ideal for routine grooming and post-treatment care.",
-        soapPicture: Soap2,
+        soapPicture: Clotrimazole,
         soapAlignment: "left",
       },
       {
-        soapName: "Veterinary Soap 2",
+        soapName: "Permithrin Soap",
         soapDescription:
-          "Maintain peak hygiene for your animals with our medicated veterinary soap.Designed to support skin health and cleanliness, it’s perfect for regular use on dogs, cats, cattle, and other animals prone to infections or irritation.",
-        soapPicture: Soap3,
+          "Protect your animals from harmful microbes with our veterinary antibacterial soap. Specially formulated for pets and livestock, it helps cleanse and safeguard against bacteria, making it ideal for routine grooming and post-treatment care. It also removes ticks from your pets, providing extra protection and comfort.",
+        soapPicture: Permethrin,
         soapAlignment: "right",
+      },
+      {
+        soapName: "Permithrin and Cetrimide Soap",
+        soapDescription:
+          "Maintain peak hygiene for your animals with our medicated veterinary soap. Designed to support skin health and cleanliness, it’s perfect for regular use on dogs, cats, cattle, and other animals prone to infections or irritation. It also removes ticks from your pets, ensuring added protection and comfort.",
+        soapPicture: PermithrinAndCetrimid,
+        soapAlignment: "left",
       },
     ],
   },

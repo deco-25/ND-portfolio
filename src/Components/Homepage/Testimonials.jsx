@@ -168,7 +168,7 @@ const Testimonials = () => {
       {/* Slider with Fade Overlays */}
       <div className="w-full flex justify-center relative">
         {/* Left fade overlay */}
-        <div className="absolute left-0 md:left-5 top-0 h-full w-10 md:w-28 z-20 bg-gradient-to-r from-white via-white to-transparent pointer-events-none"></div>
+        <div className="absolute left-0 md:left-5 top-0 h-full w-10 md:w-20 z-20 bg-gradient-to-r from-white via-white to-transparent pointer-events-none"></div>
 
         <Slider ref={sliderRef} {...settings} className="w-[90%]">
           {DUMMY_DATA.map((ele, ind) => (
@@ -198,7 +198,7 @@ const Testimonials = () => {
         </Slider>
 
         {/* Right fade overlay */}
-        <div className="absolute right-0 md:right-5 top-0 h-full w-10 md:w-28 z-20 bg-gradient-to-l from-white via-white to-transparent pointer-events-none"></div>
+        <div className="absolute right-0 md:right-5 top-0 h-full w-10 md:w-20 z-20 bg-gradient-to-l from-white via-white to-transparent pointer-events-none"></div>
       </div>
     </section>
   );

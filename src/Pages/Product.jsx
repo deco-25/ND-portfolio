@@ -102,7 +102,11 @@ const Shop = () => {
       </main>
 
       <div className="md:px-[7.5vw] px-[20px] md:py-20 py-10">
-        <p className="text-lg text-justify max-md:text-sm" data-aos-once="true" data-aos="fade-up">
+        <p
+          className="text-lg text-justify max-md:text-sm"
+          data-aos-once="true"
+          data-aos="fade-up"
+        >
           {ProductPage[soapType].description}
         </p>
 
@@ -136,7 +140,11 @@ const ProductSection = ({
     <div className="flex gap-20 max-md:flex-col max-md:gap-10">
       <div className="flex-1 mt-10 md:max-w-[50%] md:min-w-[50%]">
         <h2 className="text-3xl font-bold max-md:text-2xl">{productName}</h2>
-        <p className="mt-3 text-justify max-md:text-sm" data-aos-once="true" data-aos="fade-up">
+        <p
+          className="mt-3 text-justify max-md:text-sm"
+          data-aos-once="true"
+          data-aos="fade-up"
+        >
           {productDesc}
         </p>
       </div>
@@ -144,22 +152,26 @@ const ProductSection = ({
         <img
           src={productImage}
           alt={`Product Image of ${productName}`}
-          className="rounded-lg right-img"
+          className="rounded-lg right-img md:min-w-[500px] max-h-[500px]"
         />
       </Lens>
     </div>
   ) : (
     <div className="flex gap-20 max-md:flex-col-reverse max-md:gap-10">
-      <Lens className="md:max-w-[40%] md:min-w-[40%]">
+      <Lens className="md:max-w-[40%] md:min-w-[40%] ">
         <img
           src={productImage}
           alt={`Product Image of ${productName}`}
-          className="rounded-lg left-img"
+          className="rounded-lg left-img md:min-w-[500px] max-h-[500px]"
         />
       </Lens>
       <div className="flex-1 mt-10 min-w-[50%]">
         <h2 className="text-3xl font-bold max-md:text-2xl">{productName}</h2>
-        <p className="mt-3 text-justify max-md:text-sm" data-aos-once="true" data-aos="fade-up">
+        <p
+          className="mt-3 text-justify max-md:text-sm"
+          data-aos-once="true"
+          data-aos="fade-up"
+        >
           {productDesc}
         </p>
       </div>

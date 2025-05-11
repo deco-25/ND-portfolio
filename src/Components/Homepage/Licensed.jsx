@@ -81,7 +81,7 @@ const Licensed = () => {
           Licensed Activities
         </h2>
         <p
-          className="max-md:px-[10px] text-[14px] max-md:text-[14px] leading-relaxed"
+          className="max-md:px-[10px] text-[14px] max-md:text-[12px] leading-relaxed"
           data-aos="fade-up"
           data-aos-once="true"
         >
@@ -90,13 +90,19 @@ const Licensed = () => {
           (CDSCO) and the Government of Tamil Nadu, we operate with a focus on
           safety, compliance, and quality. We are authorized to produce
           pharmaceutical products in non-toxic and non-hazardous forms like
-          soaps for both human and veterinary use. These include both
-          generic and proprietary branded formulations, all developed under
-          strict total quality management systems. Our state-of-the-art facility
-          is situated in a pollution-free environment near Poothurai village,
-          Tamil Nadu, and is fully equipped to handle manufacturing, testing,
-          and related operations. We are exclusively committed to the formulation and production of pharmaceutical soaps, dedicating our expertise to delivering specialized solutions that meet the highest standards of quality and efficacy. 
-
+          soaps for both human and veterinary use. These include both generic
+          and proprietary branded formulations, all developed under strict total
+          quality management systems. Our state-of-the-art facility is situated
+          in a pollution-free environment near Poothurai village, Tamil Nadu,
+          and is fully equipped to handle manufacturing, testing, and related
+          operations. We are exclusively committed to the formulation and
+          production of pharmaceutical soaps, dedicating our expertise to
+          delivering specialized solutions that meet the highest standards of
+          quality and efficacy. We are exclusively committed to the formulation
+          and production of pharmaceutical soaps, dedicating our expertise to
+          delivering specialized solutions that meet the highest standards of
+          quality and efficacy. And the other thing is in the same para there is
+          soaps and creams. Exclude that creams, only soaps
         </p>
       </div>
     </section>

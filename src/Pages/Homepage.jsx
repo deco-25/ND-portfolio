@@ -11,7 +11,7 @@ const Homepage = () => {
       <Hero />
       <Hello />
       <Apart />
-      <Testimonials />
+      {/*<Testimonials />*/}
       <Licensed />
     </div>
   );
