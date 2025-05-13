@@ -24,7 +24,7 @@ const Shop = () => {
       }
     };
 
-    if (id === "antibacterial") {
+    if (id === "antifungal") {
       setSoapType(0);
     } else if (id === "veterinary") {
       setSoapType(1);

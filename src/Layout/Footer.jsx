@@ -16,7 +16,7 @@ const Footer = () => {
               />
             </a>
             <div className="flex flex-col gap-5">
-              <h2 className="font-bold text-[32px] max-w-[444px] leading-[110%]">
+              <h2 className="font-bold text-[32px] text-gray-200 max-w-[444px] leading-[110%]">
                 Naalvar Diagnostic Drugs Private Limited
               </h2>
               <p className="max-w-[380px] text-[10px] leading-[150%] max-md:hidden">
@@ -86,7 +86,7 @@ const Footer = () => {
             target="_blank"
             className="hover:underline"
           >
-            <p>Design by DeCo</p>
+            <p>a <b>deco</b> creation</p>
           </a>
         </div>
       </div>

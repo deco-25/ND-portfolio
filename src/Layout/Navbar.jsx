@@ -225,13 +225,13 @@ const Navbar = () => {
               >
                 <li>
                   <Link
-                    to="/product/antibacterial"
+                    to="/product/antifungal"
                     onClick={() => {
                       toggleProductDropdown();
                       toggleDropdown();
                     }}
                     className={`block px-4 py-1 hover:bg-gray-200 border-l-4 rounded-lg ${
-                      path.startsWith('/product/antibacterial') 
+                      path.startsWith('/product/antifungal') 
                         ? "bg-primaryRed text-white hover:bg-red-600" 
                         : "bg-gray-100"
                     } ${
@@ -240,7 +240,7 @@ const Navbar = () => {
                         : "border-primaryRed"
                     }`}
                   >
-                    Antibacterial
+                    Antifungal
                   </Link>
                 </li>
                 <li className="mt-2">
@@ -366,7 +366,7 @@ const Navbar = () => {
                     {isShop && (
                       <ul className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[180px] bg-white text-black shadow-xl rounded-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-2 transition-all duration-300 pointer-events-none group-hover:pointer-events-auto z-50">
                         <li className="px-4 py-2 hover:bg-gray-100">
-                          <Link to="/product/antibacterial">Antibacterial</Link>
+                          <Link to="/product/antifungal">Antifungal</Link>
                         </li>
                         <li className="px-4 py-2 hover:bg-gray-100">
                           <Link to="/product/veterinary">Veterinary</Link>
