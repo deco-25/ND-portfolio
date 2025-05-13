@@ -42,7 +42,10 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/product/showAll" className="hover:text-white duration-500">
+                  <Link
+                    to="/product/showAll"
+                    className="hover:text-white duration-500"
+                  >
                     Product
                   </Link>
                 </li>
@@ -53,7 +56,6 @@ const Footer = () => {
                 </li>
               </ul>
             </nav>
-
 
             <address className="flex gap-[18px] not-italic text-[14px] leading-[150%]">
               <div>
@@ -79,7 +81,13 @@ const Footer = () => {
             </span>
             All rights reserved.
           </p>
-          <p>Design by DeCo</p>
+          <a
+            href="https://teamdeco.in/"
+            target="_blank"
+            className="hover:underline"
+          >
+            <p>Design by DeCo</p>
+          </a>
         </div>
       </div>
     </footer>

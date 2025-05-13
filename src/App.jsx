@@ -11,7 +11,7 @@ import preloadAssets from "./utils/preloadAssets";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import Lenis from "@studio-freight/lenis";
-import IntroVideo from './assets/Video/Intro.mp4'
+import IntroVideo from "./assets/Video/Intro.mp4";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -42,9 +42,7 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    preloadAssets(IMAGE_ASSETS).then(() =>
-      setAssetsLoaded(true)
-    );
+    preloadAssets(IMAGE_ASSETS).then(() => setAssetsLoaded(true));
   }, []);
 
   useEffect(() => {
