@@ -6,15 +6,15 @@ import { Link } from "react-router-dom";
 const images = [
   {
     src: Soap1,
-    label: "Soap 1",
+    label: "Ketoconazole 1% and 2%",
   },
   {
     src: Soap2,
-    label: "Soap 2",
+    label: "Ketoconazole and Zinc pyrithione soap",
   },
   {
     src: Soap3,
-    label: "Soap 3",
+    label: "Ketoconazole and cetrimide soap",
   },
 ];
 
