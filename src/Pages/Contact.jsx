@@ -1,9 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { Helmet } from "react-helmet"; // Make sure to install react-helmet
+import emailjs from "@emailjs/browser";
+import { Helmet } from "react-helmet";
 
 const Contact = () => {
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (fname === "" || lname === "" || email === "" || message === "") {
+      alert("Fill every field :)");
+      return;
+    }
+
+    const serviceId = "service_dwyeian"; /*service_dwyeian*/
+    const templateId = "template_luh7uvs"; /*template_luh7uvs*/
+    const publicKey = "yBl2RJSXvwmwa1HxZ";
+
+    const templateParams = {
+      fname: fname,
+      lname: lname,
+      email: email,
+      message: message,
+    };
+
+    emailjs
+      .send(serviceId, templateId, templateParams, publicKey)
+      .then((response) => {
+        console.log("Email sent successfully", response);
+        setFname("");
+        setLname("");
+        setEmail("");
+        setMessage("");
+        alert("Email sent successfully");
+      })
+      .catch((error) => {
+        console.error("Error sending email: ", error);
+      });
+  };
+
   return (
     <>
       <Helmet>
@@ -41,7 +81,11 @@ const Contact = () => {
         </section>
 
         <section className="flex-1" aria-label="Contact Form">
-          <form className="flex flex-col gap-8" name="contact-form">
+          <form
+            className="flex flex-col gap-8"
+            name="contact-form"
+            onSubmit={handleSubmit}
+          >
             <div className="flex gap-12 max-md:gap-6">
               <div className="relative flex-1 w-[50%]">
                 <input
@@ -50,6 +94,8 @@ const Contact = () => {
                   name="first-name"
                   placeholder=" "
                   required
+                  value={fname}
+                  onChange={(e) => setFname(e.target.value)}
                   className="peer w-full border-2 border-gray-300 rounded-lg px-4 pt-6 pb-2 bg-white placeholder-transparent focus:outline-none focus:border-primaryRed autofill:bg-white"
                 />
                 <label
@@ -66,6 +112,8 @@ const Contact = () => {
                   name="last-name"
                   placeholder=" "
                   required
+                  value={lname}
+                  onChange={(e) => setLname(e.target.value)}
                   className="peer w-full border-2 border-gray-300 rounded-lg px-4 pt-6 pb-2 bg-white placeholder-transparent focus:outline-none focus:border-primaryRed autofill:bg-white"
                 />
                 <label
@@ -84,6 +132,8 @@ const Contact = () => {
                 name="email-address"
                 placeholder=" "
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="peer w-full border-2 border-gray-300 rounded-lg px-4 pt-6 pb-2 bg-white placeholder-transparent focus:outline-none focus:border-primaryRed autofill:bg-white"
               />
               <label
@@ -101,6 +151,8 @@ const Contact = () => {
                 name="message"
                 placeholder=" "
                 required
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 className="peer w-full border-2 border-gray-300 rounded-lg px-4 pt-6 pb-2 bg-white placeholder-transparent focus:outline-none focus:border-primaryRed resize-none"
               />
               <label
